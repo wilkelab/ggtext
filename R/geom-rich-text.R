@@ -35,6 +35,20 @@
 #'   scale_color_identity() +
 #'   scale_fill_identity() +
 #'   xlim(0, 1) + ylim(0, 1)
+#'   
+#' # labels without frame or background are also possible
+#' ggplot(df) +
+#'   aes(
+#'     x, y, label = label, angle = angle, color = color,
+#'     hjust = hjust, vjust = vjust
+#'   ) +
+#'   geom_rich_text(
+#'     fill = NA, label.color = NA, # remove background and outline
+#'     label.padding = grid::unit(rep(0, 4), "pt") # remove padding
+#'   ) +
+#'   geom_point(color = "black", size = 2) +
+#'   scale_color_identity() +
+#'   xlim(0, 1) + ylim(0, 1)
 #' @export
 geom_rich_text <- function(mapping = NULL, data = NULL,
                       stat = "identity", position = "identity",

@@ -121,3 +121,22 @@ ggplot(df) +
 ```
 
 ![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
+
+Labels without frame or background are also possible.
+
+``` r
+ggplot(df) +
+  aes(
+    x, y, label = label, angle = angle, color = color,
+    hjust = hjust, vjust = vjust
+  ) +
+  geom_rich_text(
+    fill = NA, label.color = NA, # remove background and outline
+    label.padding = grid::unit(rep(0, 4), "pt") # remove padding
+  ) +
+  geom_point(color = "black", size = 2) +
+  scale_color_identity() +
+  xlim(0, 1) + ylim(0, 1)
+```
+
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
