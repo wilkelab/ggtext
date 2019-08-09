@@ -21,6 +21,7 @@ Imports:
     grid,
     gridtext,
     rlang,
+    scales
 Suggests:
     knitr,
     rmarkdown,

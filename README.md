@@ -18,6 +18,11 @@ devtools::install_github("clauswilke/ggtext")
 
 ## Examples
 
+Rich text formatting support is provided both in theme elements and via
+geoms.
+
+### Markdown in theme elements
+
 The ggtext package defines a new theme element, `element_markdown()`,
 which behaves similarly to `element_text()` but renders the provided
 text as markdown/html. Note that word wrapping is disabled by
@@ -78,3 +83,41 @@ ggplot(iris, aes(Species, Sepal.Width)) +
 ```
 
 ![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
+
+### Markdown labels
+
+The geom `geom_rich_text()` provides markdown/html labels. Unlike
+`geom_label()`, the labels can be rotated.
+
+``` r
+df <- data.frame(
+  label = c(
+    "Some text **in bold.**",
+    "Linebreaks<br>Linebreaks<br>Linebreaks",
+    "*x*<sup>2</sup> + 5*x* + *C*<sub>i</sub>",
+    "Some <span style='color:blue'>blue text **in bold.**</span><br>And *italics text.*<br>
+    And some <span style='font-size:18; color:black'>large</span> text."
+  ),
+  x = c(.2, .1, .5, .9),
+  y = c(.8, .4, .1, .5),
+  hjust = c(0.5, 0, 0, 1),
+  vjust = c(0.5, 1, 0, 0.5),
+  angle = c(0, 0, 45, -45),
+  color = c("black", "blue", "black", "red"),
+  fill = c("cornsilk", "white", "lightblue1", "white")
+)
+
+
+ggplot(df) +
+  aes(
+    x, y, label = label, angle = angle, color = color, fill = fill,
+    hjust = hjust, vjust = vjust
+  ) +
+  geom_rich_text() +
+  geom_point(color = "black", size = 2) +
+  scale_color_identity() +
+  scale_fill_identity() +
+  xlim(0, 1) + ylim(0, 1)
+```
+
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
