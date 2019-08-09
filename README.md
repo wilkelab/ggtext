@@ -8,7 +8,8 @@ Improved text rendering support for ggplot2, written by Claus O. Wilke
 This package provides ggplot2 support for the
 [gridtext](https://github.com/clauswilke/gridtext) package, which
 implements rich-text (basic HTML and Markdown) rendering for the grid
-graphics engine.
+graphics engine. It is a work in progress. Many obvious features are
+missing, and others have bugs or don’t work in corner cases.
 
 ## Installation
 
