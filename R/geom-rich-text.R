@@ -12,7 +12,7 @@
 #'   label = c(
 #'     "Some text **in bold.**",
 #'     "Linebreaks<br>Linebreaks<br>Linebreaks",
-#'     "*x*<sup>2</sup> + 5*x* + *C*<sub>i</sub>",
+#'     "*x*<sup>2</sup> + 5*x* + *C*<sub>*i*</sub>",
 #'     "Some <span style='color:blue'>blue text **in bold.**</span><br>And *italics text.*<br>
 #'       And some <span style='font-size:18; color:black'>large</span> text."
 #'   ),
