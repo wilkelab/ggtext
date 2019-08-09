@@ -84,7 +84,7 @@ ggplot(iris, aes(Species, Sepal.Width)) +
 
 ![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
-### Markdown labels
+### Geoms
 
 The geom `geom_rich_text()` provides markdown/html labels. Unlike
 `geom_label()`, the labels can be rotated.
