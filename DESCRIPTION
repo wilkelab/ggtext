@@ -1,0 +1,35 @@
+Package: ggtext
+Type: Package
+Title: Improved text rendering support for ggplot2
+Version: 0.1.0
+Authors@R: 
+    person(
+      given = "Claus O.",
+      family = "Wilke",
+      role = c("aut", "cre"),
+      email = "wilke@austin.utexas.edu",
+      comment = c(ORCID = "0000-0002-7470-9261")
+    )
+Description: This package provides rich-text rendering capabilities for ggplot2. 
+URL: https://github.com/clauswilke/ggtext
+BugReports: https://github.com/clauswilke/ggtext/issues
+License: MIT + file LICENSE
+Depends:
+    R (>= 3.5)
+Imports:
+    ggplot2,
+    grid,
+    gridtext,
+    rlang,
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat,
+    vdiffr
+Remotes:
+    clauswilke/gridtext
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
+VignetteBuilder: knitr

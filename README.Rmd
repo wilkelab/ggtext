@@ -1,30 +1,34 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-"
+)
+```
 
 # ggtext
 
 Improved text rendering support for ggplot2, written by Claus O. Wilke
 
-This package provides ggplot2 support for the
-[gridtext](https://github.com/clauswilke/gridtext) package, which
-implements rich-text (basic HTML and Markdown) rendering for the grid
-graphics engine.
+This package provides ggplot2 support for the [gridtext](https://github.com/clauswilke/gridtext) package, which implements rich-text (basic HTML and Markdown) rendering for the grid graphics engine.
 
 ## Installation
 
-``` r
+```{r eval = FALSE}
 devtools::install_github("clauswilke/ggtext")
 ```
 
 ## Examples
 
-The ggtext package defines a new theme element, `element_markdown()`,
-which behaves similarly to `element_text()` but renders the provided
-text as markdown/html. Note that word wrapping is disabled by
-`element_markdown()`. To start a new line, use the `<br>` tag or add two
-spaces before the end of a line.
+The ggtext package defines a new theme element, `element_markdown()`, which behaves similarly to `element_text()` but renders the provided text as markdown/html. Note that word wrapping is disabled by `element_markdown()`. To start a new line, use the `<br>` tag or add two spaces before the end of a line.
 
-``` r
+```{r}
 library(ggplot2)
 library(ggtext)
 
@@ -51,12 +55,9 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   )
 ```
 
-![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
+Very basic support for the `<img>` tag exists, and it can be used, for example, to employ images as axis labels.
 
-Very basic support for the `<img>` tag exists, and it can be used, for
-example, to employ images as axis labels.
-
-``` r
+```{r}
 labels <- c(
   setosa = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Kosaciec_szczecinkowaty_Iris_setosa.jpg/300px-Kosaciec_szczecinkowaty_Iris_setosa.jpg'
     width='100' /><br>*I. setosa*",
@@ -76,5 +77,3 @@ ggplot(iris, aes(Species, Sepal.Width)) +
     axis.text.x = element_markdown(color = "black", size = 11)
   )
 ```
-
-![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
