@@ -60,7 +60,7 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
     lineheight = lineheight %||% element$lineheight
   )
 
-  rich_text_grob(
+  richtext_grob(
     label, x = x, y = y, hjust = hj, vjust = vj, rot = angle,
     padding = margin, gp = gp
   )

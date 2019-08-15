@@ -87,7 +87,7 @@ ggplot(iris, aes(Species, Sepal.Width)) +
 
 ### Geoms
 
-The geom `geom_rich_text()` provides markdown/html labels. Unlike
+The geom `geom_richtext()` provides markdown/html labels. Unlike
 `geom_label()`, the labels can be rotated.
 
 ``` r
@@ -114,7 +114,7 @@ ggplot(df) +
     x, y, label = label, angle = angle, color = color, fill = fill,
     hjust = hjust, vjust = vjust
   ) +
-  geom_rich_text() +
+  geom_richtext() +
   geom_point(color = "black", size = 2) +
   scale_color_identity() +
   scale_fill_identity() +
@@ -131,7 +131,7 @@ ggplot(df) +
     x, y, label = label, angle = angle, color = color,
     hjust = hjust, vjust = vjust
   ) +
-  geom_rich_text(
+  geom_richtext(
     fill = NA, label.color = NA, # remove background and outline
     label.padding = grid::unit(rep(0, 4), "pt") # remove padding
   ) +

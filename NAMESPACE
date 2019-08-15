@@ -3,7 +3,7 @@
 S3method(element_grob,element_markdown)
 export(GeomRichText)
 export(element_markdown)
-export(geom_rich_text)
+export(geom_richtext)
 import(ggplot2)
 import(grid)
 import(gridtext)

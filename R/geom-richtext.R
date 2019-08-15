@@ -30,7 +30,7 @@
 #'     x, y, label = label, angle = angle, color = color, fill = fill,
 #'     hjust = hjust, vjust = vjust
 #'   ) +
-#'   geom_rich_text() +
+#'   geom_richtext() +
 #'   geom_point(color = "black", size = 2) +
 #'   scale_color_identity() +
 #'   scale_fill_identity() +
@@ -42,7 +42,7 @@
 #'     x, y, label = label, angle = angle, color = color,
 #'     hjust = hjust, vjust = vjust
 #'   ) +
-#'   geom_rich_text(
+#'   geom_richtext(
 #'     fill = NA, label.color = NA, # remove background and outline
 #'     label.padding = grid::unit(rep(0, 4), "pt") # remove padding
 #'   ) +
@@ -50,7 +50,7 @@
 #'   scale_color_identity() +
 #'   xlim(0, 1) + ylim(0, 1)
 #' @export
-geom_rich_text <- function(mapping = NULL, data = NULL,
+geom_richtext <- function(mapping = NULL, data = NULL,
                       stat = "identity", position = "identity",
                       ...,
                       nudge_x = 0,
@@ -86,7 +86,7 @@ geom_rich_text <- function(mapping = NULL, data = NULL,
   )
 }
 
-#' @rdname geom_rich_text
+#' @rdname geom_richtext
 #' @format NULL
 #' @usage NULL
 #' @export
@@ -111,7 +111,7 @@ GeomRichText <- ggproto("GeomRichText", Geom,
       data$hjust <- compute_just(data$hjust, data$x)
     }
 
-    rich_text_grob(
+    richtext_grob(
       data$label,
       data$x, data$y, default.units = "native",
       hjust = data$hjust, vjust = data$vjust,
