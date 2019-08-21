@@ -46,7 +46,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   ) +
   labs(
     title = "**Fisher's *Iris* dataset**  
-    <span style='font-size:11'>Sepal width vs. sepal length for three *Iris*
+    <span style='font-size:11pt'>Sepal width vs. sepal length for three *Iris*
     species</span>",
     x = "Sepal length (cm)", y = "Sepal width (cm)"
   ) +
@@ -65,11 +65,11 @@ example, to employ images as axis labels.
 ``` r
 labels <- c(
   setosa = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Iris_setosa.JPG/180px-Iris_setosa.JPG'
-    width='100' /><br>*I. setosa*",
+    width='100px' /><br>*I. setosa*",
   virginica = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Iris_virginica_-_NRCS.jpg/320px-Iris_virginica_-_NRCS.jpg'
-    width='100' /><br>*I. virginica*",
+    width='100px' /><br>*I. virginica*",
   versicolor = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/20140427Iris_versicolor1.jpg/320px-20140427Iris_versicolor1.jpg'
-    width='100' /><br>*I. versicolor*"
+    width='100px' /><br>*I. versicolor*"
 )
 
 ggplot(iris, aes(Species, Sepal.Width)) +
@@ -97,7 +97,7 @@ df <- data.frame(
     "Linebreaks<br>Linebreaks<br>Linebreaks",
     "*x*<sup>2</sup> + 5*x* + *C*<sub>*i*</sub>",
     "Some <span style='color:blue'>blue text **in bold.**</span><br>And *italics text.*<br>
-    And some <span style='font-size:18; color:black'>large</span> text."
+    And some <span style='font-size:18pt; color:black'>large</span> text."
   ),
   x = c(.2, .1, .5, .9),
   y = c(.8, .4, .1, .5),
