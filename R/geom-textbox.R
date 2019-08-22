@@ -2,7 +2,43 @@
 #'
 #' Draw boxes of defined width and height containing word-wrapped text.
 #' 
+#' @inheritParams ggplot2::geom_text
+#' @param width,height Unit values specifying the width and height of
+#'   the text box. If `height = NULL` (the default), the height is chosen
+#'   automatically to accommodate all the text.
+#' @param minwidth,maxwidth,minheight,maxheight Unit values specifying
+#'   the minimum and maximum values for `width` and `height`, respectively.
+#'   If set to `NULL`, are not enforced.
+#' @param box.padding Unit vector of length four specifying the padding
+#'   inside the text box.
+#' @param box.r Unit vector of length one specifying the radius of the
+#'   box.
 #' @examples
+#' library(ggplot2)
+#' 
+#' df <- data.frame(
+#'   label = rep("Lorem ipsum dolor **sit amet,** consectetur adipiscing elit,
+#'     sed do *eiusmod tempor incididunt* ut labore et dolore magna
+#'     aliqua.", 2),
+#'   x = c(0, .6),
+#'   y = c(1, .6),
+#'   hjust = c(0, 0),
+#'   vjust = c(1, 0),
+#'   orientation = c("upright", "right-rotated"),
+#'   color = c("black", "blue"),
+#'   fill = c("cornsilk", "white")
+#' )
+#' 
+#' ggplot(df) +
+#'   aes(
+#'     x, y, label = label, color = color, fill = fill,
+#'     box.hjust = hjust, box.vjust = vjust,
+#'     orientation = orientation
+#'   ) +
+#'   geom_textbox(width = unit(0.4, "npc")) +
+#'   geom_point(color = "black", size = 2) +
+#'   scale_discrete_identity(aesthetics = c("color", "fill", "orientation")) +
+#'   xlim(0, 1) + ylim(0, 1)
 #' @export
 geom_textbox <- function(mapping = NULL, data = NULL,
                          stat = "identity", position = "identity",
