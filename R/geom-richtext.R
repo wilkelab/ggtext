@@ -63,7 +63,7 @@ geom_richtext <- function(mapping = NULL, data = NULL,
 {
   if (!missing(nudge_x) || !missing(nudge_y)) {
     if (!missing(position)) {
-      stop("You must specify either `position` or `nudge_x`/`nudge_y`.", call. = FALSE)
+      stop("You must specify either `position` or `nudge_x`/`nudge_y` but not both.", call. = FALSE)
     }
 
     position <- position_nudge(nudge_x, nudge_y)

@@ -61,7 +61,7 @@ element_grob.element_textbox <- function(element, label = "", x = NULL, y = NULL
   )
 
   textbox_grob(
-    label, x = x, y = y, hjust = hj, vjust = vj,
+    label, x = x, y = y, box_hjust = hj, box_vjust = vj,
     padding = margin, gp = gp
   )
 }
