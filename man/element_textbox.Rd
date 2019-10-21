@@ -6,8 +6,8 @@
 \usage{
 element_textbox(family = NULL, face = NULL, colour = NULL,
   size = NULL, hjust = NULL, vjust = NULL, angle = NULL,
-  lineheight = NULL, color = NULL, margin = NULL, debug = FALSE,
-  inherit.blank = FALSE)
+  lineheight = NULL, color = NULL, margin = NULL, height = NULL,
+  width = NULL, debug = FALSE, inherit.blank = FALSE)
 }
 \arguments{
 \item{family}{Font family}

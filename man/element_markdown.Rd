@@ -29,7 +29,7 @@ element_markdown(family = NULL, face = NULL, colour = NULL,
 \item{margin}{Margins around the text. See \code{\link[ggplot2:margin]{ggplot2::margin()}} for
 details.}
 
-\item{debug}{Not implemented.}
+\item{debug}{Draw a debugging box around each label}
 
 \item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
 }

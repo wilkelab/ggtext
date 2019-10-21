@@ -17,7 +17,7 @@
 #' @export
 element_textbox <- function(family = NULL, face = NULL, colour = NULL, size = NULL,
                              hjust = NULL, vjust = NULL, angle = NULL, lineheight = NULL,
-                             color = NULL, margin = NULL,
+                             color = NULL, margin = NULL, height = NULL, width = NULL,
                              debug = FALSE, inherit.blank = FALSE) {
   if (!is.null(color))
     colour <- color
@@ -25,8 +25,8 @@ element_textbox <- function(family = NULL, face = NULL, colour = NULL, size = NU
     list(
       family = family, face = face, colour = colour,
       size = size, hjust = hjust, vjust = vjust, angle = angle,
-      lineheight = lineheight, margin = margin, debug = debug,
-      inherit.blank = inherit.blank),
+      lineheight = lineheight, margin = margin, height = height, width = width, 
+      debug = debug, inherit.blank = inherit.blank),
     class = c("element_textbox", "element_text", "element")
   )
 }
@@ -62,6 +62,7 @@ element_grob.element_textbox <- function(element, label = "", x = NULL, y = NULL
 
   textbox_grob(
     label, x = x, y = y, box_hjust = hj, box_vjust = vj,
+    width = element$width, height = element$height,
     padding = margin, gp = gp
   )
 }
