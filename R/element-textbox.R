@@ -10,6 +10,8 @@
 #' @param vjust Vertical justification
 #' @param angle Angle (in degrees)
 #' @param lineheight Line height
+#' @param width,height Unit objects specifying the width and height
+#'   of the textbox, as in [gridtext::textbox_grob()].
 #' @param margin Margins around the text. See [`ggplot2::margin()`] for 
 #'   details.
 #' @param debug Not implemented.

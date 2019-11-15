@@ -29,6 +29,9 @@ element_textbox(family = NULL, face = NULL, colour = NULL,
 \item{margin}{Margins around the text. See \code{\link[ggplot2:margin]{ggplot2::margin()}} for
 details.}
 
+\item{width, height}{Unit objects specifying the width and height
+of the textbox, as in \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}}.}
+
 \item{debug}{Not implemented.}
 
 \item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
