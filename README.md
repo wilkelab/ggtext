@@ -3,6 +3,13 @@
 
 # ggtext
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
+[![Build
+Status](https://travis-ci.org/clauswilke/ggtext.svg?branch=master)](https://travis-ci.org/clauswilke/ggtext)
+[![Coverage
+Status](https://img.shields.io/codecov/c/github/clauswilke/ggtext/master.svg)](https://codecov.io/github/clauswilke/ggtext?branch=master)
+
 Improved text rendering support for ggplot2, written by Claus O. Wilke
 
 This package provides ggplot2 support for the
