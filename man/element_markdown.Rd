@@ -6,8 +6,8 @@
 \usage{
 element_markdown(family = NULL, face = NULL, colour = NULL,
   size = NULL, hjust = NULL, vjust = NULL, angle = NULL,
-  lineheight = NULL, color = NULL, margin = NULL, debug = FALSE,
-  inherit.blank = FALSE)
+  lineheight = NULL, color = NULL, margin = NULL,
+  rotate_margins = FALSE, debug = FALSE, inherit.blank = FALSE)
 }
 \arguments{
 \item{family}{Font family}
@@ -28,6 +28,13 @@ element_markdown(family = NULL, face = NULL, colour = NULL,
 
 \item{margin}{Margins around the text. See \code{\link[ggplot2:margin]{ggplot2::margin()}} for
 details.}
+
+\item{rotate_margins}{Should margins get rotated in frame with rotated text?
+If \code{TRUE}, the margins are applied relative to the text direction. If \code{FALSE},
+the margins are applied relative to the plot direction, i.e., the top margin,
+for example, is always placed above the text label, regardless of the direction
+in which the text runs. The default is \code{FALSE}, which mimics the behavior of
+\code{element_text()}.}
 
 \item{debug}{Draw a debugging box around each label}
 

@@ -12,12 +12,18 @@
 #' @param lineheight Line height
 #' @param margin Margins around the text. See [`ggplot2::margin()`] for 
 #'   details.
+#' @param rotate_margins Should margins get rotated in frame with rotated text?
+#'   If `TRUE`, the margins are applied relative to the text direction. If `FALSE`,
+#'   the margins are applied relative to the plot direction, i.e., the top margin,
+#'   for example, is always placed above the text label, regardless of the direction
+#'   in which the text runs. The default is `FALSE`, which mimics the behavior of 
+#'   `element_text()`.
 #' @param debug Draw a debugging box around each label
 #' @param inherit.blank See [`ggplot2::margin()`] for details.
 #' @export
 element_markdown <- function(family = NULL, face = NULL, colour = NULL, size = NULL,
                              hjust = NULL, vjust = NULL, angle = NULL, lineheight = NULL,
-                             color = NULL, margin = NULL,
+                             color = NULL, margin = NULL, rotate_margins = FALSE,
                              debug = FALSE, inherit.blank = FALSE) {
   if (!is.null(color))
     colour <- color
@@ -25,8 +31,8 @@ element_markdown <- function(family = NULL, face = NULL, colour = NULL, size = N
     list(
       family = family, face = face, colour = colour,
       size = size, hjust = hjust, vjust = vjust, angle = angle,
-      lineheight = lineheight, margin = margin, debug = debug,
-      inherit.blank = inherit.blank),
+      lineheight = lineheight, margin = margin, rotate_margins = rotate_margins,
+      debug = debug, inherit.blank = inherit.blank),
     class = c("element_markdown", "element_text", "element")
   )
 }
@@ -35,7 +41,7 @@ element_markdown <- function(family = NULL, face = NULL, colour = NULL, size = N
 element_grob.element_markdown <- function(element, label = "", x = NULL, y = NULL,
                                           family = NULL, face = NULL, colour = NULL, size = NULL,
                                           hjust = NULL, vjust = NULL, angle = NULL, lineheight = NULL,
-                                          margin = NULL, ...) {
+                                          margin = NULL, margin_x = FALSE, margin_y = FALSE, ...) {
   if (is.null(label))
     return(ggplot2::zeroGrob())
 
@@ -61,30 +67,89 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
     lineheight = lineheight %||% element$lineheight
   )
   
-  richtext_grob(
-    label, x = x, y = y, hjust = hj, vjust = vj, rot = angle,
-    padding = margin, gp = gp, debug = element$debug
-  )
+  
+  mrg <- fixup_margins(element$rotate_margins, margin, angle)
+  
+  if (isTRUE(mrg$native_margins)) {
+    richtext_grob(
+      label, x = x, y = y, hjust = hj, vjust = vj, rot = angle,
+      padding = mrg$margin, gp = gp, debug = element$debug
+    )
+  } else {
+    grob <- richtext_grob(
+      label, x = x, y = y, hjust = hj, vjust = vj, rot = angle,
+      gp = gp, debug = element$debug
+    )
+    add_margins(grob, margin, margin_x, margin_y, debug = element$debug)
+  }
 }
 
 
-# Copied from ggplot2 code base
+# Modeled after ggplot2 function:
 # https://github.com/tidyverse/ggplot2/blob/49d438cf9981f9f0624a27131775ecd3d5bb3455/R/margins.R#L294-L334
+# modified here to work with vectorized input
 rotate_just <- function(angle, hjust, vjust) {
   angle <- (angle %||% 0) %% 360
-  if (0 <= angle & angle < 90) {
-    hnew <- hjust
-    vnew <- vjust
-  } else if (90 <= angle & angle < 180) {
-    hnew <- 1 - vjust
-    vnew <- hjust
-  } else if (180 <= angle & angle < 270) {
-    hnew <- 1 - hjust
-    vnew <- 1 - vjust
-  } else if (270 <= angle & angle < 360) {
-    hnew <- vjust
-    vnew <- 1 - hjust
-  }
+  
+  hnew <- ifelse(
+    0 <= angle & angle < 90,
+    hjust,
+    ifelse(
+      90 <= angle & angle < 180,
+      1 - vjust,
+      ifelse(
+        180 <= angle & angle < 270,
+        1 - hjust,
+        vjust
+      )
+    )
+  )
+  
+  vnew <- ifelse(
+    0 <= angle & angle < 90,
+    vjust,
+    ifelse(
+      90 <= angle & angle < 180,
+      hjust,
+      ifelse(
+        180 <= angle & angle < 270,
+        1 - vjust,
+        1 - hjust
+      )
+    )
+  )
   
   list(hjust = hnew, vjust = vnew)
+}
+
+
+fixup_margins <- function(rotate_margins, margin, angle) {
+  if (isTRUE(rotate_margins)) {
+    return(list(native_margins = TRUE, margin = margin))
+  }
+  
+  angle <- round(angle) %% 360
+  
+  # if we're given more than one angle or angles corresponding to anything
+  # other than horizontal or vertical positions, we cannot use native margins
+  if (length(unique(angle)) > 1 || any(!angle %in% c(0, 90, 180, 270))) {
+    return(list(native_margins = FALSE, margin = NULL))
+  } else {
+    angle <- angle[1]
+  }
+  
+  if (angle == 0) {
+    return(list(native_margins = TRUE, margin = margin))
+  }
+  
+  if (angle == 90) {
+    return(list(native_margins = TRUE, margin = margin[c(4, 1, 2, 3)]))
+  }
+  
+  if (angle == 270) {
+    return(list(native_margins = TRUE, margin = margin[c(2, 3, 4, 1)]))
+  }
+  
+  # the only case remaining is angle == 180
+  return(list(native_margins = TRUE, margin = margin[c(3, 4, 1, 2)]))
 }

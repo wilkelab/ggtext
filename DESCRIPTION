@@ -23,6 +23,7 @@ Imports:
     rlang,
     scales
 Suggests:
+    cowplot,
     knitr,
     rmarkdown,
     testthat,
