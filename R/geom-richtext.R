@@ -100,7 +100,7 @@ GeomRichText <- ggproto("GeomRichText", Geom,
   ),
 
   draw_panel = function(data, panel_params, coord, 
-                        label.padding = unit(0.25, "lines"),
+                        label.padding = unit(c(0.25, 0.25, 0.25, 0.25), "lines"),
                         label.r = unit(0.15, "lines"),
                         na.rm = FALSE) {
     data <- coord$transform(data, panel_params)
@@ -135,6 +135,12 @@ GeomRichText <- ggproto("GeomRichText", Geom,
 
   draw_key = draw_key_text
 )
+
+#' @rdname geom_richtext
+#' @format NULL
+#' @usage NULL
+#' @export
+GeomRichtext <- GeomRichText # for automated geom discovery
 
 compute_just <- function(just, x) {
   inward <- just == "inward"
