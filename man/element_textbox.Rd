@@ -4,38 +4,83 @@
 \alias{element_textbox}
 \title{Theme element that enables markdown text in a box.}
 \usage{
-element_textbox(family = NULL, face = NULL, colour = NULL,
-  size = NULL, hjust = NULL, vjust = NULL, angle = NULL,
-  lineheight = NULL, color = NULL, margin = NULL, height = NULL,
-  width = NULL, debug = FALSE, inherit.blank = FALSE)
+element_textbox(
+  family = NULL,
+  face = NULL,
+  size = NULL,
+  colour = NULL,
+  fill = NULL,
+  box.colour = NULL,
+  linetype = NULL,
+  linewidth = NULL,
+  hjust = NULL,
+  vjust = NULL,
+  box.hjust = NULL,
+  box.vjust = NULL,
+  lineheight = NULL,
+  margin = NULL,
+  padding = NULL,
+  width = NULL,
+  height = NULL,
+  minwidth = NULL,
+  maxwidth = NULL,
+  minheight = NULL,
+  maxheight = NULL,
+  r = NULL,
+  orientation = NULL,
+  color = NULL,
+  box.color = NULL,
+  debug = FALSE,
+  inherit.blank = FALSE
+)
 }
 \arguments{
 \item{family}{Font family}
 
 \item{face}{Font face}
 
+\item{size}{Font size (in pt)}
+
 \item{colour, color}{Text color}
 
-\item{size}{Font size}
+\item{fill}{Fill color of the enclosing box}
+
+\item{box.colour, box.color}{Line color of the enclosing box (if different from the text color)}
+
+\item{linetype}{Line type of the enclosing box (like \code{lty} in base R)}
+
+\item{linewidth}{Line width of the enclosing box (like \code{lwd} in base R)}
 
 \item{hjust}{Horizontal justification}
 
 \item{vjust}{Vertical justification}
 
-\item{angle}{Angle (in degrees)}
+\item{box.hjust}{Horizontal justification}
+
+\item{box.vjust}{Vertical justification}
 
 \item{lineheight}{Line height}
 
-\item{margin}{Margins around the text. See \code{\link[ggplot2:margin]{ggplot2::margin()}} for
-details.}
+\item{padding, margin}{Padding and margins around the text box.
+See \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}} for details.}
 
 \item{width, height}{Unit objects specifying the width and height
 of the textbox, as in \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}}.}
+
+\item{minwidth, minheight, maxwidth, maxheight}{Min and max values for width and height.
+Set to NULL to impose neither a minimum nor a maximum.}
+
+\item{r}{Unit value specifying the corner radius of the box}
+
+\item{orientation}{Orientation of the text box. See \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}} for details.}
 
 \item{debug}{Not implemented.}
 
 \item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
 }
 \description{
-Theme element that enables markdown text in a box. Doesn't work yet.
+Theme element that enables markdown text in a box.
+}
+\seealso{
+\code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}}
 }

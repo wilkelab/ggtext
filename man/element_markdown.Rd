@@ -4,10 +4,21 @@
 \alias{element_markdown}
 \title{Theme element that enables markdown text.}
 \usage{
-element_markdown(family = NULL, face = NULL, colour = NULL,
-  size = NULL, hjust = NULL, vjust = NULL, angle = NULL,
-  lineheight = NULL, color = NULL, margin = NULL,
-  rotate_margins = FALSE, debug = FALSE, inherit.blank = FALSE)
+element_markdown(
+  family = NULL,
+  face = NULL,
+  colour = NULL,
+  size = NULL,
+  hjust = NULL,
+  vjust = NULL,
+  angle = NULL,
+  lineheight = NULL,
+  color = NULL,
+  margin = NULL,
+  rotate_margins = FALSE,
+  debug = FALSE,
+  inherit.blank = FALSE
+)
 }
 \arguments{
 \item{family}{Font family}

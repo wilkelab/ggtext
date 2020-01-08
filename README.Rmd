@@ -14,11 +14,11 @@ knitr::opts_chunk$set(
 
 # ggtext
 
-[![CRAN status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
+<!-- badges: start -->
 [![Build Status](https://travis-ci.org/clauswilke/ggtext.svg?branch=master)](https://travis-ci.org/clauswilke/ggtext)
 [![Coverage Status](https://img.shields.io/codecov/c/github/clauswilke/ggtext/master.svg)](https://codecov.io/github/clauswilke/ggtext?branch=master)
-
-
+[![CRAN status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
+<!-- badges: end -->
 
 Improved text rendering support for ggplot2, written by Claus O. Wilke
 
@@ -32,11 +32,11 @@ devtools::install_github("clauswilke/ggtext")
 
 ## Examples
 
-Rich text formatting support is provided both in theme elements and via geoms.
+Rich text formatting support is provided both in theme elements and via geoms. All text rendering is performed via either `richtext_grob()` or `textbox_grob()` from the [gridtext](https://wilkelab.org/gridtext) package, and the featureset supported is equivalent to the features provided by these grobs.
 
 ### Markdown in theme elements
 
-The ggtext package defines a new theme element, `element_markdown()`, which behaves similarly to `element_text()` but renders the provided text as markdown/html. Note that word wrapping is disabled by `element_markdown()`. To start a new line, use the `<br>` tag or add two spaces before the end of a line.
+The ggtext package defines two new theme elements, `element_markdown()` and `element_textbox()`. Both behave similarly to `element_text()` but render the provided text as markdown/html. `element_markdown()` is meant as a direct replacement for `element_text()`, and it renders text without word wrapping. To start a new line, use the `<br>` tag or add two spaces before the end of a line.
 
 ```{r}
 library(ggplot2)
@@ -85,6 +85,46 @@ ggplot(iris, aes(Species, Sepal.Width)) +
   ) +
   theme(
     axis.text.x = element_markdown(color = "black", size = 11)
+  )
+```
+
+`element_textbox()` offers support for rendering larger amounts of text that require word wrapping. Unlike `element_markdown()`, it cannot be used for axis tick labels, and it cannot draw text at arbitary angles, only at fixed orientations corresponding to 0, 90, 180, and 270 degrees.
+
+```{r}
+ggplot(mtcars, aes(disp, mpg)) + 
+  geom_point() +
+  labs(
+    title = "<b>Fuel economy vs. engine displacement</b><br>
+    <span style = 'font-size:10pt'>Lorem ipsum *dolor sit amet,*
+    consectetur adipiscing elit, **sed do eiusmod tempor incididunt** ut
+    labore et dolore magna aliqua. <span style = 'color:red;'>Ut enim
+    ad minim veniam,</span> quis nostrud exercitation ullamco laboris nisi
+    ut aliquip ex ea commodo consequat.</span>",
+    x = "displacement (in<sup>3</sup>)",
+    y = "Miles per gallon (mpg)<br><span style = 'font-size:8pt'>A measure of
+    the car's fuel efficiency.</span>"
+  ) +
+  theme(
+    plot.title = element_textbox(
+      size = 13, lineheight = 1.1, height = unit(70, "pt")
+    ),
+    axis.title.x = element_textbox(
+      hjust = 0.5, vjust = 0.5,
+      padding = margin(4, 4, 2, 4),
+      linetype = 1,
+      r = grid::unit(8, "pt"),
+      fill = "azure1",
+      lineheight = 1.1
+    ),
+    axis.title.y = element_textbox(
+      hjust = 0, vjust = 0.5, box.hjust = 0, box.vjust = 0.5,
+      orientation = "left-rotated",
+      maxwidth = unit(2, "in"),
+      padding = margin(4, 4, 2, 4),
+      margin = margin(0, 0, 2, 0),
+      fill = "lightsteelblue1",
+      lineheight = 1.1
+    )
   )
 ```
 
@@ -139,3 +179,37 @@ ggplot(df) +
   scale_color_identity() +
   xlim(0, 1) + ylim(0, 1)
 ```
+
+The geom `geom_textbox()` can draw boxes with word-wrapped text. It does not support arbitrary rotation angles, only fixed orientations, just like `element_textbox()`.
+
+```{r}
+df <- data.frame(
+  label = rep("Lorem ipsum dolor **sit amet,** consectetur adipiscing elit,
+    sed do *eiusmod tempor incididunt* ut labore et dolore magna
+    aliqua.", 2),
+  x = c(0, .6),
+  y = c(1, .6),
+  hjust = c(0, 0),
+  vjust = c(1, 0),
+  orientation = c("upright", "right-rotated"),
+  color = c("black", "blue"),
+  fill = c("cornsilk", "white")
+)
+
+ggplot(df) +
+  aes(
+    x, y, label = label, color = color, fill = fill,
+    box.hjust = hjust, box.vjust = vjust,
+    orientation = orientation
+  ) +
+  geom_textbox(width = unit(0.4, "npc")) +
+  geom_point(color = "black", size = 2) +
+  scale_discrete_identity(aesthetics = c("color", "fill", "orientation")) +
+  xlim(0, 1) + ylim(0, 1)
+```
+
+## Acknowledgments
+
+This project is receiving [financial support](https://www.r-consortium.org/projects/awarded-projects) from the [R consortium.](https://www.r-consortium.org)
+
+<img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" width="250">

@@ -3,7 +3,6 @@
 \docType{package}
 \name{ggtext}
 \alias{ggtext}
-\alias{ggtext-package}
 \title{Improved text rendering support for ggplot2}
 \description{
 Improved text rendering support for ggplot2
