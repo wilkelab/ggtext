@@ -7,14 +7,23 @@
 element_markdown(
   family = NULL,
   face = NULL,
-  colour = NULL,
   size = NULL,
+  colour = NULL,
+  fill = NULL,
+  box.colour = NULL,
+  linetype = NULL,
+  linewidth = NULL,
   hjust = NULL,
   vjust = NULL,
+  box.hjust = NULL,
+  box.vjust = NULL,
   angle = NULL,
   lineheight = NULL,
-  color = NULL,
   margin = NULL,
+  padding = NULL,
+  r = NULL,
+  color = NULL,
+  box.color = NULL,
   rotate_margins = FALSE,
   debug = FALSE,
   inherit.blank = FALSE
@@ -25,9 +34,9 @@ element_markdown(
 
 \item{face}{Font face}
 
-\item{colour, color}{Text color}
-
 \item{size}{Font size}
+
+\item{colour, color}{Text color}
 
 \item{hjust}{Horizontal justification}
 
@@ -37,7 +46,7 @@ element_markdown(
 
 \item{lineheight}{Line height}
 
-\item{margin}{Margins around the text. See \code{\link[ggplot2:margin]{ggplot2::margin()}} for
+\item{margin}{Margins around the text. See \code{\link[=margin]{margin()}} for
 details.}
 
 \item{rotate_margins}{Should margins get rotated in frame with rotated text?
@@ -49,8 +58,11 @@ in which the text runs. The default is \code{FALSE}, which mimics the behavior o
 
 \item{debug}{Draw a debugging box around each label}
 
-\item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
+\item{inherit.blank}{See \code{\link[=margin]{margin()}} for details.}
 }
 \description{
 Theme element that enables markdown text.
+}
+\seealso{
+\code{\link[=richtext_grob]{richtext_grob()}}, \code{\link[=element_textbox]{element_textbox()}}
 }

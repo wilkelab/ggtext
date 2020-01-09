@@ -103,6 +103,9 @@ ggplot(iris, aes(Species, Sepal.Width)) +
 that require word wrapping. Unlike `element_markdown()`, it cannot be
 used for axis tick labels, and it cannot draw text at arbitary angles,
 only at fixed orientations corresponding to 0, 90, 180, and 270 degrees.
+In practice, you will usually want to use `element_textbox_simple()`
+instead of `element_textbox()`, as it sets useful defaults for many
+parameters not usually defined in ggplot2 themes.
 
 ``` r
 ggplot(mtcars, aes(disp, mpg)) + 
@@ -119,25 +122,30 @@ ggplot(mtcars, aes(disp, mpg)) +
     the car's fuel efficiency.</span>"
   ) +
   theme(
-    plot.title = element_textbox(
-      size = 13, lineheight = 1.1, height = unit(70, "pt")
+    plot.title.position = "plot",
+    plot.title = element_textbox_simple(
+      size = 13,
+      lineheight = 1,
+      padding = margin(5.5, 5.5, 5.5, 5.5),
+      margin = margin(0, 0, 5.5, 0),
+      fill = "cornsilk"
     ),
-    axis.title.x = element_textbox(
-      hjust = 0.5, vjust = 0.5,
-      padding = margin(4, 4, 2, 4),
+    axis.title.x = element_textbox_simple(
+      width = NULL,
+      padding = margin(4, 4, 4, 4),
+      margin = margin(4, 0, 0, 0),
       linetype = 1,
       r = grid::unit(8, "pt"),
-      fill = "azure1",
-      lineheight = 1.1
+      fill = "azure1"
     ),
-    axis.title.y = element_textbox(
-      hjust = 0, vjust = 0.5, box.hjust = 0, box.vjust = 0.5,
+    axis.title.y = element_textbox_simple(
+      box.hjust = 0,
       orientation = "left-rotated",
+      minwidth = unit(1, "in"),
       maxwidth = unit(2, "in"),
       padding = margin(4, 4, 2, 4),
       margin = margin(0, 0, 2, 0),
-      fill = "lightsteelblue1",
-      lineheight = 1.1
+      fill = "lightsteelblue1"
     )
   )
 ```
