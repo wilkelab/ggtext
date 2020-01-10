@@ -24,7 +24,9 @@ element_markdown(
   r = NULL,
   color = NULL,
   box.color = NULL,
-  rotate_margins = FALSE,
+  align_widths = NULL,
+  align_heights = NULL,
+  rotate_margins = NULL,
   debug = FALSE,
   inherit.blank = FALSE
 )
@@ -63,6 +65,9 @@ element_markdown(
 See \code{\link[=richtext_grob]{richtext_grob()}} for details.}
 
 \item{r}{Unit value specifying the corner radius of the box}
+
+\item{align_widths, align_heights}{Should multiple elements be aligned by their
+widths or height? See \code{\link[=richtext_grob]{richtext_grob()}} for details.}
 
 \item{rotate_margins}{Should margins get rotated in frame with rotated text?
 If \code{TRUE}, the margins are applied relative to the text direction. If \code{FALSE},

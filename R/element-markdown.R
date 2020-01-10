@@ -20,6 +20,8 @@
 #'   See [`richtext_grob()`] for details.
 #' @param r Unit value specifying the corner radius of the box 
 #' @param angle Angle (in degrees)
+#' @param align_widths,align_heights Should multiple elements be aligned by their
+#'   widths or height? See [`richtext_grob()`] for details.
 #' @param rotate_margins Should margins get rotated in frame with rotated text?
 #'   If `TRUE`, the margins are applied relative to the text direction. If `FALSE`,
 #'   the margins are applied relative to the plot direction, i.e., the top margin,
@@ -34,7 +36,8 @@ element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = N
                              box.colour = NULL, linetype = NULL, linewidth = NULL,
                              hjust = NULL, vjust = NULL, halign = NULL, valign = NULL, angle = NULL,
                              lineheight = NULL, margin = NULL, padding = NULL, r = NULL, 
-                             color = NULL, box.color = NULL, rotate_margins = FALSE,
+                             color = NULL, box.color = NULL, align_widths = NULL,
+                             align_heights = NULL, rotate_margins = NULL,
                              debug = FALSE, inherit.blank = FALSE) {
   if (!is.null(color))
     colour <- color
@@ -48,6 +51,7 @@ element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = N
       box.colour = box.colour, linetype = linetype, linewidth = linewidth, 
       hjust = hjust, vjust = vjust, halign = halign, valign = valign, angle = angle,
       lineheight = lineheight, margin = margin, padding = padding, r = r, 
+      align_widths = align_widths, align_heights = align_heights, 
       rotate_margins = rotate_margins,
       debug = debug, inherit.blank = inherit.blank),
     class = c("element_markdown", "element_text", "element")
@@ -70,6 +74,8 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
   margin <- margin %||% element$margin %||% ggplot2::margin(0, 0, 0, 0)
   angle <- angle %||% element$angle %||% 0
   r <- element$r %||% unit(0, "pt")
+  align_widths <- isTRUE(element$align_widths)
+  align_heights <- isTRUE(element$align_heights)
   
   # We rotate the justifiation values to obtain the correct x and y reference point,
   # since box_hjust and box_vjust are applied relative to the rotated text frame in richtext_grob
@@ -100,13 +106,17 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
   if (isTRUE(mrg$native_margins)) {
     richtext_grob(
       label, x = x, y = y, hjust = hj, vjust = vj, halign = halign, valign = valign,
-      rot = angle, padding = padding, margin = mrg$margin, r = r, gp = gp, box_gp = box_gp,
+      rot = angle, padding = padding, margin = mrg$margin, r = r, 
+      align_widths = align_widths, align_heights = align_heights,
+      gp = gp, box_gp = box_gp,
       debug = element$debug
     )
   } else {
     grob <- richtext_grob(
       label, x = x, y = y, hjust = hj, vjust = vj, halign = halign, valign = valign,
-      rot = angle, padding = padding, margin = unit(c(0, 0, 0, 0), "pt"), r = r, gp = gp, box_gp = box_gp,
+      rot = angle, padding = padding, margin = unit(c(0, 0, 0, 0), "pt"), r = r,
+      align_widths = align_widths, align_heights = align_heights,
+      gp = gp, box_gp = box_gp,
       debug = element$debug
     )
     add_margins(grob, margin, margin_x, margin_y, debug = element$debug)
