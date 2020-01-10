@@ -139,7 +139,7 @@ ggplot(mtcars, aes(disp, mpg)) +
       fill = "azure1"
     ),
     axis.title.y = element_textbox_simple(
-      box.hjust = 0,
+      hjust = 0,
       orientation = "left-rotated",
       minwidth = unit(1, "in"),
       maxwidth = unit(2, "in"),
@@ -151,6 +151,29 @@ ggplot(mtcars, aes(disp, mpg)) +
 ```
 
 ![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
+
+Another example, replacing facet strips with text boxes.
+
+``` r
+library(cowplot)
+
+ggplot(mpg, aes(cty, hwy)) + 
+  geom_point() +
+  facet_wrap(~class) +
+  theme_half_open(12) +
+  background_grid() +
+  theme(
+    strip.background = element_blank(),
+    strip.text = element_textbox(
+      size = 12,
+      color = "white", fill = "#5D729D", box.color = "#4A618C",
+      halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
+      padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)
+    )
+  )
+```
+
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
 
 ### Geoms
 
@@ -188,7 +211,7 @@ ggplot(df) +
   xlim(0, 1) + ylim(0, 1)
 ```
 
-![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
 Labels without frame or background are also possible.
 
@@ -207,7 +230,7 @@ ggplot(df) +
   xlim(0, 1) + ylim(0, 1)
 ```
 
-![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-8-1.png)<!-- -->
 
 The geom `geom_textbox()` can draw boxes with word-wrapped text. It does
 not support arbitrary rotation angles, only fixed orientations, just
@@ -239,7 +262,7 @@ ggplot(df) +
   xlim(0, 1) + ylim(0, 1)
 ```
 
-![](man/figures/README-unnamed-chunk-8-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-9-1.png)<!-- -->
 
 ## Acknowledgments
 

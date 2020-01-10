@@ -133,6 +133,26 @@ ggplot(mtcars, aes(disp, mpg)) +
   )
 ```
 
+Another example, replacing facet strips with text boxes. 
+```{r message = FALSE}
+library(cowplot)
+
+ggplot(mpg, aes(cty, hwy)) + 
+  geom_point() +
+  facet_wrap(~class) +
+  theme_half_open(12) +
+  background_grid() +
+  theme(
+    strip.background = element_blank(),
+    strip.text = element_textbox(
+      size = 12,
+      color = "white", fill = "#5D729D", box.color = "#4A618C",
+      halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"),
+      padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)
+    )
+  )
+```
+
 ### Geoms
 
 The geom `geom_richtext()` provides markdown/html labels. Unlike `geom_label()`, the labels can be rotated.
