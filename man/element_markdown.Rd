@@ -38,16 +38,31 @@ element_markdown(
 
 \item{colour, color}{Text color}
 
+\item{fill}{Fill color of the enclosing box}
+
+\item{box.colour, box.color}{Line color of the enclosing box (if different from the text color)}
+
+\item{linetype}{Line type of the enclosing box (like \code{lty} in base R)}
+
+\item{linewidth}{Line width of the enclosing box (measured in mm, just like \code{size} in
+\code{\link[=element_line]{element_line()}}).}
+
 \item{hjust}{Horizontal justification}
 
 \item{vjust}{Vertical justification}
+
+\item{box.hjust}{Horizontal justification}
+
+\item{box.vjust}{Vertical justification}
 
 \item{angle}{Angle (in degrees)}
 
 \item{lineheight}{Line height}
 
-\item{margin}{Margins around the text. See \code{\link[=margin]{margin()}} for
-details.}
+\item{padding, margin}{Padding and margins around the text box.
+See \code{\link[=richtext_grob]{richtext_grob()}} for details.}
+
+\item{r}{Unit value specifying the corner radius of the box}
 
 \item{rotate_margins}{Should margins get rotated in frame with rotated text?
 If \code{TRUE}, the margins are applied relative to the text direction. If \code{FALSE},

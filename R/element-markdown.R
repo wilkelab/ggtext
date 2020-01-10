@@ -4,14 +4,22 @@
 #' 
 #' @param family Font family
 #' @param face Font face
-#' @param colour,color Text color
 #' @param size Font size
+#' @param colour,color Text color
+#' @param fill Fill color of the enclosing box
+#' @param box.colour,box.color Line color of the enclosing box (if different from the text color)
+#' @param linetype Line type of the enclosing box (like `lty` in base R)
+#' @param linewidth Line width of the enclosing box (measured in mm, just like `size` in
+#'   [`element_line()`]).
 #' @param hjust Horizontal justification
 #' @param vjust Vertical justification
-#' @param angle Angle (in degrees)
+#' @param box.hjust Horizontal justification
+#' @param box.vjust Vertical justification
 #' @param lineheight Line height
-#' @param margin Margins around the text. See [`margin()`] for 
-#'   details.
+#' @param padding,margin Padding and margins around the text box.
+#'   See [`richtext_grob()`] for details.
+#' @param r Unit value specifying the corner radius of the box 
+#' @param angle Angle (in degrees)
 #' @param rotate_margins Should margins get rotated in frame with rotated text?
 #'   If `TRUE`, the margins are applied relative to the text direction. If `FALSE`,
 #'   the margins are applied relative to the plot direction, i.e., the top margin,

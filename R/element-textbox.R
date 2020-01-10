@@ -39,10 +39,12 @@
 #' ggplot(mtcars, aes(disp, mpg)) + 
 #' geom_point() +
 #'   labs(
-#'     title = "<b><span style = 'font-size:13pt'>Fuel economy vs. engine displacement</span></b><br>
-#'     Lorem ipsum *dolor sit amet,* consectetur adipiscing elit, **sed do eiusmod tempor incididunt** ut
-#'     labore et dolore magna aliqua. <span style = 'color:red;'>Ut enim ad minim veniam,</span> quis
-#'     nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+#'     title =
+#'     "<b><span style = 'font-size:13pt'>Fuel economy vs. engine displacement</span></b><br>
+#'     Lorem ipsum *dolor sit amet,* consectetur adipiscing elit, **sed do eiusmod tempor
+#'     incididunt** ut labore et dolore magna aliqua. <span style = 'color:red;'>Ut enim ad
+#'     minim veniam,</span> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+#'     commodo consequat.",
 #'     x = "displacement (in<sup>3</sup>)",
 #'     y = "Miles per gallon (mpg)<br><span style = 'font-size:8pt'>A measure of
 #'     the car's fuel efficiency.</span>"
