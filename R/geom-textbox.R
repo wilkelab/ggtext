@@ -32,7 +32,7 @@
 #' ggplot(df) +
 #'   aes(
 #'     x, y, label = label, color = color, fill = fill,
-#'     box.hjust = hjust, box.vjust = vjust,
+#'     hjust = hjust, vjust = vjust,
 #'     orientation = orientation
 #'   ) +
 #'   geom_textbox(width = unit(0.4, "npc")) +
@@ -88,8 +88,8 @@ GeomTextBox <- ggproto("GeomTextBox", Geom,
   required_aes = c("x", "y", "label"),
 
   default_aes = aes(
-    colour = "black", fill = "white", size = 3.88, hjust = 0,
-    vjust = 1, box.hjust = NULL, box.vjust = NULL, alpha = NA, family = "",
+    colour = "black", fill = "white", size = 3.88, hjust = 0.5,
+    vjust = 0.5, halign = 0, valign = 1, alpha = NA, family = "",
     fontface = 1, lineheight = 1.2, text.colour = NULL, box.colour = NULL,
     box.size = 0.25, orientation = "upright"
   ),
@@ -133,8 +133,7 @@ make_textbox_grob <- function(data,
     data$label,
     data$x, data$y, default.units = "native",
     hjust = data$hjust, vjust = data$vjust,
-    box_hjust = data$box.hjust %||% data$hjust,
-    box_vjust = data$box.vjust %||% data$vjust,
+    halign = data$halign, valign = data$valign,
     orientation = data$orientation,
     padding = box.padding,
     width = width, minwidth = minwidth, maxwidth = maxwidth,

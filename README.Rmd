@@ -122,7 +122,7 @@ ggplot(mtcars, aes(disp, mpg)) +
       fill = "azure1"
     ),
     axis.title.y = element_textbox_simple(
-      box.hjust = 0,
+      hjust = 0,
       orientation = "left-rotated",
       minwidth = unit(1, "in"),
       maxwidth = unit(2, "in"),

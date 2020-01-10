@@ -16,8 +16,8 @@ element_textbox(
   linewidth = NULL,
   hjust = NULL,
   vjust = NULL,
-  box.hjust = NULL,
-  box.vjust = NULL,
+  halign = NULL,
+  valign = NULL,
   lineheight = NULL,
   margin = NULL,
   padding = NULL,
@@ -44,10 +44,10 @@ element_textbox_simple(
   box.colour = "black",
   linetype = 0,
   linewidth = 0.5,
-  hjust = 0,
-  vjust = 1,
-  box.hjust = 0.5,
-  box.vjust = 0.5,
+  hjust = 0.5,
+  vjust = 0.5,
+  halign = 0,
+  valign = 1,
   lineheight = 1.1,
   margin = ggplot2::margin(0, 0, 0, 0),
   padding = ggplot2::margin(0, 0, 0, 0),
@@ -87,9 +87,9 @@ element_textbox_simple(
 
 \item{vjust}{Vertical justification}
 
-\item{box.hjust}{Horizontal justification}
+\item{halign}{Horizontal justification}
 
-\item{box.vjust}{Vertical justification}
+\item{valign}{Vertical justification}
 
 \item{lineheight}{Line height}
 
@@ -152,7 +152,7 @@ geom_point() +
       fill = "azure1"
     ),
     axis.title.y = element_textbox_simple(
-      box.hjust = 0,
+      hjust = 0,
       orientation = "left-rotated",
       minwidth = unit(1, "in"),
       maxwidth = unit(2, "in"),

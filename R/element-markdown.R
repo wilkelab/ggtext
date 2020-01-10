@@ -13,8 +13,8 @@
 #'   [`element_line()`]).
 #' @param hjust Horizontal justification
 #' @param vjust Vertical justification
-#' @param box.hjust Horizontal justification
-#' @param box.vjust Vertical justification
+#' @param halign Horizontal justification
+#' @param valign Vertical justification
 #' @param lineheight Line height
 #' @param padding,margin Padding and margins around the text box.
 #'   See [`richtext_grob()`] for details.
@@ -32,7 +32,7 @@
 #' @export
 element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NULL,
                              box.colour = NULL, linetype = NULL, linewidth = NULL,
-                             hjust = NULL, vjust = NULL, box.hjust = NULL, box.vjust = NULL, angle = NULL,
+                             hjust = NULL, vjust = NULL, halign = NULL, valign = NULL, angle = NULL,
                              lineheight = NULL, margin = NULL, padding = NULL, r = NULL, 
                              color = NULL, box.color = NULL, rotate_margins = FALSE,
                              debug = FALSE, inherit.blank = FALSE) {
@@ -46,7 +46,7 @@ element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = N
     list(
       family = family, face = face, size = size, colour = colour, fill = fill,
       box.colour = box.colour, linetype = linetype, linewidth = linewidth, 
-      hjust = hjust, vjust = vjust, box.hjust = box.hjust, box.vjust = box.vjust, angle = angle,
+      hjust = hjust, vjust = vjust, halign = halign, valign = valign, angle = angle,
       lineheight = lineheight, margin = margin, padding = padding, r = r, 
       rotate_margins = rotate_margins,
       debug = debug, inherit.blank = inherit.blank),
@@ -64,8 +64,8 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
 
   hj <- hjust %||% element$hjust
   vj <- vjust %||% element$vjust
-  box_hj <- element$box.hjust %||% hj
-  box_vj <- element$box.vjust %||% vj
+  halign <- element$halign %||% hj
+  valign <- element$valign %||% vj
   padding <- element$padding %||% ggplot2::margin(0, 0, 0, 0)
   margin <- margin %||% element$margin %||% ggplot2::margin(0, 0, 0, 0)
   angle <- angle %||% element$angle %||% 0
@@ -73,7 +73,7 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
   
   # We rotate the justifiation values to obtain the correct x and y reference point,
   # since box_hjust and box_vjust are applied relative to the rotated text frame in richtext_grob
-  just <- rotate_just(angle, box_hj, box_vj)
+  just <- rotate_just(angle, hj, vj)
   
   n <- max(length(x), length(y), 1)
   x <- x %||% unit(rep(just$hjust, n), "npc")
@@ -99,13 +99,13 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
   
   if (isTRUE(mrg$native_margins)) {
     richtext_grob(
-      label, x = x, y = y, hjust = hj, vjust = vj, box_hjust = box_hj, box_vjust = box_vj,
+      label, x = x, y = y, hjust = hj, vjust = vj, halign = halign, valign = valign,
       rot = angle, padding = padding, margin = mrg$margin, r = r, gp = gp, box_gp = box_gp,
       debug = element$debug
     )
   } else {
     grob <- richtext_grob(
-      label, x = x, y = y, hjust = hj, vjust = vj, box_hjust = box_hj, box_vjust = box_vj,
+      label, x = x, y = y, hjust = hj, vjust = vj, halign = halign, valign = valign,
       rot = angle, padding = padding, margin = unit(c(0, 0, 0, 0), "pt"), r = r, gp = gp, box_gp = box_gp,
       debug = element$debug
     )

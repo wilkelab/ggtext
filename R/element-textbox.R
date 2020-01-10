@@ -19,8 +19,8 @@
 #'   [`element_line()`]).
 #' @param hjust Horizontal justification
 #' @param vjust Vertical justification
-#' @param box.hjust Horizontal justification
-#' @param box.vjust Vertical justification
+#' @param halign Horizontal justification
+#' @param valign Vertical justification
 #' @param lineheight Line height
 #' @param width,height Unit objects specifying the width and height
 #'   of the textbox, as in [textbox_grob()].
@@ -66,7 +66,7 @@
 #'       fill = "azure1"
 #'     ),
 #'     axis.title.y = element_textbox_simple(
-#'       box.hjust = 0,
+#'       hjust = 0,
 #'       orientation = "left-rotated",
 #'       minwidth = unit(1, "in"),
 #'       maxwidth = unit(2, "in"),
@@ -78,7 +78,7 @@
 #' @export
 element_textbox <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NULL,
                             box.colour = NULL, linetype = NULL, linewidth = NULL,
-                            hjust = NULL, vjust = NULL, box.hjust = NULL, box.vjust = NULL, lineheight = NULL,
+                            hjust = NULL, vjust = NULL, halign = NULL, valign = NULL, lineheight = NULL,
                             margin = NULL, padding = NULL, width = NULL, height = NULL, minwidth = NULL,
                             maxwidth = NULL, minheight = NULL, maxheight = NULL, r = NULL,
                             orientation = NULL, color = NULL, box.color = NULL,
@@ -93,8 +93,7 @@ element_textbox <- function(family = NULL, face = NULL, size = NULL, colour = NU
     list(
       family = family, face = face, size = size, colour = colour, fill = fill, box.colour = box.colour,
       linetype = linetype, linewidth = linewidth, 
-      hjust = hjust, vjust = vjust, box.hjust = box.hjust,
-      box.vjust = box.vjust, lineheight = lineheight, 
+      hjust = hjust, vjust = vjust, halign = halign, valign = valign, lineheight = lineheight, 
       margin = margin, padding = padding, width = width, height = height, minwidth = minwidth,
       maxwidth = maxwidth, minheight = minheight, maxheight = maxheight,
       r = r, orientation = orientation,
@@ -107,7 +106,7 @@ element_textbox <- function(family = NULL, face = NULL, size = NULL, colour = NU
 #' @export
 element_textbox_simple <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NA,
                             box.colour = "black", linetype = 0, linewidth = 0.5,
-                            hjust = 0, vjust = 1, box.hjust = 0.5, box.vjust = 0.5, lineheight = 1.1,
+                            hjust = 0.5, vjust = 0.5, halign = 0, valign = 1, lineheight = 1.1,
                             margin = ggplot2::margin(0, 0, 0, 0), padding = ggplot2::margin(0, 0, 0, 0),
                             width = grid::unit(1, "npc"), height = NULL, minwidth = NULL,
                             maxwidth = NULL, minheight = NULL, maxheight = NULL, r = grid::unit(3, "pt"),
@@ -116,7 +115,7 @@ element_textbox_simple <- function(family = NULL, face = NULL, size = NULL, colo
   element_textbox(
     family = family, face = face, size = size, colour = colour, fill = fill,
     box.colour = box.colour, linetype = linetype, linewidth = linewidth, hjust = hjust, vjust = vjust,
-    box.hjust = box.hjust, box.vjust = box.vjust, lineheight = lineheight, margin = margin, padding = padding,
+    halign = halign, valign = valign, lineheight = lineheight, margin = margin, padding = padding,
     width = width, height = height, minwidth = minwidth, maxwidth = maxwidth, minheight = minheight,
     maxheight = maxheight, r = r, orientation = orientation, color = color, box.color = box.color
   )
@@ -132,8 +131,8 @@ element_grob.element_textbox <- function(element, label = "", x = NULL, y = NULL
 
   hj <- hjust %||% element$hjust
   vj <- vjust %||% element$vjust
-  box_hj <- element$box.hjust %||% hj
-  box_vj <- element$box.vjust %||% vj
+  halign <- element$halign %||% 0
+  valign <- element$valign %||% 1
   padding <- element$padding %||% ggplot2::margin(0, 0, 0, 0)
   margin <- margin %||% element$margin %||% ggplot2::margin(0, 0, 0, 0)
   orientation <- element$orientation %||% "upright"
@@ -156,7 +155,7 @@ element_grob.element_textbox <- function(element, label = "", x = NULL, y = NULL
   )
   
   textbox_grob(
-    label, x = x, y = y, hjust = hj, vjust = vj, box_hjust = box_hj, box_vjust = box_vj,
+    label, x = x, y = y, hjust = hj, vjust = vj, halign = halign, valign = valign,
     width = element$width, height = element$height,
     minwidth = element$minwidth, minheight = element$minheight,
     maxwidth = element$maxwidth, maxheight = element$maxheight,

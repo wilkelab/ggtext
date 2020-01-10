@@ -113,7 +113,7 @@ df <- data.frame(
 ggplot(df) +
   aes(
     x, y, label = label, color = color, fill = fill,
-    box.hjust = hjust, box.vjust = vjust,
+    hjust = hjust, vjust = vjust,
     orientation = orientation
   ) +
   geom_textbox(width = unit(0.4, "npc")) +

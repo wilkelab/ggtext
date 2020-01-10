@@ -15,8 +15,8 @@ element_markdown(
   linewidth = NULL,
   hjust = NULL,
   vjust = NULL,
-  box.hjust = NULL,
-  box.vjust = NULL,
+  halign = NULL,
+  valign = NULL,
   angle = NULL,
   lineheight = NULL,
   margin = NULL,
@@ -51,9 +51,9 @@ element_markdown(
 
 \item{vjust}{Vertical justification}
 
-\item{box.hjust}{Horizontal justification}
+\item{halign}{Horizontal justification}
 
-\item{box.vjust}{Vertical justification}
+\item{valign}{Vertical justification}
 
 \item{angle}{Angle (in degrees)}
 
