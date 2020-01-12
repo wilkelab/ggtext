@@ -11,6 +11,8 @@ Status](https://travis-ci.org/clauswilke/ggtext.svg?branch=master)](https://trav
 Status](https://img.shields.io/codecov/c/github/clauswilke/ggtext/master.svg)](https://codecov.io/github/clauswilke/ggtext?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
 Improved text rendering support for ggplot2, written by Claus O. Wilke
@@ -253,7 +255,7 @@ df <- data.frame(
 ggplot(df) +
   aes(
     x, y, label = label, color = color, fill = fill,
-    box.hjust = hjust, box.vjust = vjust,
+    hjust = hjust, vjust = vjust,
     orientation = orientation
   ) +
   geom_textbox(width = unit(0.4, "npc")) +
