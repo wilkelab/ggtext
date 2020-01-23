@@ -6,11 +6,11 @@
 <!-- badges: start -->
 
 [![Build
-Status](https://travis-ci.org/clauswilke/ggtext.svg?branch=master)](https://travis-ci.org/clauswilke/ggtext)
+Status](https://travis-ci.org/wilkelab/ggtext.svg?branch=master)](https://travis-ci.org/wilkelab/ggtext)
 [![AppVeyor build
 status](https://ci.appveyor.com/api/projects/status/github/wilkelab/ggtext?branch=master&svg=true)](https://ci.appveyor.com/project/clauswilke/ggtext)
 [![Coverage
-Status](https://img.shields.io/codecov/c/github/clauswilke/ggtext/master.svg)](https://codecov.io/github/clauswilke/ggtext?branch=master)
+Status](https://img.shields.io/codecov/c/github/wilkelab/ggtext/master.svg)](https://codecov.io/github/wilkelab/ggtext?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
 [![Lifecycle:
