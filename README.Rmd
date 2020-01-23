@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
-This package provides ggplot2 support for the [gridtext](https://github.com/clauswilke/gridtext) package, which implements rich-text (basic HTML and Markdown) rendering for the grid graphics engine. It is a work in progress. Many obvious features are missing, and others have bugs or don't work in corner cases.
+This package provides rich-text (basic HTML and Markdown) support for ggplot2. Rich text can be used in plot annotations (plot titles, subtitles, captions, axis labels, legends, etc.) and to visualize textual data, as one would normally do with `geom_text()`.
 
 ## Installation
 
