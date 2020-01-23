@@ -1,21 +1,21 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ggtext
+# ggtext: Improved text rendering support for ggplot2
 
 <!-- badges: start -->
 
 [![Build
 Status](https://travis-ci.org/clauswilke/ggtext.svg?branch=master)](https://travis-ci.org/clauswilke/ggtext)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/wilkelab/ggtext?branch=master&svg=true)](https://ci.appveyor.com/project/clauswilke/ggtext)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/clauswilke/ggtext/master.svg)](https://codecov.io/github/clauswilke/ggtext?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
 [![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
-
-Improved text rendering support for ggplot2, written by Claus O. Wilke
 
 This package provides ggplot2 support for the
 [gridtext](https://github.com/clauswilke/gridtext) package, which
@@ -25,8 +25,18 @@ missing, and others have bugs or don’t work in corner cases.
 
 ## Installation
 
+To install the latest development version of this package, please run
+the following line in your R console:
+
 ``` r
-devtools::install_github("clauswilke/ggtext")
+remotes::install_github("wilkelab/ggtext")
+```
+
+Once the package is available on CRAN, you will be able to install the
+latest release via `install.packages()` as usual:
+
+``` r
+install.packages("ggtext")
 ```
 
 ## Examples
@@ -73,7 +83,7 @@ ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
   )
 ```
 
-![](man/figures/README-unnamed-chunk-3-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
 
 Very basic support for the `<img>` tag exists, and it can be used, for
 example, to employ images as axis labels.
@@ -99,7 +109,7 @@ ggplot(iris, aes(Species, Sepal.Width)) +
   )
 ```
 
-![](man/figures/README-unnamed-chunk-4-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
 
 `element_textbox()` offers support for rendering larger amounts of text
 that require word wrapping. Unlike `element_markdown()`, it cannot be
@@ -152,7 +162,7 @@ ggplot(mtcars, aes(disp, mpg)) +
   )
 ```
 
-![](man/figures/README-unnamed-chunk-5-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
 
 Another example, replacing facet strips with text boxes.
 
@@ -175,7 +185,7 @@ ggplot(mpg, aes(cty, hwy)) +
   )
 ```
 
-![](man/figures/README-unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
 ### Geoms
 
@@ -213,7 +223,7 @@ ggplot(df) +
   xlim(0, 1) + ylim(0, 1)
 ```
 
-![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-8-1.png)<!-- -->
 
 Labels without frame or background are also possible.
 
@@ -232,7 +242,7 @@ ggplot(df) +
   xlim(0, 1) + ylim(0, 1)
 ```
 
-![](man/figures/README-unnamed-chunk-8-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-9-1.png)<!-- -->
 
 The geom `geom_textbox()` can draw boxes with word-wrapped text. It does
 not support arbitrary rotation angles, only fixed orientations, just
@@ -264,7 +274,7 @@ ggplot(df) +
   xlim(0, 1) + ylim(0, 1)
 ```
 
-![](man/figures/README-unnamed-chunk-9-1.png)<!-- -->
+![](man/figures/README-unnamed-chunk-10-1.png)<!-- -->
 
 ## Acknowledgments
 

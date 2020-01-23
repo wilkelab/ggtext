@@ -12,24 +12,33 @@ knitr::opts_chunk$set(
 )
 ```
 
-# ggtext
+# ggtext: Improved text rendering support for ggplot2
+
 
 <!-- badges: start -->
 [![Build Status](https://travis-ci.org/clauswilke/ggtext.svg?branch=master)](https://travis-ci.org/clauswilke/ggtext)
+[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/wilkelab/ggtext?branch=master&svg=true)](https://ci.appveyor.com/project/clauswilke/ggtext)
 [![Coverage Status](https://img.shields.io/codecov/c/github/clauswilke/ggtext/master.svg)](https://codecov.io/github/clauswilke/ggtext?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
-
-Improved text rendering support for ggplot2, written by Claus O. Wilke
 
 This package provides ggplot2 support for the [gridtext](https://github.com/clauswilke/gridtext) package, which implements rich-text (basic HTML and Markdown) rendering for the grid graphics engine. It is a work in progress. Many obvious features are missing, and others have bugs or don't work in corner cases.
 
 ## Installation
 
+To install the latest development version of this package, please run the following line in your R console:
+
 ```{r eval = FALSE}
-devtools::install_github("clauswilke/ggtext")
+remotes::install_github("wilkelab/ggtext")
 ```
+
+Once the package is available on CRAN, you will be able to install the latest release via `install.packages()` as usual:
+
+```{r eval = FALSE}
+install.packages("ggtext")
+```
+
 
 ## Examples
 

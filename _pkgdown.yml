@@ -1,0 +1,12 @@
+destination: docs
+
+reference:
+- title: Theme elements
+  contents:
+  - element_markdown
+  - element_textbox
+  
+- title: Geoms
+  contents:
+  - geom_richtext
+  - geom_textbox
