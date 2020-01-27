@@ -29,7 +29,6 @@ Suggests:
     testthat,
     vdiffr
 Remotes:
-    wilkelab/gridtext,
     tidyverse/ggplot2
 Encoding: UTF-8
 LazyData: true
