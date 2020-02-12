@@ -81,7 +81,7 @@ element_textbox_simple(
 \item{linetype}{Line type of the enclosing box (like \code{lty} in base R)}
 
 \item{linewidth}{Line width of the enclosing box (measured in mm, just like \code{size} in
-\code{\link[=element_line]{element_line()}}).}
+\code{\link[ggplot2:element_line]{ggplot2::element_line()}}).}
 
 \item{hjust}{Horizontal justification}
 
@@ -94,21 +94,21 @@ element_textbox_simple(
 \item{lineheight}{Line height}
 
 \item{padding, margin}{Padding and margins around the text box.
-See \code{\link[=textbox_grob]{textbox_grob()}} for details.}
+See \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}} for details.}
 
 \item{width, height}{Unit objects specifying the width and height
-of the textbox, as in \code{\link[=textbox_grob]{textbox_grob()}}.}
+of the textbox, as in \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}}.}
 
 \item{minwidth, minheight, maxwidth, maxheight}{Min and max values for width and height.
 Set to NULL to impose neither a minimum nor a maximum.}
 
 \item{r}{Unit value specifying the corner radius of the box}
 
-\item{orientation}{Orientation of the text box. See \code{\link[=textbox_grob]{textbox_grob()}} for details.}
+\item{orientation}{Orientation of the text box. See \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}} for details.}
 
 \item{debug}{Not implemented.}
 
-\item{inherit.blank}{See \code{\link[=margin]{margin()}} for details.}
+\item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
 }
 \description{
 The theme elements \code{element_textbox()} and \code{element_textbox_simple()} enable Markdown text in a box, with
@@ -163,5 +163,5 @@ geom_point() +
   )
 }
 \seealso{
-\code{\link[=textbox_grob]{textbox_grob()}}, \code{\link[=element_markdown]{element_markdown()}}
+\code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}}, \code{\link[=element_markdown]{element_markdown()}}
 }

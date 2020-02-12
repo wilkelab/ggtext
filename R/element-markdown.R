@@ -10,18 +10,18 @@
 #' @param box.colour,box.color Line color of the enclosing box (if different from the text color)
 #' @param linetype Line type of the enclosing box (like `lty` in base R)
 #' @param linewidth Line width of the enclosing box (measured in mm, just like `size` in
-#'   [`element_line()`]).
+#'   [ggplot2::element_line()]).
 #' @param hjust Horizontal justification
 #' @param vjust Vertical justification
 #' @param halign Horizontal justification
 #' @param valign Vertical justification
 #' @param lineheight Line height
 #' @param padding,margin Padding and margins around the text box.
-#'   See [`richtext_grob()`] for details.
+#'   See [gridtext::richtext_grob()] for details.
 #' @param r Unit value specifying the corner radius of the box 
 #' @param angle Angle (in degrees)
 #' @param align_widths,align_heights Should multiple elements be aligned by their
-#'   widths or height? See [`richtext_grob()`] for details.
+#'   widths or height? See [gridtext::richtext_grob()] for details.
 #' @param rotate_margins Should margins get rotated in frame with rotated text?
 #'   If `TRUE`, the margins are applied relative to the text direction. If `FALSE`,
 #'   the margins are applied relative to the plot direction, i.e., the top margin,
@@ -29,8 +29,8 @@
 #'   in which the text runs. The default is `FALSE`, which mimics the behavior of 
 #'   `element_text()`.
 #' @param debug Draw a debugging box around each label
-#' @param inherit.blank See [`margin()`] for details.
-#' @seealso [`richtext_grob()`], [`element_textbox()`]
+#' @param inherit.blank See [ggplot2::margin()] for details.
+#' @seealso [gridtext::richtext_grob()], [element_textbox()]
 #' @export
 element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NULL,
                              box.colour = NULL, linetype = NULL, linewidth = NULL,
