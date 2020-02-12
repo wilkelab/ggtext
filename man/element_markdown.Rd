@@ -47,7 +47,7 @@ element_markdown(
 \item{linetype}{Line type of the enclosing box (like \code{lty} in base R)}
 
 \item{linewidth}{Line width of the enclosing box (measured in mm, just like \code{size} in
-\code{\link[=element_line]{element_line()}}).}
+\code{\link[ggplot2:element_line]{ggplot2::element_line()}}).}
 
 \item{hjust}{Horizontal justification}
 
@@ -62,12 +62,12 @@ element_markdown(
 \item{lineheight}{Line height}
 
 \item{padding, margin}{Padding and margins around the text box.
-See \code{\link[=richtext_grob]{richtext_grob()}} for details.}
+See \code{\link[gridtext:richtext_grob]{gridtext::richtext_grob()}} for details.}
 
 \item{r}{Unit value specifying the corner radius of the box}
 
 \item{align_widths, align_heights}{Should multiple elements be aligned by their
-widths or height? See \code{\link[=richtext_grob]{richtext_grob()}} for details.}
+widths or height? See \code{\link[gridtext:richtext_grob]{gridtext::richtext_grob()}} for details.}
 
 \item{rotate_margins}{Should margins get rotated in frame with rotated text?
 If \code{TRUE}, the margins are applied relative to the text direction. If \code{FALSE},
@@ -78,11 +78,11 @@ in which the text runs. The default is \code{FALSE}, which mimics the behavior o
 
 \item{debug}{Draw a debugging box around each label}
 
-\item{inherit.blank}{See \code{\link[=margin]{margin()}} for details.}
+\item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
 }
 \description{
 Theme element that enables markdown text.
 }
 \seealso{
-\code{\link[=richtext_grob]{richtext_grob()}}, \code{\link[=element_textbox]{element_textbox()}}
+\code{\link[gridtext:richtext_grob]{gridtext::richtext_grob()}}, \code{\link[=element_textbox]{element_textbox()}}
 }

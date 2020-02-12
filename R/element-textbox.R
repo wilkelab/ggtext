@@ -16,23 +16,23 @@
 #' @param box.colour,box.color Line color of the enclosing box (if different from the text color)
 #' @param linetype Line type of the enclosing box (like `lty` in base R)
 #' @param linewidth Line width of the enclosing box (measured in mm, just like `size` in
-#'   [`element_line()`]).
+#'   [ggplot2::element_line()]).
 #' @param hjust Horizontal justification
 #' @param vjust Vertical justification
 #' @param halign Horizontal justification
 #' @param valign Vertical justification
 #' @param lineheight Line height
 #' @param width,height Unit objects specifying the width and height
-#'   of the textbox, as in [textbox_grob()].
+#'   of the textbox, as in [gridtext::textbox_grob()].
 #' @param minwidth,minheight,maxwidth,maxheight Min and max values for width and height.
 #'   Set to NULL to impose neither a minimum nor a maximum.
 #' @param padding,margin Padding and margins around the text box.
-#'   See [`textbox_grob()`] for details.
+#'   See [gridtext::textbox_grob()] for details.
 #' @param r Unit value specifying the corner radius of the box 
-#' @param orientation Orientation of the text box. See [`textbox_grob()`] for details.
+#' @param orientation Orientation of the text box. See [gridtext::textbox_grob()] for details.
 #' @param debug Not implemented.
-#' @param inherit.blank See [`margin()`] for details.
-#' @seealso [`textbox_grob()`], [`element_markdown()`]
+#' @param inherit.blank See [ggplot2::margin()] for details.
+#' @seealso [gridtext::textbox_grob()], [element_markdown()]
 #' @examples
 #' library(ggplot2)
 #' 

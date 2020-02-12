@@ -1,6 +1,6 @@
 #' Rich text labels
 #'
-#' This draws text labels similar to [`ggplot2::geom_label()`], but formatted
+#' This draws text labels similar to [ggplot2::geom_label()], but formatted
 #' using basic markdown/html.
 #' 
 #' @inheritParams ggplot2::geom_text
