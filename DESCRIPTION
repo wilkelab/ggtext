@@ -17,7 +17,7 @@ License: GPL-2 | file LICENSE
 Depends:
     R (>= 3.5)
 Imports:
-    ggplot2,
+    ggplot2 (>= 3.3.0),
     grid,
     gridtext,
     rlang,
