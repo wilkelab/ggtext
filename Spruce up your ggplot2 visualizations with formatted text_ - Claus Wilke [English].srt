@@ -1409,7 +1409,7 @@ much look exactly the same,
 
 302
 00:14:26,780 --> 00:14:27,780
-and then you just draw its.
+and then you just draw it.
 
 303
 00:14:30,720 --> 00:14:31,590
