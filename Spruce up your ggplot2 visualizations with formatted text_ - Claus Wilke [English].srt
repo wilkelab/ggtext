@@ -123,7 +123,7 @@ I'm not trying to pronounce it.
 
 27
 00:01:14,890 --> 00:01:18,910
-And then OTU1 operational
+And then OTU 1 operational
 taxonomic unit--
 
 28
@@ -380,7 +380,7 @@ next release of ggplot.
 
 82
 00:03:54,720 --> 00:03:58,482
-So with sometime within the
+So sometime within the
 next two to three months,
 
 83
@@ -446,7 +446,7 @@ is styled.
 96
 00:04:33,360 --> 00:04:35,400
 And normally, you would
-write element text,
+write element_text(),
 
 97
 00:04:35,400 --> 00:04:38,370
@@ -456,7 +456,7 @@ change the color, and so on.
 98
 00:04:38,370 --> 00:04:40,440
 And now I've written
-this element markdown,
+this element_markdown(),
 
 99
 00:04:40,440 --> 00:04:43,620
@@ -560,7 +560,7 @@ from the data frame,
 120
 00:05:45,020 --> 00:05:47,300
 and then here the
-same with OTU name.
+same with OTUname.
 
 121
 00:05:47,300 --> 00:05:49,400
@@ -652,17 +652,17 @@ add a color column.
 141
 00:06:36,640 --> 00:06:39,165
 I'm doing a little bit of
-a trick, so if Harley--
+a trick, so if Hadley--
 
 142
 00:06:39,165 --> 00:06:40,540
-Harley is not in
+Hadley is not in
 the room, right?
 
 143
 00:06:40,540 --> 00:06:43,390
 He would say, you're
-circumventing this scale
+circumventing the scale
 
 144
 00:06:43,390 --> 00:06:43,970
@@ -688,7 +688,7 @@ vector, so these are just
 
 149
 00:06:51,700 --> 00:06:54,100
-colors that it shows.
+colors that I chose..
 
 150
 00:06:54,100 --> 00:06:55,135
@@ -725,16 +725,16 @@ I'm using here is
 
 157
 00:07:21,700 --> 00:07:24,170
-I'm using scale fill identity.
+I'm using scale_fill_identity().
 
 158
 00:07:24,170 --> 00:07:27,040
 So I'm mapping color
-onto fill, and then scale
+onto fill, and then 
 
 159
 00:07:27,040 --> 00:07:30,640
-fill identity, instead of trying
+scale_fill_identity(), instead of trying
 to set up a color mapping,
 
 160
@@ -787,7 +787,7 @@ which is completely opaque.
 
 170
 00:08:01,870 --> 00:08:04,120
-And that's just how a
+And that's just how our
 visual system works.
 
 171
@@ -931,11 +931,11 @@ and we stick it into ggplot.
 201
 00:09:28,250 --> 00:09:30,320
 The only other thing
-is line height.
+is lineheight.
 
 202
 00:09:30,320 --> 00:09:33,410
-The default line height, for
+The default lineheight, for
 some reason, is just too low.
 
 203
@@ -1028,7 +1028,7 @@ No.
 222
 00:10:28,100 --> 00:10:30,830
 I also have written
-a genome that you
+a geom that you
 
 223
 00:10:30,830 --> 00:10:34,650
@@ -1052,8 +1052,8 @@ species of iris flowers.
 
 227
 00:10:44,680 --> 00:10:47,330
-We're plotting the sample
-width against the sample length
+We're plotting the sepal
+width against the sepal length
 
 228
 00:10:47,330 --> 00:10:50,840
@@ -1076,7 +1076,7 @@ this with, say, the r squared
 
 232
 00:11:00,560 --> 00:11:02,090
-off the regression line.
+of the regression line.
 
 233
 00:11:02,090 --> 00:11:02,660
@@ -1088,7 +1088,7 @@ And so it's again the problem--
 
 235
 00:11:04,310 --> 00:11:09,260
-OK, how do I get the r square
+OK, how do I get the r squared
 into some plot math expression
 
 236
@@ -1122,7 +1122,7 @@ dataset, group by species,
 242
 00:11:25,400 --> 00:11:27,530
 summarize, calculate
-the r square.
+the r squared.
 
 243
 00:11:27,530 --> 00:11:30,710
@@ -1131,7 +1131,7 @@ table that has the species
 
 244
 00:11:30,710 --> 00:11:33,190
-names and the r square, right?
+names and the r squared, right?
 
 245
 00:11:33,190 --> 00:11:36,990
@@ -1140,8 +1140,8 @@ into our labels.
 
 246
 00:11:36,990 --> 00:11:39,923
-So this sample length and
-sample width, 8 and 4.5,
+So this sepal length and
+sepal width, 8 and 4.5,
 
 247
 00:11:39,923 --> 00:11:41,840
@@ -1178,7 +1178,7 @@ correlation coefficient,
 
 254
 00:11:55,745 --> 00:11:57,780
-and I know round
+and I round
 it to two digits.
 
 255
@@ -1203,7 +1203,7 @@ by the resulting string.
 259
 00:12:07,190 --> 00:12:14,420
 And then this goes into ggplot
-into a geom rich text which
+into a geom_richtext() which
 
 260
 00:12:14,420 --> 00:12:18,350
@@ -1299,7 +1299,7 @@ grid code, it should
 279
 00:13:14,330 --> 00:13:16,460
 be very easy to use
-the grid text package.
+the gridtext package.
 
 280
 00:13:16,460 --> 00:13:20,070
@@ -1348,8 +1348,8 @@ in the graphics parameters,
 
 289
 00:13:48,590 --> 00:13:52,040
-and then I call the grid.Draw
-draw function to draw it,
+and then I call the grid.draw()
+function to draw it,
 
 290
 00:13:52,040 --> 00:13:54,110
@@ -1366,8 +1366,8 @@ I draw the same string,
 
 293
 00:13:58,820 --> 00:14:03,150
-but using the rich text drawing
-function from grid text.
+but using the richtext drawing
+function from gridtext.
 
 294
 00:14:03,150 --> 00:14:05,130
@@ -1375,8 +1375,8 @@ And so it looks like this.
 
 295
 00:14:05,130 --> 00:14:10,130
-So now I have rich text grab
-text coordinates hjust gp.
+So now I have richtext_grob()
+text, coordinates, hjust, gp.
 
 296
 00:14:10,130 --> 00:14:12,870
@@ -1409,7 +1409,7 @@ much look exactly the same,
 
 302
 00:14:26,780 --> 00:14:27,780
-and then you just write.
+and then you just draw its.
 
 303
 00:14:30,720 --> 00:14:31,590
@@ -1441,7 +1441,7 @@ what I showed you and not more.
 309
 00:14:55,600 --> 00:15:03,130
 So the issue is that I'm
-not handing off the HMTL
+not handing off the HTML
 
 310
 00:15:03,130 --> 00:15:07,750
@@ -1463,7 +1463,7 @@ now to achieve that.
 
 314
 00:15:13,340 --> 00:15:17,180
-So I have to write my own
+So I had to write my own
 rendering engine from scratch.
 
 315
@@ -1589,7 +1589,7 @@ change going forward.
 341
 00:16:30,710 --> 00:16:36,672
 So with that, make plots
-with formative text.
+with formatted text.
 
 342
 00:16:36,672 --> 00:16:40,640
@@ -1770,12 +1770,12 @@ the advantage of using glue
 
 380
 00:18:15,020 --> 00:18:17,780
-over paste or paste zero?
+over paste() or paste0()?
 
 381
 00:18:17,780 --> 00:18:20,380
 So the advantage
-of glue over paste
+of glue() over paste()
 
 382
 00:18:20,380 --> 00:18:24,110
@@ -1818,12 +1818,12 @@ ah.
 
 391
 00:18:41,950 --> 00:18:44,050
-I mean, pace would
+I mean, paste() would
 work just the same.
 
 392
 00:18:44,050 --> 00:18:46,030
-If you like paste, use paste.
+If you like paste(), use paste().
 
 393
 00:18:46,030 --> 00:18:49,330
@@ -1847,7 +1847,7 @@ yes, this looks correct,
 
 397
 00:18:59,290 --> 00:19:03,490
-versus with paste, it gets a bit
+versus with paste(), it gets a bit
 more complicated to figure out
 
 398
