@@ -32,7 +32,8 @@ The ggtext package defines two new theme elements, `element_markdown()` and `ele
 Simple text labels are created with `element_markdown()`. To demonstrate typical usage, let's start with a basic plot of a parabola.
 
 ```{r message = FALSE}
-library(tidyverse)
+library(ggplot2)
+library(dplyr)
 library(ggtext)
 
 base <- ggplot(data.frame(x = c(-5, 5)), aes(x)) +
