@@ -50,7 +50,8 @@ from a \code{formula} (e.g. \code{~ head(.x, 10)}).}
 layer, as a string.}
 
 \item{position}{Position adjustment, either as a string, or the result of
-a call to a position adjustment function.}
+a call to a position adjustment function. Cannot be jointy specified with
+\code{nudge_x} or \code{nudge_y}.}
 
 \item{...}{Other arguments passed on to \code{\link[ggplot2:layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -58,10 +59,12 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 to the paired geom/stat.}
 
 \item{nudge_x}{Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.}
+Useful for offsetting text from points, particularly on discrete scales.
+Cannot be jointy specified with \code{position}.}
 
 \item{nudge_y}{Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.}
+Useful for offsetting text from points, particularly on discrete scales.
+Cannot be jointy specified with \code{position}.}
 
 \item{box.padding}{Unit vector of length four specifying the padding
 inside the text box.}

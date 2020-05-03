@@ -81,6 +81,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/introduction.html">Introduction to ggtext</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -161,7 +173,8 @@ layer, as a string.</p></td>
     <tr>
       <th>position</th>
       <td><p>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</p></td>
+a call to a position adjustment function. Cannot be jointy specified with
+<code>nudge_x</code> or <code>nudge_y</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
@@ -173,12 +186,14 @@ to the paired geom/stat.</p></td>
     <tr>
       <th>nudge_x</th>
       <td><p>Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.</p></td>
+Useful for offsetting text from points, particularly on discrete scales.
+Cannot be jointy specified with <code>position</code>.</p></td>
     </tr>
     <tr>
       <th>nudge_y</th>
       <td><p>Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.</p></td>
+Useful for offsetting text from points, particularly on discrete scales.
+Cannot be jointy specified with <code>position</code>.</p></td>
     </tr>
     <tr>
       <th>box.padding</th>
