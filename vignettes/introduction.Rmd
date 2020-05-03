@@ -33,7 +33,6 @@ Simple text labels are created with `element_markdown()`. To demonstrate typical
 
 ```{r message = FALSE}
 library(ggplot2)
-library(dplyr)
 library(ggtext)
 
 base <- ggplot(data.frame(x = c(-5, 5)), aes(x)) +
@@ -121,7 +120,9 @@ base +
 
 Additional styling can be applied via inline CSS. The CSS properties `color`, `font-size`, and `font-family` are currently supported. Multi-line labels can be created by placing `<br>` tags where line breaks are desired.
 
-```{r fig.width = 5}
+```{r fig.width = 5, message = FALSE}
+library(dplyr)
+
 mtcars %>%
   mutate(
     transmission = ifelse(am == 1, "automatic", "manual")
