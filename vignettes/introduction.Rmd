@@ -176,7 +176,7 @@ base <- mtcars %>%
     title = "Transmission type impacts fuel efficiency<br>
 <span style = 'font-size:10pt;'>Miles per gallon (MPG) is on average higher for cars
 with <span style = 'color:#0072B2;'>automatic transmission</span> than for cars with
-<span style = 'color:#D55E00;'> manual transmission.</span> However, MPG generally
+<span style = 'color:#D55E00;'>manual transmission.</span> However, MPG generally
 declines with increasing horse power.</span>"
   ) +
   theme_bw() + theme(plot.title.position = "plot")

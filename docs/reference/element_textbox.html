@@ -168,14 +168,14 @@ in the context of an existing theme.</p>
   <span class='kw'>size</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>colour</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>fill</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>box.colour</span> <span class='kw'>=</span> <span class='st'>"black"</span>,
+  <span class='kw'>box.colour</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>linetype</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>linewidth</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
   <span class='kw'>hjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
   <span class='kw'>vjust</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
   <span class='kw'>halign</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>valign</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>lineheight</span> <span class='kw'>=</span> <span class='fl'>1.1</span>,
+  <span class='kw'>lineheight</span> <span class='kw'>=</span> <span class='fl'>1.2</span>,
   <span class='kw'>margin</span> <span class='kw'>=</span> <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
   <span class='kw'>padding</span> <span class='kw'>=</span> <span class='kw pkg'>ggplot2</span><span class='kw ns'>::</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>margin</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>),
   <span class='kw'>width</span> <span class='kw'>=</span> <span class='kw pkg'>grid</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(<span class='fl'>1</span>, <span class='st'>"npc"</span>),
@@ -184,7 +184,7 @@ in the context of an existing theme.</p>
   <span class='kw'>maxwidth</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>minheight</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>maxheight</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>r</span> <span class='kw'>=</span> <span class='kw pkg'>grid</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(<span class='fl'>3</span>, <span class='st'>"pt"</span>),
+  <span class='kw'>r</span> <span class='kw'>=</span> <span class='kw pkg'>grid</span><span class='kw ns'>::</span><span class='fu'><a href='https://www.rdocumentation.org/packages/grid/topics/unit'>unit</a></span>(<span class='fl'>0</span>, <span class='st'>"pt"</span>),
   <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='st'>"upright"</span>,
   <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>box.color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -246,7 +246,7 @@ in the context of an existing theme.</p>
     </tr>
     <tr>
       <th>lineheight</th>
-      <td><p>Line height</p></td>
+      <td><p>Line height, in multiples of the font size</p></td>
     </tr>
     <tr>
       <th>padding, margin</th>

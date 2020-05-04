@@ -89,111 +89,203 @@
 <div id="markdown-text-in-theme-elements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#markdown-text-in-theme-elements" class="anchor"></a>Markdown text in theme elements</h2>
-<p>The ggtext package defines two new theme elements, <code><a href="../reference/element_markdown.html">element_markdown()</a></code> and <code><a href="../reference/element_textbox.html">element_textbox()</a></code>/<code><a href="../reference/element_textbox.html">element_textbox_simple()</a></code>, which can be used in place of <code>element_text()</code> in ggplot2 themes.</p>
+<p>The ggtext package defines two new theme elements, <code><a href="../reference/element_markdown.html">element_markdown()</a></code> and <code><a href="../reference/element_textbox.html">element_textbox()</a></code>/<code><a href="../reference/element_textbox.html">element_textbox_simple()</a></code>, which can be used in place of <code><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text()</a></code> in ggplot2 themes.</p>
 <div id="simple-text-labels" class="section level3">
 <h3 class="hasAnchor">
 <a href="#simple-text-labels" class="anchor"></a>Simple text labels</h3>
 <p>Simple text labels are created with <code><a href="../reference/element_markdown.html">element_markdown()</a></code>. To demonstrate typical usage, let’s start with a basic plot of a parabola.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggtext)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">base &lt;-<span class="st"> </span><span class="kw">ggplot</span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>)), <span class="kw">aes</span>(x)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="op">~</span><span class="st"> </span>.x<span class="op">*</span>.x)</a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">base &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>)), <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_function.html">stat_function</a></span>(<span class="dt">fun =</span> <span class="op">~</span><span class="st"> </span>.x<span class="op">*</span>.x)</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">base</a></code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-2-1.png" width="384"></p>
-<p>This plot would benefit from nicer axis labels. In particular, assume we want the x axis label to read “independent variable <em>x</em>” and the y axis label to read “dependent variable <em>y</em> = <em>x</em><sup>2</sup>”. In Markdown, we could write the axis labels as <code>independent variable *x*</code> and <code>dependent variable *y* = *x*&lt;sup&gt;2&lt;/sup&gt;</code>. However, if we do so, we need to tell ggplot2 to interpret the axis labels as Markdown and not as plain text. We do this by setting <code>axis.title.x</code> and <code>axis.title.y</code> to <code><a href="../reference/element_markdown.html">element_markdown()</a></code>. (Note that both are set to <code>element_text()</code> in the default theme.)</p>
+<p>This plot would benefit from nicer axis labels. In particular, assume we want the x axis label to read “independent variable <em>x</em>” and the y axis label to read “dependent variable <em>y</em> = <em>x</em><sup>2</sup>”. In Markdown, we could write the axis labels as <code>independent variable *x*</code> and <code>dependent variable *y* = *x*&lt;sup&gt;2&lt;/sup&gt;</code>. However, if we do so, we need to tell ggplot2 to interpret the axis labels as Markdown and not as plain text. We do this by setting <code>axis.title.x</code> and <code>axis.title.y</code> to <code><a href="../reference/element_markdown.html">element_markdown()</a></code>. (Note that both are set to <code><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text()</a></code> in the default theme.)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">base <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">    <span class="dt">x =</span> <span class="st">"independent variable *x*"</span>,</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">    <span class="dt">y =</span> <span class="st">"dependent variable *y* = *x*&lt;sup&gt;2&lt;/sup&gt;"</span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
 <a class="sourceLine" id="cb2-7" data-line-number="7">    <span class="dt">axis.title.x =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(),</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">    <span class="dt">axis.title.y =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>()</a>
 <a class="sourceLine" id="cb2-9" data-line-number="9">  )</a></code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-3-1.png" width="384"></p>
-<p>The new element <code><a href="../reference/element_markdown.html">element_markdown()</a></code> behaves just like <code>element_text()</code>. For example, we can modify the color or the font size.</p>
+<p>The new element <code><a href="../reference/element_markdown.html">element_markdown()</a></code> behaves just like <code><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text()</a></code>. For example, we can modify the color or the font size.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">base <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="dt">x =</span> <span class="st">"independent variable *x*"</span>,</a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="dt">y =</span> <span class="st">"dependent variable *y* = *x*&lt;sup&gt;2&lt;/sup&gt;"</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="dt">axis.title.x =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(<span class="dt">color =</span> <span class="st">"blue"</span>),</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="dt">axis.title.y =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(<span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">0.8</span>))</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="dt">axis.title.y =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(<span class="dt">size =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">rel</a></span>(<span class="fl">0.8</span>))</a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">  )</a></code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-4-1.png" width="384"></p>
 <p>Inheritance of theme settings also works. For example, we can set both color and font size for <code>axis.title</code>, and then both <code>axis.title.x</code> and <code>axis.title.y</code> inherit the setting.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">base <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="dt">x =</span> <span class="st">"independent variable *x*"</span>,</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">y =</span> <span class="st">"dependent variable *y* = *x*&lt;sup&gt;2&lt;/sup&gt;"</span></a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">0.8</span>)),</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">    <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">color =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">rel</a></span>(<span class="fl">0.8</span>)),</a>
 <a class="sourceLine" id="cb4-8" data-line-number="8">    <span class="dt">axis.title.x =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(),</a>
 <a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="dt">axis.title.y =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>()</a>
 <a class="sourceLine" id="cb4-10" data-line-number="10">  )</a></code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-5-1.png" width="384"></p>
-<p>Note that we used <code>element_text()</code> instead of <code><a href="../reference/element_markdown.html">element_markdown()</a></code> for <code>axis.title</code> in the above plot. We could have used <code><a href="../reference/element_markdown.html">element_markdown()</a></code> as well and the result would have been the same. It doesn’t matter that we set <code>axis.title = element_text()</code>, because the <code>axis.title</code> element isn’t actually rendered, only the <code>axis.title.x</code> and <code>axis.title.y</code> elements are. We’re setting <code>axis.title</code> only for the purpose of providing shared parameter values to <code>axis.title.x</code> and <code>axis.title.y</code>.</p>
+<p>Note that we used <code><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text()</a></code> instead of <code><a href="../reference/element_markdown.html">element_markdown()</a></code> for <code>axis.title</code> in the above plot. We could have used <code><a href="../reference/element_markdown.html">element_markdown()</a></code> as well and the result would have been the same. It doesn’t matter that we set <code>axis.title = element_text()</code>, because the <code>axis.title</code> element isn’t actually rendered, only the <code>axis.title.x</code> and <code>axis.title.y</code> elements are. We’re setting <code>axis.title</code> only for the purpose of providing shared parameter values to <code>axis.title.x</code> and <code>axis.title.y</code>.</p>
 <p>This is important to keep in mind when trying to create more unusual plots, e.g. with the y axis on the right. The naive code fails:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">base <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">    <span class="dt">x =</span> <span class="st">"independent variable *x*"</span>,</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">y =</span> <span class="st">"dependent variable *y* = *x*&lt;sup&gt;2&lt;/sup&gt;"</span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">position =</span> <span class="st">"right"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">0.8</span>)),</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">position =</span> <span class="st">"right"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">color =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">rel</a></span>(<span class="fl">0.8</span>)),</a>
 <a class="sourceLine" id="cb5-9" data-line-number="9">    <span class="dt">axis.title.x =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(),</a>
 <a class="sourceLine" id="cb5-10" data-line-number="10">    <span class="dt">axis.title.y =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>()</a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">  )</a></code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-6-1.png" width="384"></p>
 <p>This happens because the axis title on the right is actually drawn by <code>axis.title.y.right</code>. Therefore, setting that element to <code><a href="../reference/element_markdown.html">element_markdown()</a></code> creates the desired result.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">base <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">labs</span>(</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="dt">x =</span> <span class="st">"independent variable *x*"</span>,</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4">    <span class="dt">y =</span> <span class="st">"dependent variable *y* = *x*&lt;sup&gt;2&lt;/sup&gt;"</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">position =</span> <span class="st">"right"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">    <span class="dt">axis.title =</span> <span class="kw">element_text</span>(<span class="dt">color =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="kw">rel</span>(<span class="fl">0.8</span>)),</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span>(<span class="dt">position =</span> <span class="st">"right"</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">    <span class="dt">axis.title =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">color =</span> <span class="st">"blue"</span>, <span class="dt">size =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">rel</a></span>(<span class="fl">0.8</span>)),</a>
 <a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="dt">axis.title.x =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(),</a>
 <a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="dt">axis.title.y.right =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>()</a>
 <a class="sourceLine" id="cb6-11" data-line-number="11">  )</a></code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-7-1.png" width="384"></p>
 <p>Additional styling can be applied via inline CSS. The CSS properties <code>color</code>, <code>font-size</code>, and <code>font-family</code> are currently supported. Multi-line labels can be created by placing <code>&lt;br&gt;</code> tags where line breaks are desired.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="dt">transmission =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ifelse">ifelse</a></span>(am <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">"automatic"</span>, <span class="st">"manual"</span>)</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">  ) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(hp, mpg, <span class="dt">color =</span> transmission)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="st">  </span><span class="kw">scale_color_manual</span>(</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">    <span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dt">automatic =</span> <span class="st">"#0072B2"</span>, <span class="dt">manual =</span> <span class="st">"#D55E00"</span>),</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">    <span class="dt">guide =</span> <span class="st">"none"</span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">"Horse power"</span>,</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">"Miles per gallon (MPG)"</span>,</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">    <span class="dt">title =</span> <span class="st">"&lt;span style = 'font-size:14pt; font-family:Helvetica;'&gt;Transmission type impacts fuel efficiency&lt;/span&gt;&lt;br&gt;</span></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="st">MPG is higher for &lt;span style = 'color:#0072B2;'&gt;automatic&lt;/span&gt;</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"><span class="st">than for &lt;span style = 'color:#D55E00;'&gt;manual&lt;/span&gt; transmissions"</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb7-20" data-line-number="20">    <span class="dt">text =</span> <span class="kw">element_text</span>(<span class="dt">family =</span> <span class="st">"Times"</span>),</a>
-<a class="sourceLine" id="cb7-21" data-line-number="21">    <span class="dt">plot.title.position =</span> <span class="st">"plot"</span>,</a>
-<a class="sourceLine" id="cb7-22" data-line-number="22">    <span class="dt">plot.title =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(<span class="dt">size =</span> <span class="dv">11</span>, <span class="dt">lineheight =</span> <span class="fl">1.2</span>)</a>
-<a class="sourceLine" id="cb7-23" data-line-number="23">  )</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">mtcars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(</a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="dt">transmission =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ifelse">ifelse</a></span>(am <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">"automatic"</span>, <span class="st">"manual"</span>)</a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(hp, mpg, <span class="dt">color =</span> transmission)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dt">automatic =</span> <span class="st">"#0072B2"</span>, <span class="dt">manual =</span> <span class="st">"#D55E00"</span>),</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">    <span class="dt">guide =</span> <span class="st">"none"</span></a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">    <span class="dt">x =</span> <span class="st">"Horse power"</span>,</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">    <span class="dt">y =</span> <span class="st">"Miles per gallon (MPG)"</span>,</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">    <span class="dt">title =</span> <span class="st">"&lt;span style = 'font-size:14pt; font-family:Helvetica;'&gt;Transmission type impacts fuel efficiency&lt;/span&gt;&lt;br&gt;</span></a>
+<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="st">MPG is higher for &lt;span style = 'color:#0072B2;'&gt;automatic&lt;/span&gt;</span></a>
+<a class="sourceLine" id="cb7-18" data-line-number="18"><span class="st">than for &lt;span style = 'color:#D55E00;'&gt;manual&lt;/span&gt; transmissions"</span></a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-21" data-line-number="21"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">    <span class="dt">text =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span>(<span class="dt">family =</span> <span class="st">"Times"</span>),</a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">    <span class="dt">plot.title.position =</span> <span class="st">"plot"</span>,</a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">    <span class="dt">plot.title =</span> <span class="kw"><a href="../reference/element_markdown.html">element_markdown</a></span>(<span class="dt">size =</span> <span class="dv">11</span>, <span class="dt">lineheight =</span> <span class="fl">1.2</span>)</a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">  )</a></code></pre></div>
 <p><img src="introduction_files/figure-html/unnamed-chunk-8-1.png" width="480"></p>
 <p>We set the <code>lineheight</code> property to 1.2 because the default lineheight is too small for multi-line text labels rendered with <code><a href="../reference/element_markdown.html">element_markdown()</a></code>.</p>
 </div>
 <div id="text-boxes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#text-boxes" class="anchor"></a>Text boxes</h3>
-<p>Text boxes can be created with <code><a href="../reference/element_textbox.html">element_textbox()</a></code> or <code><a href="../reference/element_textbox.html">element_textbox_simple()</a></code>.</p>
+<p>Text boxes can be created with <code><a href="../reference/element_textbox.html">element_textbox()</a></code> or <code><a href="../reference/element_textbox.html">element_textbox_simple()</a></code>. Text boxes differ from labels created with <code><a href="../reference/element_markdown.html">element_markdown()</a></code> in that they tend to have a specific width and wrap their contents so it fits that width. The height of a textbox is normally calculated automatically so it matches the content height, but explicitly setting the height is also possible. Finally, while markdown labels can be displayed at any angle, textboxes have only four possible orientations, upright, left-rotated, right-rotated, and inverted.</p>
+<p>In practice, setting a theme element to <code><a href="../reference/element_textbox.html">element_textbox()</a></code> in a ggplot2 theme will frequently not have the desired result, because textboxes require many additional parameters that are not set by the parent text elements present in standard themes. To work around this issue, you can use <code><a href="../reference/element_textbox.html">element_textbox_simple()</a></code>. It sets reasonable defaults for the additional parameters and thus can be used more readily. You will usually be able to use <code><a href="../reference/element_textbox.html">element_textbox_simple()</a></code> as is, with only a few parameter adjustments required.</p>
+<p>The following example adds both a title and a subtitle to the plot by drawing one single text box.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">base &lt;-<span class="st"> </span>mtcars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="dt">transmission =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ifelse">ifelse</a></span>(am <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">"automatic"</span>, <span class="st">"manual"</span>)</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(hp, mpg, <span class="dt">color =</span> transmission)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(</a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dt">automatic =</span> <span class="st">"#0072B2"</span>, <span class="dt">manual =</span> <span class="st">"#D55E00"</span>),</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">    <span class="dt">guide =</span> <span class="st">"none"</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">"Horse power"</span>,</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">"Miles per gallon (MPG)"</span>,</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">    <span class="dt">title =</span> <span class="st">"Transmission type impacts fuel efficiency&lt;br&gt;</span></a>
+<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="st">&lt;span style = 'font-size:10pt;'&gt;Miles per gallon (MPG) is on average higher for cars</span></a>
+<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="st">with &lt;span style = 'color:#0072B2;'&gt;automatic transmission&lt;/span&gt; than for cars with</span></a>
+<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="st">&lt;span style = 'color:#D55E00;'&gt; manual transmission.&lt;/span&gt; However, MPG generally</span></a>
+<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="st">declines with increasing horse power.&lt;/span&gt;"</span></a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-20" data-line-number="20"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">plot.title.position =</span> <span class="st">"plot"</span>)</a>
+<a class="sourceLine" id="cb8-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">base <span class="op">+</span></a>
+<a class="sourceLine" id="cb8-23" data-line-number="23"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">    <span class="dt">plot.title =</span> <span class="kw"><a href="../reference/element_textbox.html">element_textbox_simple</a></span>(</a>
+<a class="sourceLine" id="cb8-25" data-line-number="25">      <span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">lineheight =</span> <span class="dv">1</span>, <span class="dt">padding =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">    )</a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">  )</a></code></pre></div>
+<p><img src="introduction_files/figure-html/unnamed-chunk-9-1.png" width="480"></p>
+<p>Text boxes can have a background color and a border, and they have internal padding and external margins.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">base <span class="op">+</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw"><a href="../reference/element_textbox.html">element_textbox_simple</a></span>(</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">      <span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">lineheight =</span> <span class="dv">1</span>,</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">      <span class="dt">linetype =</span> <span class="dv">1</span>, <span class="co"># turn on border</span></a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">      <span class="dt">box.color =</span> <span class="st">"#748696"</span>, <span class="co"># border color</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">      <span class="dt">fill =</span> <span class="st">"#F0F7FF"</span>, <span class="co"># background fill color</span></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">      <span class="dt">r =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="dv">3</span>, <span class="st">"pt"</span>), <span class="co"># radius for rounded corners</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9">      <span class="dt">padding =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>), <span class="co"># padding around text inside the box</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10">      <span class="dt">margin =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>) <span class="co"># margin outside the box</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11">    )</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">  )</a></code></pre></div>
+<p><img src="introduction_files/figure-html/unnamed-chunk-10-1.png" width="480"></p>
+<p>We can explicitly restrict the width of the box, and we can align the box relative to the enclosing space (with <code>hjust</code> and <code>vjust</code>) and the box content relative to the box edges (with <code>halign</code> and <code>valign</code>, not shown).</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">base <span class="op">+</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">    <span class="dt">plot.title =</span> <span class="kw"><a href="../reference/element_textbox.html">element_textbox_simple</a></span>(</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">      <span class="dt">size =</span> <span class="dv">14</span>, <span class="dt">lineheight =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">      <span class="dt">width =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="dv">4</span>, <span class="st">"in"</span>), <span class="co"># fixed width</span></a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">      <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="co"># alignment of box relative to plot</span></a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">      <span class="dt">linetype =</span> <span class="dv">1</span>, <span class="co"># turn on border</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">      <span class="dt">box.color =</span> <span class="st">"#748696"</span>, <span class="co"># border color</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">      <span class="dt">fill =</span> <span class="st">"#F0F7FF"</span>, <span class="co"># background fill color</span></a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">      <span class="dt">r =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="dv">3</span>, <span class="st">"pt"</span>), <span class="co"># radius for rounded corners</span></a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">      <span class="dt">padding =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>), <span class="co"># padding around text inside the box</span></a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">      <span class="dt">margin =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>) <span class="co"># margin outside the box</span></a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">    )</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">  )</a></code></pre></div>
+<p><img src="introduction_files/figure-html/unnamed-chunk-11-1.png" width="480"></p>
+<p>If we want a box to be rotated, we can use the <code>orientation</code> parameter.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">mtcars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">    <span class="dt">transmission =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/ifelse">ifelse</a></span>(am <span class="op">==</span><span class="st"> </span><span class="dv">1</span>, <span class="st">"automatic"</span>, <span class="st">"manual"</span>)</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  ) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(hp, mpg, <span class="dt">color =</span> transmission)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_color_manual</a></span>(</a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">    <span class="dt">values =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dt">automatic =</span> <span class="st">"#0072B2"</span>, <span class="dt">manual =</span> <span class="st">"#D55E00"</span>),</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">    <span class="dt">guide =</span> <span class="st">"none"</span></a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-11" data-line-number="11"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span>(</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">    <span class="dt">x =</span> <span class="st">"Horse power"</span>,</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">    <span class="dt">y =</span> <span class="st">"Miles per gallon (MPG) is on average higher for cars with &lt;span style =</span></a>
+<a class="sourceLine" id="cb11-14" data-line-number="14"><span class="st">'color:#0072B2;'&gt;automatic transmission&lt;/span&gt; than for cars with &lt;span style =</span></a>
+<a class="sourceLine" id="cb11-15" data-line-number="15"><span class="st">'color:#D55E00;'&gt;manual transmission.&lt;/span&gt;"</span>,</a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">    <span class="dt">title =</span> <span class="st">"Transmission type impacts fuel efficiency"</span></a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">  ) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-18" data-line-number="18"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-19" data-line-number="19"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(</a>
+<a class="sourceLine" id="cb11-20" data-line-number="20">    <span class="dt">plot.title.position =</span> <span class="st">"plot"</span>,</a>
+<a class="sourceLine" id="cb11-21" data-line-number="21">    <span class="dt">axis.title.y =</span> <span class="kw"><a href="../reference/element_textbox.html">element_textbox_simple</a></span>(</a>
+<a class="sourceLine" id="cb11-22" data-line-number="22">      <span class="dt">orientation =</span> <span class="st">"left-rotated"</span>,</a>
+<a class="sourceLine" id="cb11-23" data-line-number="23">      <span class="dt">width =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="fl">2.5</span>, <span class="st">"in"</span>),</a>
+<a class="sourceLine" id="cb11-24" data-line-number="24">      <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">fill =</span> <span class="st">"#F0F7FF"</span>,  </a>
+<a class="sourceLine" id="cb11-25" data-line-number="25">      <span class="dt">padding =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">5</span>),</a>
+<a class="sourceLine" id="cb11-26" data-line-number="26">      <span class="dt">margin =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb11-27" data-line-number="27">    )</a>
+<a class="sourceLine" id="cb11-28" data-line-number="28">  )</a></code></pre></div>
+<p><img src="introduction_files/figure-html/unnamed-chunk-12-1.png" width="384"></p>
 </div>
 </div>
 <div id="plotting-with-markdown-text" class="section level2">
