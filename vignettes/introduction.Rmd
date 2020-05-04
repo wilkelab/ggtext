@@ -153,7 +153,110 @@ We set the `lineheight` property to 1.2 because the default lineheight is too sm
 
 ### Text boxes
 
-Text boxes can be created with `element_textbox()` or `element_textbox_simple()`.
+Text boxes can be created with `element_textbox()` or `element_textbox_simple()`. Text boxes differ from labels created with `element_markdown()` in that they tend to have a specific width and wrap their contents so it fits that width. The height of a textbox is normally calculated automatically so it matches the content height, but explicitly setting the height is also possible. Finally, while markdown labels can be displayed at any angle, textboxes have only four possible orientations, upright, left-rotated, right-rotated, and inverted.
+
+In practice, setting a theme element to `element_textbox()` in a ggplot2 theme will frequently not have the desired result, because textboxes require many additional parameters that are not set by the parent text elements present in standard themes. To work around this issue, you can use `element_textbox_simple()`. It sets reasonable defaults for the additional parameters and thus can be used more readily. You will usually be able to use `element_textbox_simple()` as is, with only a few parameter adjustments required. 
+
+The following example adds both a title and a subtitle to the plot by drawing one single text box.
+
+```{r fig.width = 5, message = FALSE}
+base <- mtcars %>%
+  mutate(
+    transmission = ifelse(am == 1, "automatic", "manual")
+  ) %>%
+  ggplot(aes(hp, mpg, color = transmission)) +
+  geom_point(size = 2) +
+  scale_color_manual(
+    values = c(automatic = "#0072B2", manual = "#D55E00"),
+    guide = "none"
+  ) +
+  labs(
+    x = "Horse power",
+    y = "Miles per gallon (MPG)",
+    title = "Transmission type impacts fuel efficiency<br>
+<span style = 'font-size:10pt;'>Miles per gallon (MPG) is on average higher for cars
+with <span style = 'color:#0072B2;'>automatic transmission</span> than for cars with
+<span style = 'color:#D55E00;'> manual transmission.</span> However, MPG generally
+declines with increasing horse power.</span>"
+  ) +
+  theme_bw() + theme(plot.title.position = "plot")
+
+base +
+  theme(
+    plot.title = element_textbox_simple(
+      size = 14, lineheight = 1, padding = margin(0, 0, 5, 0)
+    )
+  )
+```
+
+Text boxes can have a background color and a border, and they have internal padding and external margins.
+
+```{r fig.width = 5, message = FALSE}
+base +
+  theme(
+    plot.title = element_textbox_simple(
+      size = 14, lineheight = 1,
+      linetype = 1, # turn on border
+      box.color = "#748696", # border color
+      fill = "#F0F7FF", # background fill color
+      r = grid::unit(3, "pt"), # radius for rounded corners
+      padding = margin(5, 5, 5, 5), # padding around text inside the box
+      margin = margin(0, 0, 10, 0) # margin outside the box
+    )
+  )
+```
+
+We can explicitly restrict the width of the box, and we can align the box relative to the enclosing space (with `hjust` and `vjust`) and the box content relative to the box edges (with `halign` and `valign`, not shown).
+
+```{r fig.width = 5, message = FALSE}
+base +
+  theme(
+    plot.title = element_textbox_simple(
+      size = 14, lineheight = 1, 
+      width = grid::unit(4, "in"), # fixed width
+      hjust = 1, # alignment of box relative to plot
+      linetype = 1, # turn on border
+      box.color = "#748696", # border color
+      fill = "#F0F7FF", # background fill color
+      r = grid::unit(3, "pt"), # radius for rounded corners
+      padding = margin(5, 5, 5, 5), # padding around text inside the box
+      margin = margin(0, 0, 10, 0) # margin outside the box
+    )
+  )
+```
+
+If we want a box to be rotated, we can use the `orientation` parameter.
+
+```{r}
+mtcars %>%
+  mutate(
+    transmission = ifelse(am == 1, "automatic", "manual")
+  ) %>%
+  ggplot(aes(hp, mpg, color = transmission)) +
+  geom_point(size = 2) +
+  scale_color_manual(
+    values = c(automatic = "#0072B2", manual = "#D55E00"),
+    guide = "none"
+  ) +
+  labs(
+    x = "Horse power",
+    y = "Miles per gallon (MPG) is on average higher for cars with <span style =
+'color:#0072B2;'>automatic transmission</span> than for cars with <span style =
+'color:#D55E00;'>manual transmission.</span>",
+    title = "Transmission type impacts fuel efficiency"
+  ) +
+  theme_bw() + 
+  theme(
+    plot.title.position = "plot",
+    axis.title.y = element_textbox_simple(
+      orientation = "left-rotated",
+      width = grid::unit(2.5, "in"),
+      hjust = 0, fill = "#F0F7FF",  
+      padding = margin(5, 5, 5, 5),
+      margin = margin(0, 0, 10, 0)
+    )
+  )
+```
 
 ## Plotting with markdown text
 

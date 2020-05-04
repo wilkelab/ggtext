@@ -48,7 +48,7 @@ element_textbox_simple(
   vjust = 0.5,
   halign = 0,
   valign = 1,
-  lineheight = 1.1,
+  lineheight = 1.2,
   margin = ggplot2::margin(0, 0, 0, 0),
   padding = ggplot2::margin(0, 0, 0, 0),
   width = grid::unit(1, "npc"),
@@ -91,7 +91,7 @@ element_textbox_simple(
 
 \item{valign}{Vertical justification}
 
-\item{lineheight}{Line height}
+\item{lineheight}{Line height, in multiples of the font size}
 
 \item{padding, margin}{Padding and margins around the text box.
 See \code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}} for details.}

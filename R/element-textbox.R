@@ -21,7 +21,7 @@
 #' @param vjust Vertical justification
 #' @param halign Horizontal justification
 #' @param valign Vertical justification
-#' @param lineheight Line height
+#' @param lineheight Line height, in multiples of the font size
 #' @param width,height Unit objects specifying the width and height
 #'   of the textbox, as in [gridtext::textbox_grob()].
 #' @param minwidth,minheight,maxwidth,maxheight Min and max values for width and height.
@@ -106,7 +106,7 @@ element_textbox <- function(family = NULL, face = NULL, size = NULL, colour = NU
 #' @export
 element_textbox_simple <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NA,
                             box.colour = NULL, linetype = 0, linewidth = 0.5,
-                            hjust = 0.5, vjust = 0.5, halign = 0, valign = 1, lineheight = 1.1,
+                            hjust = 0.5, vjust = 0.5, halign = 0, valign = 1, lineheight = 1.2,
                             margin = ggplot2::margin(0, 0, 0, 0), padding = ggplot2::margin(0, 0, 0, 0),
                             width = grid::unit(1, "npc"), height = NULL, minwidth = NULL,
                             maxwidth = NULL, minheight = NULL, maxheight = NULL, r = grid::unit(0, "pt"),
