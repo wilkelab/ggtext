@@ -9,5 +9,6 @@
 ^ISSUE_TEMPLATE\.md$
 ^TODO\.Rmd$
 ^revdep$
+^docs$
 ^LICENSE\.md$
 

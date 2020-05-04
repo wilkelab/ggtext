@@ -1,6 +1,6 @@
 Package: ggtext
 Type: Package
-Title: Improved text rendering support for 'ggplot2'
+Title: Improved Text Rendering Support for 'ggplot2'
 Version: 0.1.0
 Authors@R: 
     person(
@@ -10,7 +10,10 @@ Authors@R:
       email = "wilke@austin.utexas.edu",
       comment = c(ORCID = "0000-0002-7470-9261")
     )
-Description: This package provides richtext rendering capabilities for 'ggplot2'. 
+Description: A 'ggplot2' extension that enables the rendering of
+    complex formatted plot labels (titles, subtitles, facet labels,
+    axis labels, etc.). Text boxes with automatic word wrap are also
+    supported.
 URL: https://wilkelab.org/ggtext
 BugReports: https://github.com/wilkelab/ggtext/issues
 License: GPL-2 | file LICENSE
@@ -29,8 +32,6 @@ Suggests:
     rmarkdown,
     testthat,
     vdiffr
-Remotes:
-    tidyverse/ggplot2
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
