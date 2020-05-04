@@ -105,11 +105,11 @@ element_textbox <- function(family = NULL, face = NULL, size = NULL, colour = NU
 #' @rdname element_textbox
 #' @export
 element_textbox_simple <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NA,
-                            box.colour = "black", linetype = 0, linewidth = 0.5,
+                            box.colour = NULL, linetype = 0, linewidth = 0.5,
                             hjust = 0.5, vjust = 0.5, halign = 0, valign = 1, lineheight = 1.1,
                             margin = ggplot2::margin(0, 0, 0, 0), padding = ggplot2::margin(0, 0, 0, 0),
                             width = grid::unit(1, "npc"), height = NULL, minwidth = NULL,
-                            maxwidth = NULL, minheight = NULL, maxheight = NULL, r = grid::unit(3, "pt"),
+                            maxwidth = NULL, minheight = NULL, maxheight = NULL, r = grid::unit(0, "pt"),
                             orientation = "upright", color = NULL, box.color = NULL,
                             debug = FALSE, inherit.blank = FALSE) {
   element_textbox(
