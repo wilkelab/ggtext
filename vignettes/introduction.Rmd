@@ -17,14 +17,6 @@ knitr::opts_chunk$set(
 ```
 
 
-The ggtext package provides simple Markdown and HTML rendering for ggplot2. Under the hood, the package uses the [gridtext](https://CRAN.R-project.org/package=gridtext) package for the actual rendering, and consequently it is limited to the feature set provided by gridtext.
-
-It is important to realize that **gridtext implements an extremely limited subset** of Markdown/HTML/CSS. It currently can make text bold or italics, can change the font, color, or size of a piece of text, can place text as sub- or superscript, and has extremely rudimentary image support. No other features are currently supported. As a general rule, it's good to assume that any Markdown, HTML, or CSS feature that isn't shown in any of the ggtext or gridtext documentation doesn't exist.
-
-Support is provided for Markdown both in theme elements and in geoms. In both cases, there are two alternatives, one for creating simple text labels and one for creating text boxes with word wrapping.
-
-## Markdown text in theme elements
-
 The ggtext package defines two new theme elements, `element_markdown()` and `element_textbox()`/`element_textbox_simple()`, which can be used in place of `element_text()` in ggplot2 themes.
 
 ### Simple text labels

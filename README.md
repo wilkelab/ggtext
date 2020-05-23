@@ -17,10 +17,26 @@ status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org
 maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 <!-- badges: end -->
 
-This package provides rich-text (basic HTML and Markdown) support for
-ggplot2. Rich text can be used in plot annotations (plot titles,
-subtitles, captions, axis labels, legends, etc.) and to visualize
-textual data, as one would normally do with `geom_text()`.
+The ggtext package provides simple Markdown and HTML rendering for
+ggplot2. Under the hood, the package uses the
+[gridtext](https://CRAN.R-project.org/package=gridtext) package for the
+actual rendering, and consequently it is limited to the feature set
+provided by gridtext.
+
+Support is provided for Markdown both in theme elements (plot titles,
+subtitles, captions, axis labels, legends, etc.) and in geoms (similar
+to `geom_text()`). In both cases, there are two alternatives, one for
+creating simple text labels and one for creating text boxes with word
+wrapping.
+
+Importantly, the gridtext package that provides the rendering support
+**implements only an extremely limited subset of Markdown/HTML/CSS.** It
+currently can make text bold or italics, can change the font, color, or
+size of a piece of text, can place text as sub- or superscript, and has
+extremely rudimentary image support. No other features are currently
+supported. As a general rule, any Markdown, HTML, or CSS feature that
+isn’t shown in any of the ggtext or gridtext documentation likely
+doesn’t exist.
 
 ## Installation
 
@@ -38,15 +54,7 @@ latest release via `install.packages()` as usual:
 install.packages("ggtext")
 ```
 
-## Examples
-
-Rich text formatting support is provided both in theme elements and via
-geoms. All text rendering is performed via either `richtext_grob()` or
-`textbox_grob()` from the [gridtext](https://wilkelab.org/gridtext)
-package, and the featureset supported is equivalent to the features
-provided by these grobs.
-
-### Markdown in theme elements
+## Markdown in theme elements
 
 The ggtext package defines two new theme elements, `element_markdown()`
 and `element_textbox()`. Both behave similarly to `element_text()` but
@@ -55,30 +63,34 @@ as a direct replacement for `element_text()`, and it renders text
 without word wrapping. To start a new line, use the `<br>` tag or add
 two spaces before the end of a line.
 
-``` r
-library(ggplot2)
-library(ggtext)
+As an example, we can mix regular, italics, and bold text, and we can
+also apply colors to axis tick labels. This particular example was
+inspired by [this stackoverflow
+post.](https://stackoverflow.com/questions/39282293/r-ggplot2-using-italics-and-non-italics-in-the-same-category-label)
 
-ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
-  geom_point(size = 3) +
-  scale_color_manual(
-    name = NULL,
-    values = c(setosa = "#0072B2", virginica = "#009E73", versicolor = "#D55E00"),
-    labels = c(
-      setosa = "<i style='color:#0072B2'>I. setosa</i>",
-      virginica = "<i style='color:#009E73'>I. virginica</i>",
-      versicolor = "<i style='color:#D55E00'>I. versicolor</i>")
-  ) +
-  labs(
-    title = "**Fisher's *Iris* dataset**  
-    <span style='font-size:11pt'>Sepal width vs. sepal length for three *Iris*
-    species</span>",
-    x = "Sepal length (cm)", y = "Sepal width (cm)"
-  ) +
-  theme_minimal() +
+``` r
+library(tidyverse)
+library(ggtext)
+library(glue)
+
+data <- tibble(
+  bactname = c("Staphylococcaceae", "Moraxella", "Streptococcus", "Acinetobacter"),
+  OTUname = c("OTU 1", "OTU 2", "OTU 3", "OTU 4"),
+  value = c(-0.5, 0.5, 2, 3)
+)
+
+data %>% mutate(
+  color = c("#009E73", "#D55E00", "#0072B2", "#000000"),
+  name = glue("<i style='color:{color}'>{bactname}</i> ({OTUname})"),
+  name = fct_reorder(name, value)
+)  %>%
+  ggplot(aes(value, name, fill = color)) + 
+  geom_col(alpha = 0.5) + 
+  scale_fill_identity() +
+  labs(caption = "Example posted on **stackoverflow.com**<br>(using made-up data)") +
   theme(
-    plot.title = element_markdown(lineheight = 1.1),
-    legend.text = element_markdown(size = 11)
+    axis.text.y = element_markdown(),
+    plot.caption = element_markdown(lineheight = 1.2)
   )
 ```
 
@@ -186,7 +198,7 @@ ggplot(mpg, aes(cty, hwy)) +
 
 ![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
 
-### Geoms
+## Geoms
 
 The geom `geom_richtext()` provides markdown/html labels. Unlike
 `geom_label()`, the labels can be rotated.
