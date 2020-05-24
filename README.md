@@ -124,7 +124,7 @@ ggplot(iris, aes(Species, Sepal.Width)) +
 
 `element_textbox()` offers support for rendering larger amounts of text
 that require word wrapping. Unlike `element_markdown()`, it cannot be
-used for axis tick labels, and it cannot draw text at arbitary angles,
+used for axis tick labels, and it cannot draw text at arbitrary angles,
 only at fixed orientations corresponding to 0, 90, 180, and 270 degrees.
 In practice, you will usually want to use `element_textbox_simple()`
 instead of `element_textbox()`, as it sets useful defaults for many

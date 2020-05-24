@@ -156,7 +156,7 @@ p <- ggplot() +
 p
 ```
 
-If we specify a relative width, then changing the size of the plot will change the size of the textbox. The text will reflow to accomodate this change.
+If we specify a relative width, then changing the size of the plot will change the size of the textbox. The text will reflow to accommodate this change.
 ```{r fig.width = 4, fig.height = 4}
 p
 ```
