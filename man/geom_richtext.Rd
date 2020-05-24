@@ -17,6 +17,7 @@ geom_richtext(
   nudge_x = 0,
   nudge_y = 0,
   label.padding = unit(c(0.25, 0.25, 0.25, 0.25), "lines"),
+  label.margin = unit(c(0, 0, 0, 0), "lines"),
   label.r = unit(0.15, "lines"),
   na.rm = FALSE,
   show.legend = NA,
@@ -66,6 +67,9 @@ Cannot be jointy specified with \code{position}.}
 
 \item{label.padding}{Amount of padding around label. Defaults to 0.25 lines.}
 
+\item{label.margin}{Unit vector of length four specifying the margin
+outside the text label.}
+
 \item{label.r}{Radius of rounded corners. Defaults to 0.15 lines.}
 
 \item{na.rm}{If \code{FALSE}, the default, missing values are removed with
@@ -84,8 +88,38 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 }
 \description{
 This draws text labels similar to \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, but formatted
-using basic markdown/html.
+using basic markdown/html. Parameter and aesthetic names follow the conventions
+of \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, and therefore the appearance of the frame around
+the label is controlled with \code{label.colour}, \code{label.padding}, \code{label.margin},
+\code{label.size}, \code{label.r}, even though the same parameters are called \code{box.colour},
+\code{box.padding}, \code{box.margin}, \code{box.size}, and \code{box.r} in \code{\link[=geom_textbox]{geom_textbox()}}.
 }
+\section{Aesthetics}{
+
+
+\code{geom_richtext()} understands the following aesthetics (required
+aesthetics are in bold; select aesthetics are annotated):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \strong{\code{label}}
+\item \code{alpha}
+\item \code{angle}
+\item \code{colour} Default color of label text and label outline.
+\item \code{family}
+\item \code{fontface}
+\item \code{fill} Default fill color of label background.
+\item \code{group}
+\item \code{hjust}
+\item \code{label.colour} Color of label outline. Overrides \code{colour}.
+\item \code{label.size} Width of label outline.
+\item \code{lineheight}
+\item \code{size} Default font size of label text.
+\item \code{text.colour} Color of label text. Overrides \code{colour}.
+\item \code{vjust}
+}
+}
+
 \examples{
 library(ggplot2)
 
@@ -130,5 +164,8 @@ ggplot(df) +
   geom_point(color = "black", size = 2) +
   scale_color_identity() +
   xlim(0, 1) + ylim(0, 1)
+}
+\seealso{
+\code{\link[=geom_textbox]{geom_textbox()}}, \code{\link[=element_markdown]{element_markdown()}}
 }
 \keyword{datasets}

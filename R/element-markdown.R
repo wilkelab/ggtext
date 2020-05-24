@@ -30,7 +30,7 @@
 #'   `element_text()`.
 #' @param debug Draw a debugging box around each label
 #' @param inherit.blank See [ggplot2::margin()] for details.
-#' @seealso [gridtext::richtext_grob()], [element_textbox()]
+#' @seealso [gridtext::richtext_grob()], [element_textbox()], [geom_richtext()]
 #' @export
 element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NULL,
                              box.colour = NULL, linetype = NULL, linewidth = NULL,

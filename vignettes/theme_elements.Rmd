@@ -1,8 +1,8 @@
 ---
-title: "Introduction to ggtext"
+title: "Markdown theme elements"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Introduction}
+  %\VignetteIndexEntry{Theme elements}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -249,13 +249,3 @@ mtcars %>%
     )
   )
 ```
-
-## Plotting with markdown text
-
-### Simple text labels
-
-Markdown-formatted text labels can be placed into a plot with `geom_richtext()`.
-
-### Text boxes
-
-Markdown-formatted text boxes (with word wrap) can be placed into a plot with `geom_textbox()`.

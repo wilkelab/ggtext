@@ -1,10 +1,40 @@
 #' Rich text labels
 #'
 #' This draws text labels similar to [ggplot2::geom_label()], but formatted
-#' using basic markdown/html.
+#' using basic markdown/html. Parameter and aesthetic names follow the conventions
+#' of [ggplot2::geom_label()], and therefore the appearance of the frame around
+#' the label is controlled with `label.colour`, `label.padding`, `label.margin`,
+#' `label.size`, `label.r`, even though the same parameters are called `box.colour`,
+#' `box.padding`, `box.margin`, `box.size`, and `box.r` in [geom_textbox()].
+#' 
+#' @section Aesthetics:
+#' 
+#' `geom_richtext()` understands the following aesthetics (required 
+#' aesthetics are in bold; select aesthetics are annotated):
+#' 
+#' * **`x`**
+#' * **`y`**
+#' * **`label`**
+#' * `alpha`
+#' * `angle`
+#' * `colour` Default color of label text and label outline.
+#' * `family`
+#' * `fontface`
+#' * `fill` Default fill color of label background.
+#' * `group`
+#' * `hjust`
+#' * `label.colour` Color of label outline. Overrides `colour`.
+#' * `label.size` Width of label outline.
+#' * `lineheight`
+#' * `size` Default font size of label text.
+#' * `text.colour` Color of label text. Overrides `colour`. 
+#' * `vjust`
 #' 
 #' @inheritParams ggplot2::geom_text
 #' @inheritParams ggplot2::geom_label
+#' @param label.margin Unit vector of length four specifying the margin
+#'   outside the text label.
+#' @seealso [geom_textbox()], [element_markdown()]
 #' @examples
 #' library(ggplot2)
 #' 
@@ -56,6 +86,7 @@ geom_richtext <- function(mapping = NULL, data = NULL,
                       nudge_x = 0,
                       nudge_y = 0,
                       label.padding = unit(c(0.25, 0.25, 0.25, 0.25), "lines"),
+                      label.margin = unit(c(0, 0, 0, 0), "lines"),
                       label.r = unit(0.15, "lines"),
                       na.rm = FALSE,
                       show.legend = NA,
@@ -79,6 +110,7 @@ geom_richtext <- function(mapping = NULL, data = NULL,
     inherit.aes = inherit.aes,
     params = list(
       label.padding = label.padding,
+      label.margin = label.margin,
       label.r = label.r,
       na.rm = na.rm,
       ...
@@ -101,6 +133,7 @@ GeomRichText <- ggproto("GeomRichText", Geom,
 
   draw_panel = function(data, panel_params, coord, 
                         label.padding = unit(c(0.25, 0.25, 0.25, 0.25), "lines"),
+                        label.margin = unit(c(0, 0, 0, 0), "lines"),
                         label.r = unit(0.15, "lines"),
                         na.rm = FALSE) {
     data <- coord$transform(data, panel_params)
@@ -117,6 +150,7 @@ GeomRichText <- ggproto("GeomRichText", Geom,
       hjust = data$hjust, vjust = data$vjust,
       rot = data$angle,
       padding = label.padding,
+      margin = label.margin,
       gp = gpar(
         col = scales::alpha(data$text.colour %||% data$colour, data$alpha),
         fontsize = data$size * .pt,

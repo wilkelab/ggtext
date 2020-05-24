@@ -204,7 +204,7 @@ The geom `geom_richtext()` provides markdown/html labels. Unlike
 `geom_label()`, the labels can be rotated.
 
 ``` r
-df <- data.frame(
+df <- tibble(
   label = c(
     "Some text **in bold.**",
     "Linebreaks<br>Linebreaks<br>Linebreaks",
@@ -260,7 +260,7 @@ not support arbitrary rotation angles, only fixed orientations, just
 like `element_textbox()`.
 
 ``` r
-df <- data.frame(
+df <- tibble(
   label = rep("Lorem ipsum dolor **sit amet,** consectetur adipiscing elit,
     sed do *eiusmod tempor incididunt* ut labore et dolore magna
     aliqua.", 2),

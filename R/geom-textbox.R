@@ -2,17 +2,46 @@
 #'
 #' Draw boxes of defined width and height containing word-wrapped text.
 #' 
+#' @section Aesthetics:
+#' 
+#' `geom_richtext()` understands the following aesthetics (required 
+#' aesthetics are in bold; select aesthetics are annotated):
+#' 
+#' * **`x`**
+#' * **`y`**
+#' * **`label`**
+#' * `alpha`
+#' * `box.colour` Color of box outline. Overrides `colour`.
+#' * `box.size` Width of box outline.
+#' * `colour` Default color of box text and box outline.
+#' * `family`
+#' * `fontface`
+#' * `fill` Default fill color of box background.
+#' * `group`
+#' * `halign` Horizontal alignment of text inside box.
+#' * `hjust` Horizontal alignment of box.
+#' * `lineheight`
+#' * `orientation` One of `"upright"`, `"left-rotated"`,
+#'     `"right-rotated"`, `"inverted"`.
+#' * `size` Default font size of box text.
+#' * `text.colour` Color of box text. Overrides `colour`.
+#' * `valign` Vertical alignment of text inside box.
+#' * `vjust` Vertical alignment of box.
+#'
 #' @inheritParams ggplot2::geom_text
 #' @param width,height Unit values specifying the width and height of
-#'   the text box. If `height = NULL` (the default), the height is chosen
-#'   automatically to accommodate all the text.
+#'   the text box (including margins!). If `height = NULL` (the default),
+#'   the height is chosen automatically to accommodate all the text.
 #' @param minwidth,maxwidth,minheight,maxheight Unit values specifying
 #'   the minimum and maximum values for `width` and `height`, respectively.
 #'   If set to `NULL`, are not enforced.
 #' @param box.padding Unit vector of length four specifying the padding
 #'   inside the text box.
+#' @param box.margin Unit vector of length four specifying the margin
+#'   outside the text box.
 #' @param box.r Unit vector of length one specifying the radius of the
 #'   box.
+#' @seealso [geom_richtext()], [element_textbox()]
 #' @examples
 #' library(ggplot2)
 #' 
@@ -46,6 +75,7 @@ geom_textbox <- function(mapping = NULL, data = NULL,
                          nudge_x = 0,
                          nudge_y = 0,
                          box.padding = unit(c(5.5, 5.5, 5.5, 5.5), "pt"),
+                         box.margin = unit(c(0, 0, 0, 0), "pt"),
                          box.r = unit(5.5, "pt"),
                          width = unit(2, "inch"), minwidth = NULL, maxwidth = NULL,
                          height = NULL, minheight = NULL, maxheight = NULL,
@@ -71,6 +101,7 @@ geom_textbox <- function(mapping = NULL, data = NULL,
     inherit.aes = inherit.aes,
     params = list(
       box.padding = box.padding,
+      box.margin = box.margin,
       box.r = box.r,
       width = width, minwidth = minwidth, maxwidth = maxwidth,
       height = height, minheight = minheight, maxheight = maxheight,
@@ -96,6 +127,7 @@ GeomTextBox <- ggproto("GeomTextBox", Geom,
 
   draw_panel = function(data, panel_params, coord, 
                         box.padding = unit(c(5.5, 5.5, 5.5, 5.5), "pt"),
+                        box.margin = unit(c(0, 0, 0, 0), "pt"),
                         box.r = unit(5.5, "pt"),
                         width = unit(2, "inch"), minwidth = NULL, maxwidth = NULL,
                         height = NULL, minheight = NULL, maxheight = NULL,
@@ -109,6 +141,7 @@ GeomTextBox <- ggproto("GeomTextBox", Geom,
       make_textbox_grob,
       rows,
       list(box.padding),
+      list(box.margin),
       list(box.r),
       list(width),
       list(minwidth),
@@ -126,6 +159,7 @@ GeomTextBox <- ggproto("GeomTextBox", Geom,
 
 make_textbox_grob <- function(data, 
                               box.padding = unit(c(5.5, 5.5, 5.5, 5.5), "pt"),
+                              box.margin = unit(c(0, 0, 0, 0), "pt"),
                               box.r = unit(5.5, "pt"),
                               width = unit(2, "inch"), minwidth = NULL, maxwidth = NULL,
                               height = NULL, minheight = NULL, maxheight = NULL) {
@@ -136,6 +170,7 @@ make_textbox_grob <- function(data,
     halign = data$halign, valign = data$valign,
     orientation = data$orientation,
     padding = box.padding,
+    margin = box.margin,
     width = width, minwidth = minwidth, maxwidth = maxwidth,
     height = height, minheight = minheight, maxheight = maxheight,
     gp = gpar(

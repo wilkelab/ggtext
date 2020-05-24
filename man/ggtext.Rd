@@ -4,6 +4,3 @@
 \name{ggtext}
 \alias{ggtext}
 \title{Improved text rendering support for ggplot2}
-\description{
-Improved text rendering support for ggplot2
-}

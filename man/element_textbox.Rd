@@ -163,5 +163,5 @@ geom_point() +
   )
 }
 \seealso{
-\code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}}, \code{\link[=element_markdown]{element_markdown()}}
+\code{\link[gridtext:textbox_grob]{gridtext::textbox_grob()}}, \code{\link[=element_markdown]{element_markdown()}}, \code{\link[=geom_textbox]{geom_textbox()}}
 }

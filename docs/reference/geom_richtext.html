@@ -35,7 +35,11 @@
 
 <meta property="og:title" content="Rich text labels — geom_richtext" />
 <meta property="og:description" content="This draws text labels similar to ggplot2::geom_label(), but formatted
-using basic markdown/html." />
+using basic markdown/html. Parameter and aesthetic names follow the conventions
+of ggplot2::geom_label(), and therefore the appearance of the frame around
+the label is controlled with label.colour, label.padding, label.margin,
+label.size, label.r, even though the same parameters are called box.colour,
+box.padding, box.margin, box.size, and box.r in geom_textbox()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -90,7 +94,10 @@ using basic markdown/html." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/introduction.html">Introduction to ggtext</a>
+      <a href="../articles/plotting_text.html">Plotting with markdown text</a>
+    </li>
+    <li>
+      <a href="../articles/theme_elements.html">Markdown theme elements</a>
     </li>
   </ul>
 </li>
@@ -119,7 +126,11 @@ using basic markdown/html." />
 
     <div class="ref-description">
     <p>This draws text labels similar to <code><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>ggplot2::geom_label()</a></code>, but formatted
-using basic markdown/html.</p>
+using basic markdown/html. Parameter and aesthetic names follow the conventions
+of <code><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>ggplot2::geom_label()</a></code>, and therefore the appearance of the frame around
+the label is controlled with <code>label.colour</code>, <code>label.padding</code>, <code>label.margin</code>,
+<code>label.size</code>, <code>label.r</code>, even though the same parameters are called <code>box.colour</code>,
+<code>box.padding</code>, <code>box.margin</code>, <code>box.size</code>, and <code>box.r</code> in <code><a href='geom_textbox.html'>geom_textbox()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>geom_richtext</span>(
@@ -131,6 +142,7 @@ using basic markdown/html.</p>
   <span class='kw'>nudge_x</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>nudge_y</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>label.padding</span> <span class='kw'>=</span> <span class='fu'>unit</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0.25</span>, <span class='fl'>0.25</span>, <span class='fl'>0.25</span>, <span class='fl'>0.25</span>), <span class='st'>"lines"</span>),
+  <span class='kw'>label.margin</span> <span class='kw'>=</span> <span class='fu'>unit</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>), <span class='st'>"lines"</span>),
   <span class='kw'>label.r</span> <span class='kw'>=</span> <span class='fu'>unit</span>(<span class='fl'>0.15</span>, <span class='st'>"lines"</span>),
   <span class='kw'>na.rm</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>show.legend</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
@@ -196,6 +208,11 @@ Cannot be jointy specified with <code>position</code>.</p></td>
       <td><p>Amount of padding around label. Defaults to 0.25 lines.</p></td>
     </tr>
     <tr>
+      <th>label.margin</th>
+      <td><p>Unit vector of length four specifying the margin
+outside the text label.</p></td>
+    </tr>
+    <tr>
       <th>label.r</th>
       <td><p>Radius of rounded corners. Defaults to 0.15 lines.</p></td>
     </tr>
@@ -221,6 +238,32 @@ the default plot specification, e.g. <code><a href='https://ggplot2.tidyverse.or
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
+
+    
+    <p><code>geom_richtext()</code> understands the following aesthetics (required
+aesthetics are in bold; select aesthetics are annotated):</p><ul>
+<li><p><strong><code>x</code></strong></p></li>
+<li><p><strong><code>y</code></strong></p></li>
+<li><p><strong><code>label</code></strong></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>angle</code></p></li>
+<li><p><code>colour</code> Default color of label text and label outline.</p></li>
+<li><p><code>family</code></p></li>
+<li><p><code>fontface</code></p></li>
+<li><p><code>fill</code> Default fill color of label background.</p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>hjust</code></p></li>
+<li><p><code>label.colour</code> Color of label outline. Overrides <code>colour</code>.</p></li>
+<li><p><code>label.size</code> Width of label outline.</p></li>
+<li><p><code>lineheight</code></p></li>
+<li><p><code>size</code> Default font size of label text.</p></li>
+<li><p><code>text.colour</code> Color of label text. Overrides <code>colour</code>.</p></li>
+<li><p><code>vjust</code></p></li>
+</ul>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='geom_textbox.html'>geom_textbox()</a></code>, <code><a href='element_markdown.html'>element_markdown()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
@@ -270,6 +313,8 @@ the default plot specification, e.g. <code><a href='https://ggplot2.tidyverse.or
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#aesthetics">Aesthetics</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 

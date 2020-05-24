@@ -84,5 +84,5 @@ in which the text runs. The default is \code{FALSE}, which mimics the behavior o
 Theme element that enables markdown text.
 }
 \seealso{
-\code{\link[gridtext:richtext_grob]{gridtext::richtext_grob()}}, \code{\link[=element_textbox]{element_textbox()}}
+\code{\link[gridtext:richtext_grob]{gridtext::richtext_grob()}}, \code{\link[=element_textbox]{element_textbox()}}, \code{\link[=geom_richtext]{geom_richtext()}}
 }

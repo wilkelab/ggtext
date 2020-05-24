@@ -13,6 +13,7 @@ geom_textbox(
   nudge_x = 0,
   nudge_y = 0,
   box.padding = unit(c(5.5, 5.5, 5.5, 5.5), "pt"),
+  box.margin = unit(c(0, 0, 0, 0), "pt"),
   box.r = unit(5.5, "pt"),
   width = unit(2, "inch"),
   minwidth = NULL,
@@ -69,12 +70,15 @@ Cannot be jointy specified with \code{position}.}
 \item{box.padding}{Unit vector of length four specifying the padding
 inside the text box.}
 
+\item{box.margin}{Unit vector of length four specifying the margin
+outside the text box.}
+
 \item{box.r}{Unit vector of length one specifying the radius of the
 box.}
 
 \item{width, height}{Unit values specifying the width and height of
-the text box. If \code{height = NULL} (the default), the height is chosen
-automatically to accommodate all the text.}
+the text box (including margins!). If \code{height = NULL} (the default),
+the height is chosen automatically to accommodate all the text.}
 
 \item{minwidth, maxwidth, minheight, maxheight}{Unit values specifying
 the minimum and maximum values for \code{width} and \code{height}, respectively.
@@ -97,6 +101,35 @@ the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 \description{
 Draw boxes of defined width and height containing word-wrapped text.
 }
+\section{Aesthetics}{
+
+
+\code{geom_richtext()} understands the following aesthetics (required
+aesthetics are in bold; select aesthetics are annotated):
+\itemize{
+\item \strong{\code{x}}
+\item \strong{\code{y}}
+\item \strong{\code{label}}
+\item \code{alpha}
+\item \code{box.colour} Color of box outline. Overrides \code{colour}.
+\item \code{box.size} Width of box outline.
+\item \code{colour} Default color of box text and box outline.
+\item \code{family}
+\item \code{fontface}
+\item \code{fill} Default fill color of box background.
+\item \code{group}
+\item \code{halign} Horizontal alignment of text inside box.
+\item \code{hjust} Horizontal alignment of box.
+\item \code{lineheight}
+\item \code{orientation} One of \code{"upright"}, \code{"left-rotated"},
+\code{"right-rotated"}, \code{"inverted"}.
+\item \code{size} Default font size of box text.
+\item \code{text.colour} Color of box text. Overrides \code{colour}.
+\item \code{valign} Vertical alignment of text inside box.
+\item \code{vjust} Vertical alignment of box.
+}
+}
+
 \examples{
 library(ggplot2)
 
@@ -123,4 +156,7 @@ ggplot(df) +
   geom_point(color = "black", size = 2) +
   scale_discrete_identity(aesthetics = c("color", "fill", "orientation")) +
   xlim(0, 1) + ylim(0, 1)
+}
+\seealso{
+\code{\link[=geom_richtext]{geom_richtext()}}, \code{\link[=element_textbox]{element_textbox()}}
 }

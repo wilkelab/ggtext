@@ -89,7 +89,10 @@
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/introduction.html">Introduction to ggtext</a>
+      <a href="../articles/plotting_text.html">Plotting with markdown text</a>
+    </li>
+    <li>
+      <a href="../articles/theme_elements.html">Markdown theme elements</a>
     </li>
   </ul>
 </li>
@@ -129,6 +132,7 @@
   <span class='kw'>nudge_x</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>nudge_y</span> <span class='kw'>=</span> <span class='fl'>0</span>,
   <span class='kw'>box.padding</span> <span class='kw'>=</span> <span class='fu'>unit</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>5.5</span>, <span class='fl'>5.5</span>, <span class='fl'>5.5</span>, <span class='fl'>5.5</span>), <span class='st'>"pt"</span>),
+  <span class='kw'>box.margin</span> <span class='kw'>=</span> <span class='fu'>unit</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>, <span class='fl'>0</span>), <span class='st'>"pt"</span>),
   <span class='kw'>box.r</span> <span class='kw'>=</span> <span class='fu'>unit</span>(<span class='fl'>5.5</span>, <span class='st'>"pt"</span>),
   <span class='kw'>width</span> <span class='kw'>=</span> <span class='fu'>unit</span>(<span class='fl'>2</span>, <span class='st'>"inch"</span>),
   <span class='kw'>minwidth</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
@@ -201,6 +205,11 @@ Cannot be jointy specified with <code>position</code>.</p></td>
 inside the text box.</p></td>
     </tr>
     <tr>
+      <th>box.margin</th>
+      <td><p>Unit vector of length four specifying the margin
+outside the text box.</p></td>
+    </tr>
+    <tr>
       <th>box.r</th>
       <td><p>Unit vector of length one specifying the radius of the
 box.</p></td>
@@ -208,8 +217,8 @@ box.</p></td>
     <tr>
       <th>width, height</th>
       <td><p>Unit values specifying the width and height of
-the text box. If <code>height = NULL</code> (the default), the height is chosen
-automatically to accommodate all the text.</p></td>
+the text box (including margins!). If <code>height = NULL</code> (the default),
+the height is chosen automatically to accommodate all the text.</p></td>
     </tr>
     <tr>
       <th>minwidth, maxwidth, minheight, maxheight</th>
@@ -239,6 +248,35 @@ the default plot specification, e.g. <code><a href='https://ggplot2.tidyverse.or
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
+
+    
+    <p><code><a href='geom_richtext.html'>geom_richtext()</a></code> understands the following aesthetics (required
+aesthetics are in bold; select aesthetics are annotated):</p><ul>
+<li><p><strong><code>x</code></strong></p></li>
+<li><p><strong><code>y</code></strong></p></li>
+<li><p><strong><code>label</code></strong></p></li>
+<li><p><code>alpha</code></p></li>
+<li><p><code>box.colour</code> Color of box outline. Overrides <code>colour</code>.</p></li>
+<li><p><code>box.size</code> Width of box outline.</p></li>
+<li><p><code>colour</code> Default color of box text and box outline.</p></li>
+<li><p><code>family</code></p></li>
+<li><p><code>fontface</code></p></li>
+<li><p><code>fill</code> Default fill color of box background.</p></li>
+<li><p><code>group</code></p></li>
+<li><p><code>halign</code> Horizontal alignment of text inside box.</p></li>
+<li><p><code>hjust</code> Horizontal alignment of box.</p></li>
+<li><p><code>lineheight</code></p></li>
+<li><p><code>orientation</code> One of <code>"upright"</code>, <code>"left-rotated"</code>,
+<code>"right-rotated"</code>, <code>"inverted"</code>.</p></li>
+<li><p><code>size</code> Default font size of box text.</p></li>
+<li><p><code>text.colour</code> Color of box text. Overrides <code>colour</code>.</p></li>
+<li><p><code>valign</code> Vertical alignment of text inside box.</p></li>
+<li><p><code>vjust</code> Vertical alignment of box.</p></li>
+</ul>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p><code><a href='geom_richtext.html'>geom_richtext()</a></code>, <code><a href='element_textbox.html'>element_textbox()</a></code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>ggplot2</span>)
@@ -271,6 +309,8 @@ the default plot specification, e.g. <code><a href='https://ggplot2.tidyverse.or
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#aesthetics">Aesthetics</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
