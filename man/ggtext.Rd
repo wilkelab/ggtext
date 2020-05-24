@@ -4,3 +4,8 @@
 \name{ggtext}
 \alias{ggtext}
 \title{Improved text rendering support for ggplot2}
+\description{
+The ggtext package implements both geoms (\code{\link[=geom_richtext]{geom_richtext()}}, \code{\link[=geom_textbox]{geom_textbox()}})
+and theme elements (\code{\link[=element_markdown]{element_markdown()}}, \code{\link[=element_textbox]{element_textbox()}}) for improved
+text rendering with ggplot2.
+}
