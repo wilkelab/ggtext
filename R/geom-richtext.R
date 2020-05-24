@@ -1,11 +1,15 @@
-#' Rich text labels
+#' Richtext labels
 #'
-#' This draws text labels similar to [ggplot2::geom_label()], but formatted
+#' This geom draws text labels similar to [ggplot2::geom_label()], but formatted
 #' using basic markdown/html. Parameter and aesthetic names follow the conventions
 #' of [ggplot2::geom_label()], and therefore the appearance of the frame around
 #' the label is controlled with `label.colour`, `label.padding`, `label.margin`,
 #' `label.size`, `label.r`, even though the same parameters are called `box.colour`,
-#' `box.padding`, `box.margin`, `box.size`, and `box.r` in [geom_textbox()].
+#' `box.padding`, `box.margin`, `box.size`, and `box.r` in [geom_textbox()]. Most 
+#' styling parameters can be used as aesthetics and can be applied separately to
+#' each text label drawn. The exception is styling parameters that are specified
+#' as grid units (e.g., `label.padding` or `label.r`), which can only be specified
+#' for all text labels at once. See examples for details.
 #' 
 #' @section Aesthetics:
 #' 

@@ -6,7 +6,7 @@
 \alias{GeomRichText}
 \alias{GeomRichtext}
 \alias{GeomTextBox}
-\title{Rich text labels}
+\title{Richtext labels}
 \usage{
 geom_richtext(
   mapping = NULL,
@@ -87,12 +87,16 @@ that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 }
 \description{
-This draws text labels similar to \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, but formatted
+This geom draws text labels similar to \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, but formatted
 using basic markdown/html. Parameter and aesthetic names follow the conventions
 of \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, and therefore the appearance of the frame around
 the label is controlled with \code{label.colour}, \code{label.padding}, \code{label.margin},
 \code{label.size}, \code{label.r}, even though the same parameters are called \code{box.colour},
-\code{box.padding}, \code{box.margin}, \code{box.size}, and \code{box.r} in \code{\link[=geom_textbox]{geom_textbox()}}.
+\code{box.padding}, \code{box.margin}, \code{box.size}, and \code{box.r} in \code{\link[=geom_textbox]{geom_textbox()}}. Most
+styling parameters can be used as aesthetics and can be applied separately to
+each text label drawn. The exception is styling parameters that are specified
+as grid units (e.g., \code{label.padding} or \code{label.r}), which can only be specified
+for all text labels at once. See examples for details.
 }
 \section{Aesthetics}{
 

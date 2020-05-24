@@ -1,10 +1,14 @@
 #' Draw boxes containing text
 #'
-#' Draw boxes of defined width and height containing word-wrapped text.
+#' Draw boxes of defined width and height containing word-wrapped text. Multiple
+#' boxes can be drawn at once. Most styling parameters can be used as aesthetics
+#' and can be applied separately to each text box drawn. The exception is styling
+#' parameters that are specified as grid units (e.g., `box.padding` or `box.r`),
+#' which can only be specified for all text boxes at once. See examples for details.
 #' 
 #' @section Aesthetics:
 #' 
-#' `geom_richtext()` understands the following aesthetics (required 
+#' `geom_textbox()` understands the following aesthetics (required 
 #' aesthetics are in bold; select aesthetics are annotated):
 #' 
 #' * **`x`**
@@ -29,6 +33,9 @@
 #' * `vjust` Vertical alignment of box.
 #'
 #' @inheritParams ggplot2::geom_text
+#' @param nudge_x,nudge_y Horizontal and vertical adjustment to nudge text boxes by.
+#'   Useful for offsetting text from points, particularly on discrete scales.
+#'   Cannot be jointly specified with `position`.
 #' @param width,height Unit values specifying the width and height of
 #'   the text box (including margins!). If `height = NULL` (the default),
 #'   the height is chosen automatically to accommodate all the text.

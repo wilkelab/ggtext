@@ -59,13 +59,9 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 \code{colour = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
 
-\item{nudge_x}{Horizontal and vertical adjustment to nudge labels by.
+\item{nudge_x, nudge_y}{Horizontal and vertical adjustment to nudge text boxes by.
 Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointy specified with \code{position}.}
-
-\item{nudge_y}{Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointy specified with \code{position}.}
+Cannot be jointly specified with \code{position}.}
 
 \item{box.padding}{Unit vector of length four specifying the padding
 inside the text box.}
@@ -99,12 +95,16 @@ that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 }
 \description{
-Draw boxes of defined width and height containing word-wrapped text.
+Draw boxes of defined width and height containing word-wrapped text. Multiple
+boxes can be drawn at once. Most styling parameters can be used as aesthetics
+and can be applied separately to each text box drawn. The exception is styling
+parameters that are specified as grid units (e.g., \code{box.padding} or \code{box.r}),
+which can only be specified for all text boxes at once. See examples for details.
 }
 \section{Aesthetics}{
 
 
-\code{geom_richtext()} understands the following aesthetics (required
+\code{geom_textbox()} understands the following aesthetics (required
 aesthetics are in bold; select aesthetics are annotated):
 \itemize{
 \item \strong{\code{x}}
