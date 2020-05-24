@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rich text labels — geom_richtext • ggtext</title>
+<title>Richtext labels — geom_richtext • ggtext</title>
 
 
 <!-- jquery -->
@@ -33,13 +33,17 @@
 
 
 
-<meta property="og:title" content="Rich text labels — geom_richtext" />
-<meta property="og:description" content="This draws text labels similar to ggplot2::geom_label(), but formatted
+<meta property="og:title" content="Richtext labels — geom_richtext" />
+<meta property="og:description" content="This geom draws text labels similar to ggplot2::geom_label(), but formatted
 using basic markdown/html. Parameter and aesthetic names follow the conventions
 of ggplot2::geom_label(), and therefore the appearance of the frame around
 the label is controlled with label.colour, label.padding, label.margin,
 label.size, label.r, even though the same parameters are called box.colour,
-box.padding, box.margin, box.size, and box.r in geom_textbox()." />
+box.padding, box.margin, box.size, and box.r in geom_textbox(). Most
+styling parameters can be used as aesthetics and can be applied separately to
+each text label drawn. The exception is styling parameters that are specified
+as grid units (e.g., label.padding or label.r), which can only be specified
+for all text labels at once. See examples for details." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -119,18 +123,22 @@ box.padding, box.margin, box.size, and box.r in geom_textbox()." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Rich text labels</h1>
+    <h1>Richtext labels</h1>
     
     <div class="hidden name"><code>geom_richtext.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This draws text labels similar to <code><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>ggplot2::geom_label()</a></code>, but formatted
+    <p>This geom draws text labels similar to <code><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>ggplot2::geom_label()</a></code>, but formatted
 using basic markdown/html. Parameter and aesthetic names follow the conventions
 of <code><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>ggplot2::geom_label()</a></code>, and therefore the appearance of the frame around
 the label is controlled with <code>label.colour</code>, <code>label.padding</code>, <code>label.margin</code>,
 <code>label.size</code>, <code>label.r</code>, even though the same parameters are called <code>box.colour</code>,
-<code>box.padding</code>, <code>box.margin</code>, <code>box.size</code>, and <code>box.r</code> in <code><a href='geom_textbox.html'>geom_textbox()</a></code>.</p>
+<code>box.padding</code>, <code>box.margin</code>, <code>box.size</code>, and <code>box.r</code> in <code><a href='geom_textbox.html'>geom_textbox()</a></code>. Most
+styling parameters can be used as aesthetics and can be applied separately to
+each text label drawn. The exception is styling parameters that are specified
+as grid units (e.g., <code>label.padding</code> or <code>label.r</code>), which can only be specified
+for all text labels at once. See examples for details.</p>
     </div>
 
     <pre class="usage"><span class='fu'>geom_richtext</span>(

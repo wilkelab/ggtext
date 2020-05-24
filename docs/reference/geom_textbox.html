@@ -34,7 +34,11 @@
 
 
 <meta property="og:title" content="Draw boxes containing text — geom_textbox" />
-<meta property="og:description" content="Draw boxes of defined width and height containing word-wrapped text." />
+<meta property="og:description" content="Draw boxes of defined width and height containing word-wrapped text. Multiple
+boxes can be drawn at once. Most styling parameters can be used as aesthetics
+and can be applied separately to each text box drawn. The exception is styling
+parameters that are specified as grid units (e.g., box.padding or box.r),
+which can only be specified for all text boxes at once. See examples for details." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -120,7 +124,11 @@
     </div>
 
     <div class="ref-description">
-    <p>Draw boxes of defined width and height containing word-wrapped text.</p>
+    <p>Draw boxes of defined width and height containing word-wrapped text. Multiple
+boxes can be drawn at once. Most styling parameters can be used as aesthetics
+and can be applied separately to each text box drawn. The exception is styling
+parameters that are specified as grid units (e.g., <code>box.padding</code> or <code>box.r</code>),
+which can only be specified for all text boxes at once. See examples for details.</p>
     </div>
 
     <pre class="usage"><span class='fu'>geom_textbox</span>(
@@ -188,16 +196,10 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 to the paired geom/stat.</p></td>
     </tr>
     <tr>
-      <th>nudge_x</th>
-      <td><p>Horizontal and vertical adjustment to nudge labels by.
+      <th>nudge_x, nudge_y</th>
+      <td><p>Horizontal and vertical adjustment to nudge text boxes by.
 Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointy specified with <code>position</code>.</p></td>
-    </tr>
-    <tr>
-      <th>nudge_y</th>
-      <td><p>Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointy specified with <code>position</code>.</p></td>
+Cannot be jointly specified with <code>position</code>.</p></td>
     </tr>
     <tr>
       <th>box.padding</th>
@@ -251,7 +253,7 @@ the default plot specification, e.g. <code><a href='https://ggplot2.tidyverse.or
     <h2 class="hasAnchor" id="aesthetics"><a class="anchor" href="#aesthetics"></a>Aesthetics</h2>
 
     
-    <p><code><a href='geom_richtext.html'>geom_richtext()</a></code> understands the following aesthetics (required
+    <p><code>geom_textbox()</code> understands the following aesthetics (required
 aesthetics are in bold; select aesthetics are annotated):</p><ul>
 <li><p><strong><code>x</code></strong></p></li>
 <li><p><strong><code>y</code></strong></p></li>
