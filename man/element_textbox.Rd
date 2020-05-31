@@ -110,6 +110,10 @@ Set to NULL to impose neither a minimum nor a maximum.}
 
 \item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
 }
+\value{
+A ggplot2 theme element that can be used inside a \code{\link[ggplot2:theme]{ggplot2::theme()}}
+call.
+}
 \description{
 The theme elements \code{element_textbox()} and \code{element_textbox_simple()} enable Markdown text in a box, with
 word wrap. Both functions implement exactly the same functionality; they only differ in the default values

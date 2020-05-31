@@ -48,6 +48,8 @@
 #'   outside the text box.
 #' @param box.r Unit vector of length one specifying the radius of the
 #'   box.
+#' @return A ggplot2 layer that can be added to a plot created with
+#'   [ggplot2::ggplot()].
 #' @seealso [geom_richtext()], [element_textbox()]
 #' @examples
 #' library(ggplot2)

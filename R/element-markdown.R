@@ -30,6 +30,8 @@
 #'   `element_text()`.
 #' @param debug Draw a debugging box around each label
 #' @param inherit.blank See [ggplot2::margin()] for details.
+#' @return A ggplot2 theme element that can be used inside a [ggplot2::theme()]
+#'   call.
 #' @seealso [gridtext::richtext_grob()], [element_textbox()], [geom_richtext()]
 #' @export
 element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = NULL, fill = NULL,

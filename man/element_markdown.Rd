@@ -80,6 +80,10 @@ in which the text runs. The default is \code{FALSE}, which mimics the behavior o
 
 \item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
 }
+\value{
+A ggplot2 theme element that can be used inside a \code{\link[ggplot2:theme]{ggplot2::theme()}}
+call.
+}
 \description{
 Theme element that enables markdown text.
 }

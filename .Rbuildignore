@@ -10,6 +10,6 @@
 ^TODO\.Rmd$
 ^revdep$
 ^docs$
-^LICENSE\.md$
+^LICENSE$
 
 ^CRAN-RELEASE$

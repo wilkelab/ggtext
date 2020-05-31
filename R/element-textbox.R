@@ -32,6 +32,8 @@
 #' @param orientation Orientation of the text box. See [gridtext::textbox_grob()] for details.
 #' @param debug Not implemented.
 #' @param inherit.blank See [ggplot2::margin()] for details.
+#' @return A ggplot2 theme element that can be used inside a [ggplot2::theme()]
+#'   call.
 #' @seealso [gridtext::textbox_grob()], [element_markdown()], [geom_textbox()]
 #' @examples
 #' library(ggplot2)

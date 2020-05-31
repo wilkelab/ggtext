@@ -16,7 +16,7 @@ Description: A 'ggplot2' extension that enables the rendering of
     supported.
 URL: https://wilkelab.org/ggtext
 BugReports: https://github.com/wilkelab/ggtext/issues
-License: GPL-2 | file LICENSE
+License: GPL-2
 Depends:
     R (>= 3.5)
 Imports:

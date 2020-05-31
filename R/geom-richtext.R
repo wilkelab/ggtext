@@ -38,6 +38,8 @@
 #' @inheritParams ggplot2::geom_label
 #' @param label.margin Unit vector of length four specifying the margin
 #'   outside the text label.
+#' @return A ggplot2 layer that can be added to a plot created with
+#'   [ggplot2::ggplot()].
 #' @seealso [geom_textbox()], [element_markdown()]
 #' @examples
 #' library(ggplot2)

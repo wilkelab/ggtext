@@ -59,11 +59,11 @@ to the paired geom/stat.}
 
 \item{nudge_x}{Horizontal and vertical adjustment to nudge labels by.
 Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointy specified with \code{position}.}
+Cannot be jointly specified with \code{position}.}
 
 \item{nudge_y}{Horizontal and vertical adjustment to nudge labels by.
 Useful for offsetting text from points, particularly on discrete scales.
-Cannot be jointy specified with \code{position}.}
+Cannot be jointly specified with \code{position}.}
 
 \item{label.padding}{Amount of padding around label. Defaults to 0.25 lines.}
 
@@ -85,6 +85,10 @@ display.}
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
+}
+\value{
+A ggplot2 layer that can be added to a plot created with
+\code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \description{
 This geom draws text labels similar to \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, but formatted
