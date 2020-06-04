@@ -1,7 +1,7 @@
 Package: ggtext
 Type: Package
 Title: Improved Text Rendering Support for 'ggplot2'
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person(
       given = "Claus O.",
