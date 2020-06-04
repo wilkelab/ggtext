@@ -31,16 +31,16 @@ Importantly, the gridtext package that provides the rendering support **implemen
 
 ## Installation
 
+You can install the latest stable release from CRAN via `install.packages()`:
+
+```{r eval = FALSE}
+install.packages("ggtext")
+```
+
 To install the latest development version of this package, please run the following line in your R console:
 
 ```{r eval = FALSE}
 remotes::install_github("wilkelab/ggtext")
-```
-
-Once the package is available on CRAN, you will be able to install the latest release via `install.packages()` as usual:
-
-```{r eval = FALSE}
-install.packages("ggtext")
 ```
 
 ## Markdown in theme elements

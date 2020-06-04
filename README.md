@@ -40,18 +40,18 @@ doesn’t exist.
 
 ## Installation
 
+You can install the latest stable release from CRAN via
+`install.packages()`:
+
+``` r
+install.packages("ggtext")
+```
+
 To install the latest development version of this package, please run
 the following line in your R console:
 
 ``` r
 remotes::install_github("wilkelab/ggtext")
-```
-
-Once the package is available on CRAN, you will be able to install the
-latest release via `install.packages()` as usual:
-
-``` r
-install.packages("ggtext")
 ```
 
 ## Markdown in theme elements
