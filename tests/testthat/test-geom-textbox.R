@@ -29,5 +29,5 @@ test_that("visual tests", {
     xlim(0, 1) + ylim(0, 1) +
     scale_discrete_identity(aesthetics = c("orientation", "box.colour", "fill"))
   
-  vdiffr::expect_doppelganger("Rotated boxes w/ colors and alignments", p)
+  expect_doppelganger("Rotated boxes w/ colors and alignments", p)
 })

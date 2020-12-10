@@ -16,8 +16,7 @@ knitr::opts_chunk$set(
 
 
 <!-- badges: start -->
-[![Build Status](https://travis-ci.org/wilkelab/ggtext.svg?branch=master)](https://travis-ci.org/wilkelab/ggtext)
-[![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/wilkelab/ggtext?branch=master&svg=true)](https://ci.appveyor.com/project/clauswilke/ggtext)
+[![R build status](https://github.com/wilkelab/ggtext/workflows/R-CMD-check/badge.svg)](https://github.com/wilkelab/ggtext/actions)
 [![Coverage Status](https://img.shields.io/codecov/c/github/wilkelab/ggtext/master.svg)](https://codecov.io/github/wilkelab/ggtext?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)

@@ -139,7 +139,7 @@ test_that("visual tests", {
       )
     )
   
-  vdiffr::expect_doppelganger(
+  expect_doppelganger(
     "Margins match w/ ggtext and ggplot2",
     cowplot::plot_grid(p1, p2, p3, p4)
   )

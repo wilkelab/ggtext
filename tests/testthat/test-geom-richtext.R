@@ -24,5 +24,5 @@ test_that("visual tests", {
     xlim(0, 1) + ylim(0, 1) +
     scale_discrete_identity(aesthetics = c("orientation", "label.colour", "fill"))
   
-  vdiffr::expect_doppelganger("Rotated labels w/ colors", p)
+  expect_doppelganger("Rotated labels w/ colors", p)
 })

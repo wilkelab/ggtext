@@ -1,6 +1,6 @@
-# ggtext devel
+# ggtext 0.1.1
 
-No news yet.
+- Make sure tests don't fail if vdiffr is missing.
 
 # ggtext 0.1.0
 

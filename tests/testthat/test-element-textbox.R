@@ -18,7 +18,7 @@ quis imperdiet felis, in convallis elit."
       )
     )
   
-  vdiffr::expect_doppelganger("Simple textbox as plot title", p)
+  expect_doppelganger("Simple textbox as plot title", p)
   
   p <- base +
     labs(subtitle = text) +
@@ -35,7 +35,7 @@ quis imperdiet felis, in convallis elit."
       )
     )
   
-  vdiffr::expect_doppelganger("Plot title with styling", p)
+  expect_doppelganger("Plot title with styling", p)
   
   p <- base +
     labs(subtitle = text) +
@@ -54,7 +54,7 @@ quis imperdiet felis, in convallis elit."
       )
     )
   
-  vdiffr::expect_doppelganger("Plot title with fixed width", p)
+  expect_doppelganger("Plot title with fixed width", p)
   
   p <- base +
     labs(y = text) +
@@ -69,5 +69,5 @@ quis imperdiet felis, in convallis elit."
       )
     )
   
-  vdiffr::expect_doppelganger("Rotated box as y axis title", p)
+  expect_doppelganger("Rotated box as y axis title", p)
 })
