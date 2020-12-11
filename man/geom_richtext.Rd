@@ -91,9 +91,9 @@ A ggplot2 layer that can be added to a plot created with
 \code{\link[ggplot2:ggplot]{ggplot2::ggplot()}}.
 }
 \description{
-This geom draws text labels similar to \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, but formatted
+This geom draws text labels similar to \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}}, but formatted
 using basic markdown/html. Parameter and aesthetic names follow the conventions
-of \code{\link[ggplot2:geom_label]{ggplot2::geom_label()}}, and therefore the appearance of the frame around
+of \code{\link[ggplot2:geom_text]{ggplot2::geom_label()}}, and therefore the appearance of the frame around
 the label is controlled with \code{label.colour}, \code{label.padding}, \code{label.margin},
 \code{label.size}, \code{label.r}, even though the same parameters are called \code{box.colour},
 \code{box.padding}, \code{box.margin}, \code{box.size}, and \code{box.r} in \code{\link[=geom_textbox]{geom_textbox()}}. Most

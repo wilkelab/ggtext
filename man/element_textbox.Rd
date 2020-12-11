@@ -81,7 +81,7 @@ element_textbox_simple(
 \item{linetype}{Line type of the enclosing box (like \code{lty} in base R)}
 
 \item{linewidth}{Line width of the enclosing box (measured in mm, just like \code{size} in
-\code{\link[ggplot2:element_line]{ggplot2::element_line()}}).}
+\code{\link[ggplot2:element]{ggplot2::element_line()}}).}
 
 \item{hjust}{Horizontal justification}
 
@@ -108,7 +108,7 @@ Set to NULL to impose neither a minimum nor a maximum.}
 
 \item{debug}{Not implemented.}
 
-\item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
+\item{inherit.blank}{See \code{\link[ggplot2:element]{ggplot2::margin()}} for details.}
 }
 \value{
 A ggplot2 theme element that can be used inside a \code{\link[ggplot2:theme]{ggplot2::theme()}}

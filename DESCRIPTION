@@ -14,7 +14,7 @@ Description: A 'ggplot2' extension that enables the rendering of
     complex formatted plot labels (titles, subtitles, facet labels,
     axis labels, etc.). Text boxes with automatic word wrap are also
     supported.
-URL: https://wilkelab.org/ggtext
+URL: https://wilkelab.org/ggtext/
 BugReports: https://github.com/wilkelab/ggtext/issues
 License: GPL-2
 Depends:
@@ -35,6 +35,6 @@ Suggests:
     vdiffr
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr

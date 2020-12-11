@@ -1,8 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.travis\.yml$
+^\.github$
 ^\.codecov\.yml$
-^appveyor\.yml$
 ^_pkgdown\.yml$
 ^README\.Rmd$
 ^cran-comments.md$

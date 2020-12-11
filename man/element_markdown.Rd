@@ -47,7 +47,7 @@ element_markdown(
 \item{linetype}{Line type of the enclosing box (like \code{lty} in base R)}
 
 \item{linewidth}{Line width of the enclosing box (measured in mm, just like \code{size} in
-\code{\link[ggplot2:element_line]{ggplot2::element_line()}}).}
+\code{\link[ggplot2:element]{ggplot2::element_line()}}).}
 
 \item{hjust}{Horizontal justification}
 
@@ -78,7 +78,7 @@ in which the text runs. The default is \code{FALSE}, which mimics the behavior o
 
 \item{debug}{Draw a debugging box around each label}
 
-\item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
+\item{inherit.blank}{See \code{\link[ggplot2:element]{ggplot2::margin()}} for details.}
 }
 \value{
 A ggplot2 theme element that can be used inside a \code{\link[ggplot2:theme]{ggplot2::theme()}}
