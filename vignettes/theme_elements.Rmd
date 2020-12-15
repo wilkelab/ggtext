@@ -2,7 +2,7 @@
 title: "Markdown theme elements"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Theme elements}
+  %\VignetteIndexEntry{Markdown theme elements}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -5,23 +5,24 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Improved Text Rendering Support for 'ggplot2' • ggtext</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Improved Text Rendering Support for 'ggplot2'">
-<meta property="og:description" content="A 'ggplot2' extension that enables the rendering of
+<title>Improved Text Rendering Support for ggplot2 • ggtext</title>
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script><meta property="og:title" content="Improved Text Rendering Support for ggplot2">
+<meta property="og:description" content="A ggplot2 extension that enables the rendering of
     complex formatted plot labels (titles, subtitles, facet labels,
     axis labels, etc.). Text boxes with automatic word wrap are also
     supported.">
-<meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
-    <div class="container template-article">
+<body data-spy="scroll" data-target="#toc">
+    <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
@@ -33,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">ggtext</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -41,7 +42,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -67,7 +68,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/wilkelab/ggtext/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -76,13 +84,9 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
-  <div class="col-md-9 contents">
-    
 
-    
-    
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+      </header><div class="row">
+  <div class="contents col-md-9">
 <div id="ggtext-improved-text-rendering-support-for-ggplot2" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#ggtext-improved-text-rendering-support-for-ggplot2" class="anchor"></a>ggtext: Improved text rendering support for ggplot2</h1></div>
@@ -94,193 +98,193 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
+<p>You can install the latest stable release from CRAN via <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">install.packages</span>(<span class="st">"ggtext"</span>)</span></code></pre></div>
 <p>To install the latest development version of this package, please run the following line in your R console:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"wilkelab/ggtext"</span>)</a></code></pre></div>
-<p>Once the package is available on CRAN, you will be able to install the latest release via <code><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages()</a></code> as usual:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"ggtext"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"wilkelab/ggtext"</span>)</span></code></pre></div>
 </div>
 <div id="markdown-in-theme-elements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#markdown-in-theme-elements" class="anchor"></a>Markdown in theme elements</h2>
 <p>The ggtext package defines two new theme elements, <code><a href="reference/element_markdown.html">element_markdown()</a></code> and <code><a href="reference/element_textbox.html">element_textbox()</a></code>. Both behave similarly to <code>element_text()</code> but render the provided text as markdown/html. <code><a href="reference/element_markdown.html">element_markdown()</a></code> is meant as a direct replacement for <code>element_text()</code>, and it renders text without word wrapping. To start a new line, use the <code>&lt;br&gt;</code> tag or add two spaces before the end of a line.</p>
 <p>As an example, we can mix regular, italics, and bold text, and we can also apply colors to axis tick labels. This particular example was inspired by <a href="https://stackoverflow.com/questions/39282293/r-ggplot2-using-italics-and-non-italics-in-the-same-category-label">this stackoverflow post.</a></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(tidyverse)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggtext)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(glue)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">data &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">bactname =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Staphylococcaceae"</span>, <span class="st">"Moraxella"</span>, <span class="st">"Streptococcus"</span>, <span class="st">"Acinetobacter"</span>),</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="dt">OTUname =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"OTU 1"</span>, <span class="st">"OTU 2"</span>, <span class="st">"OTU 3"</span>, <span class="st">"OTU 4"</span>),</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">  <span class="dt">value =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">)</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11">data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="dt">color =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"#009E73"</span>, <span class="st">"#D55E00"</span>, <span class="st">"#0072B2"</span>, <span class="st">"#000000"</span>),</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">  <span class="dt">name =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"&lt;i style='color:{color}'&gt;{bactname}&lt;/i&gt; ({OTUname})"</span>),</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14">  <span class="dt">name =</span> <span class="kw">fct_reorder</span>(name, value)</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">)  <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, name, <span class="dt">fill =</span> color)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="st">  </span><span class="kw">scale_fill_identity</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">caption =</span> <span class="st">"Example posted on **stackoverflow.com**&lt;br&gt;(using made-up data)"</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb3-20" data-line-number="20"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">    <span class="dt">axis.text.y =</span> <span class="kw"><a href="reference/element_markdown.html">element_markdown</a></span>(),</a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">    <span class="dt">plot.caption =</span> <span class="kw"><a href="reference/element_markdown.html">element_markdown</a></span>(<span class="dt">lineheight =</span> <span class="fl">1.2</span>)</a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">  )</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="700"></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">library</span>(ggtext)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">library</span>(glue)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>data &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>  <span class="dt">bactname =</span> <span class="kw">c</span>(<span class="st">"Staphylococcaceae"</span>, <span class="st">"Moraxella"</span>, <span class="st">"Streptococcus"</span>, <span class="st">"Acinetobacter"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>  <span class="dt">OTUname =</span> <span class="kw">c</span>(<span class="st">"OTU 1"</span>, <span class="st">"OTU 2"</span>, <span class="st">"OTU 3"</span>, <span class="st">"OTU 4"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a>  <span class="dt">value =</span> <span class="kw">c</span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate</span>(</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>  <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">"#009E73"</span>, <span class="st">"#D55E00"</span>, <span class="st">"#0072B2"</span>, <span class="st">"#000000"</span>),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>  <span class="dt">name =</span> <span class="kw">glue</span>(<span class="st">"&lt;i style='color:{color}'&gt;{bactname}&lt;/i&gt; ({OTUname})"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>  <span class="dt">name =</span> <span class="kw">fct_reorder</span>(name, value)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>)  <span class="op">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(value, name, <span class="dt">fill =</span> color)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_col</span>(<span class="dt">alpha =</span> <span class="fl">0.5</span>) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_identity</span>() <span class="op">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">caption =</span> <span class="st">"Example posted on **stackoverflow.com**&lt;br&gt;(using made-up data)"</span>) <span class="op">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>    <span class="dt">axis.text.y =</span> <span class="kw">element_markdown</span>(),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a>    <span class="dt">plot.caption =</span> <span class="kw">element_markdown</span>(<span class="dt">lineheight =</span> <span class="fl">1.2</span>)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a>  )</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png"><!-- --></p>
 <p>Very basic support for the <code>&lt;img&gt;</code> tag exists, and it can be used, for example, to employ images as axis labels.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">labels &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">setosa =</span> <span class="st">"&lt;img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Iris_setosa.JPG/180px-Iris_setosa.JPG'</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    width='100' /&gt;&lt;br&gt;*I. setosa*"</span>,</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">virginica =</span> <span class="st">"&lt;img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Iris_virginica_-_NRCS.jpg/320px-Iris_virginica_-_NRCS.jpg'</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">    width='100' /&gt;&lt;br&gt;*I. virginica*"</span>,</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="dt">versicolor =</span> <span class="st">"&lt;img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/20140427Iris_versicolor1.jpg/320px-20140427Iris_versicolor1.jpg'</span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">    width='100' /&gt;&lt;br&gt;*I. versicolor*"</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">)</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Species, Sepal.Width)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="st">  </span><span class="kw">scale_x_discrete</span>(</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">    <span class="dt">name =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14">    <span class="dt">labels =</span> labels</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17">    <span class="dt">axis.text.x =</span> <span class="kw"><a href="reference/element_markdown.html">element_markdown</a></span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">11</span>)</a>
-<a class="sourceLine" id="cb4-18" data-line-number="18">  )</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="700"></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>labels &lt;-<span class="st"> </span><span class="kw">c</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  <span class="dt">setosa =</span> <span class="st">"&lt;img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Iris_setosa.JPG/180px-Iris_setosa.JPG'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="st">    width='100' /&gt;&lt;br&gt;*I. setosa*"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>  <span class="dt">virginica =</span> <span class="st">"&lt;img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Iris_virginica_-_NRCS.jpg/320px-Iris_virginica_-_NRCS.jpg'</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a><span class="st">    width='100' /&gt;&lt;br&gt;*I. virginica*"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>  <span class="dt">versicolor =</span> <span class="st">"&lt;img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/20140427Iris_versicolor1.jpg/320px-20140427Iris_versicolor1.jpg'</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a><span class="st">    width='100' /&gt;&lt;br&gt;*I. versicolor*"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true"></a><span class="kw">ggplot</span>(iris, <span class="kw">aes</span>(Species, Sepal.Width)) <span class="op">+</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_x_discrete</span>(</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true"></a>    <span class="dt">name =</span> <span class="ot">NULL</span>,</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true"></a>    <span class="dt">labels =</span> labels</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true"></a>  ) <span class="op">+</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true"></a>    <span class="dt">axis.text.x =</span> <span class="kw">element_markdown</span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">11</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true"></a>  )</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png"><!-- --></p>
 <p><code><a href="reference/element_textbox.html">element_textbox()</a></code> offers support for rendering larger amounts of text that require word wrapping. Unlike <code><a href="reference/element_markdown.html">element_markdown()</a></code>, it cannot be used for axis tick labels, and it cannot draw text at arbitrary angles, only at fixed orientations corresponding to 0, 90, 180, and 270 degrees. In practice, you will usually want to use <code><a href="reference/element_textbox.html">element_textbox_simple()</a></code> instead of <code><a href="reference/element_textbox.html">element_textbox()</a></code>, as it sets useful defaults for many parameters not usually defined in ggplot2 themes.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(disp, mpg)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw">labs</span>(</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">title =</span> <span class="st">"&lt;b&gt;Fuel economy vs. engine displacement&lt;/b&gt;&lt;br&gt;</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">    &lt;span style = 'font-size:10pt'&gt;Lorem ipsum *dolor sit amet,*</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">    consectetur adipiscing elit, **sed do eiusmod tempor incididunt** ut</span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="st">    labore et dolore magna aliqua. &lt;span style = 'color:red;'&gt;Ut enim</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">    ad minim veniam,&lt;/span&gt; quis nostrud exercitation ullamco laboris nisi</span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="st">    ut aliquip ex ea commodo consequat.&lt;/span&gt;"</span>,</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">    <span class="dt">x =</span> <span class="st">"displacement (in&lt;sup&gt;3&lt;/sup&gt;)"</span>,</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">    <span class="dt">y =</span> <span class="st">"Miles per gallon (mpg)&lt;br&gt;&lt;span style = 'font-size:8pt'&gt;A measure of</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="st">    the car's fuel efficiency.&lt;/span&gt;"</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15">    <span class="dt">plot.title.position =</span> <span class="st">"plot"</span>,</a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">    <span class="dt">plot.title =</span> <span class="kw"><a href="reference/element_textbox.html">element_textbox_simple</a></span>(</a>
-<a class="sourceLine" id="cb5-17" data-line-number="17">      <span class="dt">size =</span> <span class="dv">13</span>,</a>
-<a class="sourceLine" id="cb5-18" data-line-number="18">      <span class="dt">lineheight =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19">      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>, <span class="fl">5.5</span>, <span class="fl">5.5</span>),</a>
-<a class="sourceLine" id="cb5-20" data-line-number="20">      <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">5.5</span>, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb5-21" data-line-number="21">      <span class="dt">fill =</span> <span class="st">"cornsilk"</span></a>
-<a class="sourceLine" id="cb5-22" data-line-number="22">    ),</a>
-<a class="sourceLine" id="cb5-23" data-line-number="23">    <span class="dt">axis.title.x =</span> <span class="kw"><a href="reference/element_textbox.html">element_textbox_simple</a></span>(</a>
-<a class="sourceLine" id="cb5-24" data-line-number="24">      <span class="dt">width =</span> <span class="ot">NULL</span>,</a>
-<a class="sourceLine" id="cb5-25" data-line-number="25">      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb5-26" data-line-number="26">      <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb5-27" data-line-number="27">      <span class="dt">linetype =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb5-28" data-line-number="28">      <span class="dt">r =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="dv">8</span>, <span class="st">"pt"</span>),</a>
-<a class="sourceLine" id="cb5-29" data-line-number="29">      <span class="dt">fill =</span> <span class="st">"azure1"</span></a>
-<a class="sourceLine" id="cb5-30" data-line-number="30">    ),</a>
-<a class="sourceLine" id="cb5-31" data-line-number="31">    <span class="dt">axis.title.y =</span> <span class="kw"><a href="reference/element_textbox.html">element_textbox_simple</a></span>(</a>
-<a class="sourceLine" id="cb5-32" data-line-number="32">      <span class="dt">hjust =</span> <span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb5-33" data-line-number="33">      <span class="dt">orientation =</span> <span class="st">"left-rotated"</span>,</a>
-<a class="sourceLine" id="cb5-34" data-line-number="34">      <span class="dt">minwidth =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">"in"</span>),</a>
-<a class="sourceLine" id="cb5-35" data-line-number="35">      <span class="dt">maxwidth =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">"in"</span>),</a>
-<a class="sourceLine" id="cb5-36" data-line-number="36">      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">4</span>),</a>
-<a class="sourceLine" id="cb5-37" data-line-number="37">      <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb5-38" data-line-number="38">      <span class="dt">fill =</span> <span class="st">"lightsteelblue1"</span></a>
-<a class="sourceLine" id="cb5-39" data-line-number="39">    )</a>
-<a class="sourceLine" id="cb5-40" data-line-number="40">  )</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="700"></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">ggplot</span>(mtcars, <span class="kw">aes</span>(disp, mpg)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a><span class="st">  </span><span class="kw">labs</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    <span class="dt">title =</span> <span class="st">"&lt;b&gt;Fuel economy vs. engine displacement&lt;/b&gt;&lt;br&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a><span class="st">    &lt;span style = 'font-size:10pt'&gt;Lorem ipsum *dolor sit amet,*</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a><span class="st">    consectetur adipiscing elit, **sed do eiusmod tempor incididunt** ut</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a><span class="st">    labore et dolore magna aliqua. &lt;span style = 'color:red;'&gt;Ut enim</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a><span class="st">    ad minim veniam,&lt;/span&gt; quis nostrud exercitation ullamco laboris nisi</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true"></a><span class="st">    ut aliquip ex ea commodo consequat.&lt;/span&gt;"</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true"></a>    <span class="dt">x =</span> <span class="st">"displacement (in&lt;sup&gt;3&lt;/sup&gt;)"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true"></a>    <span class="dt">y =</span> <span class="st">"Miles per gallon (mpg)&lt;br&gt;&lt;span style = 'font-size:8pt'&gt;A measure of</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true"></a><span class="st">    the car's fuel efficiency.&lt;/span&gt;"</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true"></a>  ) <span class="op">+</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true"></a>    <span class="dt">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true"></a>    <span class="dt">plot.title =</span> <span class="kw">element_textbox_simple</span>(</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true"></a>      <span class="dt">size =</span> <span class="dv">13</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true"></a>      <span class="dt">lineheight =</span> <span class="dv">1</span>,</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true"></a>      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="fl">5.5</span>, <span class="fl">5.5</span>, <span class="fl">5.5</span>, <span class="fl">5.5</span>),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true"></a>      <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">5.5</span>, <span class="dv">0</span>),</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true"></a>      <span class="dt">fill =</span> <span class="st">"cornsilk"</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true"></a>    ),</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true"></a>    <span class="dt">axis.title.x =</span> <span class="kw">element_textbox_simple</span>(</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true"></a>      <span class="dt">width =</span> <span class="ot">NULL</span>,</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true"></a>      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">4</span>),</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true"></a>      <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">4</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true"></a>      <span class="dt">linetype =</span> <span class="dv">1</span>,</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true"></a>      <span class="dt">r =</span> grid<span class="op">::</span><span class="kw">unit</span>(<span class="dv">8</span>, <span class="st">"pt"</span>),</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true"></a>      <span class="dt">fill =</span> <span class="st">"azure1"</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true"></a>    ),</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true"></a>    <span class="dt">axis.title.y =</span> <span class="kw">element_textbox_simple</span>(</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true"></a>      <span class="dt">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true"></a>      <span class="dt">orientation =</span> <span class="st">"left-rotated"</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true"></a>      <span class="dt">minwidth =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">"in"</span>),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true"></a>      <span class="dt">maxwidth =</span> <span class="kw">unit</span>(<span class="dv">2</span>, <span class="st">"in"</span>),</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true"></a>      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true"></a>      <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>, <span class="dv">0</span>),</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true"></a>      <span class="dt">fill =</span> <span class="st">"lightsteelblue1"</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true"></a>    )</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true"></a>  )</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-6-1.png"><!-- --></p>
 <p>Another example, replacing facet strips with text boxes.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(cowplot)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>class) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/cowplot/topics/theme_cowplot">theme_half_open</a></span>(<span class="dv">12</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/cowplot/topics/background_grid">background_grid</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">  </span><span class="kw">theme</span>(</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">    <span class="dt">strip.background =</span> <span class="kw">element_blank</span>(),</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">    <span class="dt">strip.text =</span> <span class="kw"><a href="reference/element_textbox.html">element_textbox</a></span>(</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">      <span class="dt">size =</span> <span class="dv">12</span>,</a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">      <span class="dt">color =</span> <span class="st">"white"</span>, <span class="dt">fill =</span> <span class="st">"#5D729D"</span>, <span class="dt">box.color =</span> <span class="st">"#4A618C"</span>,</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">      <span class="dt">halign =</span> <span class="fl">0.5</span>, <span class="dt">linetype =</span> <span class="dv">1</span>, <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">"pt"</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>),</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)</a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">    )</a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">  )</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="700"></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="kw">library</span>(cowplot)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true"></a><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(cty, hwy)) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true"></a><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>class) <span class="op">+</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme_half_open</span>(<span class="dv">12</span>) <span class="op">+</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true"></a><span class="st">  </span><span class="kw">background_grid</span>() <span class="op">+</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true"></a><span class="st">  </span><span class="kw">theme</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true"></a>    <span class="dt">strip.background =</span> <span class="kw">element_blank</span>(),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true"></a>    <span class="dt">strip.text =</span> <span class="kw">element_textbox</span>(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true"></a>      <span class="dt">size =</span> <span class="dv">12</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true"></a>      <span class="dt">color =</span> <span class="st">"white"</span>, <span class="dt">fill =</span> <span class="st">"#5D729D"</span>, <span class="dt">box.color =</span> <span class="st">"#4A618C"</span>,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true"></a>      <span class="dt">halign =</span> <span class="fl">0.5</span>, <span class="dt">linetype =</span> <span class="dv">1</span>, <span class="dt">r =</span> <span class="kw">unit</span>(<span class="dv">5</span>, <span class="st">"pt"</span>), <span class="dt">width =</span> <span class="kw">unit</span>(<span class="dv">1</span>, <span class="st">"npc"</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true"></a>      <span class="dt">padding =</span> <span class="kw">margin</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>), <span class="dt">margin =</span> <span class="kw">margin</span>(<span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true"></a>    )</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true"></a>  )</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-7-1.png"><!-- --></p>
 </div>
 <div id="geoms" class="section level2">
 <h2 class="hasAnchor">
 <a href="#geoms" class="anchor"></a>Geoms</h2>
 <p>The geom <code><a href="reference/geom_richtext.html">geom_richtext()</a></code> provides markdown/html labels. Unlike <code>geom_label()</code>, the labels can be rotated.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">label =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(</a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">    <span class="st">"Some text **in bold.**"</span>,</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="st">"Linebreaks&lt;br&gt;Linebreaks&lt;br&gt;Linebreaks"</span>,</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">    <span class="st">"*x*&lt;sup&gt;2&lt;/sup&gt; + 5*x* + *C*&lt;sub&gt;*i*&lt;/sub&gt;"</span>,</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="st">"Some &lt;span style='color:blue'&gt;blue text **in bold.**&lt;/span&gt;&lt;br&gt;And *italics text.*&lt;br&gt;</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="st">    And some &lt;span style='font-size:18pt; color:black'&gt;large&lt;/span&gt; text."</span></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">  ),</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">  <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(.<span class="dv">2</span>, <span class="fl">.1</span>, <span class="fl">.5</span>, <span class="fl">.9</span>),</a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">  <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(.<span class="dv">8</span>, <span class="fl">.4</span>, <span class="fl">.1</span>, <span class="fl">.5</span>),</a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="dt">hjust =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>),</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">  <span class="dt">vjust =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>),</a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">  <span class="dt">angle =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">45</span>, <span class="dv">-45</span>),</a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">  <span class="dt">color =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"black"</span>, <span class="st">"blue"</span>, <span class="st">"black"</span>, <span class="st">"red"</span>),</a>
-<a class="sourceLine" id="cb7-15" data-line-number="15">  <span class="dt">fill =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cornsilk"</span>, <span class="st">"white"</span>, <span class="st">"lightblue1"</span>, <span class="st">"white"</span>)</a>
-<a class="sourceLine" id="cb7-16" data-line-number="16">)</a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="kw">ggplot</span>(df) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="st">  </span><span class="kw">aes</span>(</a>
-<a class="sourceLine" id="cb7-21" data-line-number="21">    x, y, <span class="dt">label =</span> label, <span class="dt">angle =</span> angle, <span class="dt">color =</span> color, <span class="dt">fill =</span> fill,</a>
-<a class="sourceLine" id="cb7-22" data-line-number="22">    <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust</a>
-<a class="sourceLine" id="cb7-23" data-line-number="23">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-24" data-line-number="24"><span class="st">  </span><span class="kw"><a href="reference/geom_richtext.html">geom_richtext</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-25" data-line-number="25"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-26" data-line-number="26"><span class="st">  </span><span class="kw">scale_color_identity</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-27" data-line-number="27"><span class="st">  </span><span class="kw">scale_fill_identity</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-28" data-line-number="28"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">xlim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">ylim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="700"></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a>df &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true"></a>  <span class="dt">label =</span> <span class="kw">c</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true"></a>    <span class="st">"Some text **in bold.**"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true"></a>    <span class="st">"Linebreaks&lt;br&gt;Linebreaks&lt;br&gt;Linebreaks"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true"></a>    <span class="st">"*x*&lt;sup&gt;2&lt;/sup&gt; + 5*x* + *C*&lt;sub&gt;*i*&lt;/sub&gt;"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true"></a>    <span class="st">"Some &lt;span style='color:blue'&gt;blue text **in bold.**&lt;/span&gt;&lt;br&gt;And *italics text.*&lt;br&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true"></a><span class="st">    And some &lt;span style='font-size:18pt; color:black'&gt;large&lt;/span&gt; text."</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true"></a>  ),</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true"></a>  <span class="dt">x =</span> <span class="kw">c</span>(.<span class="dv">2</span>, <span class="fl">.1</span>, <span class="fl">.5</span>, <span class="fl">.9</span>),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true"></a>  <span class="dt">y =</span> <span class="kw">c</span>(.<span class="dv">8</span>, <span class="fl">.4</span>, <span class="fl">.1</span>, <span class="fl">.5</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true"></a>  <span class="dt">hjust =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true"></a>  <span class="dt">vjust =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="fl">0.5</span>),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true"></a>  <span class="dt">angle =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">45</span>, <span class="dv">-45</span>),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true"></a>  <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">"black"</span>, <span class="st">"blue"</span>, <span class="st">"black"</span>, <span class="st">"red"</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true"></a>  <span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">"cornsilk"</span>, <span class="st">"white"</span>, <span class="st">"lightblue1"</span>, <span class="st">"white"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true"></a>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true"></a><span class="kw">ggplot</span>(df) <span class="op">+</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true"></a><span class="st">  </span><span class="kw">aes</span>(</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true"></a>    x, y, <span class="dt">label =</span> label, <span class="dt">angle =</span> angle, <span class="dt">color =</span> color, <span class="dt">fill =</span> fill,</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true"></a>    <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true"></a>  ) <span class="op">+</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_richtext</span>() <span class="op">+</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_color_identity</span>() <span class="op">+</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_fill_identity</span>() <span class="op">+</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-8-1.png"><!-- --></p>
 <p>Labels without frame or background are also possible.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggplot</span>(df) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">aes</span>(</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">    x, y, <span class="dt">label =</span> label, <span class="dt">angle =</span> angle, <span class="dt">color =</span> color,</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="reference/geom_richtext.html">geom_richtext</a></span>(</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">label.color =</span> <span class="ot">NA</span>, <span class="co"># remove background and outline</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="dt">label.padding =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="dv">0</span>, <span class="dv">4</span>), <span class="st">"pt"</span>) <span class="co"># remove padding</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_color_identity</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">xlim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">ylim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-9-1.png" width="700"></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true"></a><span class="kw">ggplot</span>(df) <span class="op">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true"></a><span class="st">  </span><span class="kw">aes</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true"></a>    x, y, <span class="dt">label =</span> label, <span class="dt">angle =</span> angle, <span class="dt">color =</span> color,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true"></a>    <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true"></a>  ) <span class="op">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_richtext</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true"></a>    <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">label.color =</span> <span class="ot">NA</span>, <span class="co"># remove background and outline</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true"></a>    <span class="dt">label.padding =</span> grid<span class="op">::</span><span class="kw">unit</span>(<span class="kw">rep</span>(<span class="dv">0</span>, <span class="dv">4</span>), <span class="st">"pt"</span>) <span class="co"># remove padding</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true"></a>  ) <span class="op">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_color_identity</span>() <span class="op">+</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-9-1.png"><!-- --></p>
 <p>The geom <code><a href="reference/geom_textbox.html">geom_textbox()</a></code> can draw boxes with word-wrapped text. It does not support arbitrary rotation angles, only fixed orientations, just like <code><a href="reference/element_textbox.html">element_textbox()</a></code>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw">tibble</span>(</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">label =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="st">"Lorem ipsum dolor **sit amet,** consectetur adipiscing elit,</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">    sed do *eiusmod tempor incididunt* ut labore et dolore magna</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">    aliqua."</span>, <span class="dv">2</span>),</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="fl">.6</span>),</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="dt">y =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="fl">.6</span>),</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">  <span class="dt">hjust =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">0</span>, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">  <span class="dt">vjust =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">0</span>),</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">  <span class="dt">orientation =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"upright"</span>, <span class="st">"right-rotated"</span>),</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">  <span class="dt">color =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"black"</span>, <span class="st">"blue"</span>),</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">  <span class="dt">fill =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"cornsilk"</span>, <span class="st">"white"</span>)</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">)</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="kw">ggplot</span>(df) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="st">  </span><span class="kw">aes</span>(</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">    x, y, <span class="dt">label =</span> label, <span class="dt">color =</span> color, <span class="dt">fill =</span> fill,</a>
-<a class="sourceLine" id="cb9-17" data-line-number="17">    <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust,</a>
-<a class="sourceLine" id="cb9-18" data-line-number="18">    <span class="dt">orientation =</span> orientation</a>
-<a class="sourceLine" id="cb9-19" data-line-number="19">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="st">  </span><span class="kw"><a href="reference/geom_textbox.html">geom_textbox</a></span>(<span class="dt">width =</span> <span class="kw">unit</span>(<span class="fl">0.4</span>, <span class="st">"npc"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-21" data-line-number="21"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-22" data-line-number="22"><span class="st">  </span><span class="kw">scale_discrete_identity</span>(<span class="dt">aesthetics =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"color"</span>, <span class="st">"fill"</span>, <span class="st">"orientation"</span>)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-23" data-line-number="23"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">xlim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/graphics/topics/plot.window">ylim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>)</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-10-1.png" width="700"></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true"></a>df &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true"></a>  <span class="dt">label =</span> <span class="kw">rep</span>(<span class="st">"Lorem ipsum dolor **sit amet,** consectetur adipiscing elit,</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true"></a><span class="st">    sed do *eiusmod tempor incididunt* ut labore et dolore magna</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true"></a><span class="st">    aliqua."</span>, <span class="dv">2</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true"></a>  <span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">.6</span>),</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true"></a>  <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">.6</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true"></a>  <span class="dt">hjust =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">0</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true"></a>  <span class="dt">vjust =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true"></a>  <span class="dt">orientation =</span> <span class="kw">c</span>(<span class="st">"upright"</span>, <span class="st">"right-rotated"</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true"></a>  <span class="dt">color =</span> <span class="kw">c</span>(<span class="st">"black"</span>, <span class="st">"blue"</span>),</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true"></a>  <span class="dt">fill =</span> <span class="kw">c</span>(<span class="st">"cornsilk"</span>, <span class="st">"white"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true"></a>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true"></a><span class="kw">ggplot</span>(df) <span class="op">+</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true"></a><span class="st">  </span><span class="kw">aes</span>(</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true"></a>    x, y, <span class="dt">label =</span> label, <span class="dt">color =</span> color, <span class="dt">fill =</span> fill,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true"></a>    <span class="dt">hjust =</span> hjust, <span class="dt">vjust =</span> vjust,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true"></a>    <span class="dt">orientation =</span> orientation</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true"></a>  ) <span class="op">+</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_textbox</span>(<span class="dt">width =</span> <span class="kw">unit</span>(<span class="fl">0.4</span>, <span class="st">"npc"</span>)) <span class="op">+</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true"></a><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">color =</span> <span class="st">"black"</span>, <span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_discrete_identity</span>(<span class="dt">aesthetics =</span> <span class="kw">c</span>(<span class="st">"color"</span>, <span class="st">"fill"</span>, <span class="st">"orientation"</span>)) <span class="op">+</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true"></a><span class="st">  </span><span class="kw">xlim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-10-1.png"><!-- --></p>
 </div>
 <div id="acknowledgments" class="section level2">
 <h2 class="hasAnchor">
@@ -291,10 +295,14 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=ggtext">https://​cloud.r-project.org/​package=ggtext</a>
+</li>
+<li>Browse source code at <br><a href="https://github.com/wilkelab/ggtext/">https://​github.com/​wilkelab/​ggtext/​</a>
+</li>
 <li>Report a bug at <br><a href="https://github.com/wilkelab/ggtext/issues">https://​github.com/​wilkelab/​ggtext/​issues</a>
 </li>
 </ul>
@@ -308,23 +316,20 @@
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Claus O. Wilke <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7470-9261" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<li>Claus O. Wilke <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-7470-9261" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
-
-      <div class="dev-status">
+  <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/wilkelab/ggtext"><img src="https://travis-ci.org/wilkelab/ggtext.svg?branch=master" alt="Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/clauswilke/ggtext"><img src="https://ci.appveyor.com/api/projects/status/github/wilkelab/ggtext?branch=master&amp;svg=true" alt="AppVeyor build status"></a></li>
+<li><a href="https://github.com/wilkelab/ggtext/actions"><img src="https://github.com/wilkelab/ggtext/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 <li><a href="https://codecov.io/github/wilkelab/ggtext?branch=master"><img src="https://img.shields.io/codecov/c/github/wilkelab/ggtext/master.svg" alt="Coverage Status"></a></li>
 <li><a href="https://cran.r-project.org/package=ggtext"><img src="https://www.r-pkg.org/badges/version/ggtext" alt="CRAN status"></a></li>
 <li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
 </ul>
 </div>
 </div>
-
 </div>
 
 
@@ -333,12 +338,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

@@ -6,18 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plotting with markdown text • ggtext</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="Plotting with markdown text">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="ggtext">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -30,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">ggtext</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
       </span>
     </div>
 
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -64,7 +65,14 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/wilkelab/ggtext/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -73,13 +81,14 @@
 <!--/.navbar -->
 
       
-      </header><div class="row">
+
+      </header><script src="plotting_text_files/header-attrs-2.3/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>Plotting with markdown text</h1>
+      <h1 data-toc-skip>Plotting with markdown text</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/wilkelab/ggtext/blob/master/vignettes/plotting_text.Rmd"><code>vignettes/plotting_text.Rmd</code></a></small>
       <div class="hidden name"><code>plotting_text.Rmd</code></div>
 
     </div>
@@ -92,176 +101,195 @@
 <a href="#simple-text-labels" class="anchor"></a>Simple text labels</h3>
 <p>Markdown-formatted text labels can be placed into a plot with <code><a href="../reference/geom_richtext.html">geom_richtext()</a></code>. This geom is mostly a drop-in replacement for <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_label()</a></code> (or <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code>), with added capabilities.</p>
 <p>As a first example, we will annotate a plot of linear regressions with their <em>r</em><sup>2</sup> values. We will use the <code>iris</code> dataset for this demonstration. In our first iteration, we will not yet use any ggtext features, and instead plot the text with <code><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text()</a></code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dplyr)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(glue)</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">iris_cor &lt;-<span class="st"> </span>iris <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(Species) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(<span class="dt">r_square =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/cor">cor</a></span>(Sepal.Length, Sepal.Width)<span class="op">^</span><span class="dv">2</span>) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">    <span class="co"># location of each text label in data coordinates</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10">    <span class="dt">Sepal.Length =</span> <span class="dv">8</span>, <span class="dt">Sepal.Width =</span> <span class="fl">4.5</span>,</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">    <span class="co"># text label containing r^2 value </span></a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">    <span class="dt">label =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"r^2 = {round(r_square, 2)}"</span>)</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">  )</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15">iris_cor</a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="co">#&gt; # A tibble: 3 x 5</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="co">#&gt;   Species    r_square Sepal.Length Sepal.Width label     </span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="co">#&gt;   &lt;fct&gt;         &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;glue&gt;    </span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="co">#&gt; 1 setosa        0.551            8         4.5 r^2 = 0.55</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="co">#&gt; 2 versicolor    0.277            8         4.5 r^2 = 0.28</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"><span class="co">#&gt; 3 virginica     0.209            8         4.5 r^2 = 0.21</span></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23">iris_facets &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(iris, <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(Sepal.Length, Sepal.Width)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span>(<span class="dt">method =</span> <span class="st">"lm"</span>, <span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span>Species) <span class="op">+</span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()</a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29">iris_facets <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb1-30" data-line-number="30"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(</a>
-<a class="sourceLine" id="cb1-31" data-line-number="31">    <span class="dt">data =</span> iris_cor,</a>
-<a class="sourceLine" id="cb1-32" data-line-number="32">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">label =</span> label),</a>
-<a class="sourceLine" id="cb1-33" data-line-number="33">    <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb1-34" data-line-number="34">  )</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/tidyverse/glue">glue</a></span>)
+
+<span class="kw">iris_cor</span> <span class="op">&lt;-</span> <span class="kw">iris</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(<span class="kw">Species</span>) <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span>(r_square = <span class="fu"><a href="https://rdrr.io/r/stats/cor.html">cor</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)<span class="op">^</span><span class="fl">2</span>) <span class="op">%&gt;%</span>
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(
+    <span class="co"># location of each text label in data coordinates</span>
+    Sepal.Length = <span class="fl">8</span>, Sepal.Width = <span class="fl">4.5</span>,
+    <span class="co"># text label containing r^2 value </span>
+    label = <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span>(<span class="st">"r^2 = {round(r_square, 2)}"</span>)
+  )
+
+<span class="kw">iris_cor</span>
+<span class="co">#&gt; # A tibble: 3 x 5</span>
+<span class="co">#&gt;   Species    r_square Sepal.Length Sepal.Width label     </span>
+<span class="co">#&gt;   &lt;fct&gt;         &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;glue&gt;    </span>
+<span class="co">#&gt; 1 setosa        0.551            8         4.5 r^2 = 0.55</span>
+<span class="co">#&gt; 2 versicolor    0.277            8         4.5 r^2 = 0.28</span>
+<span class="co">#&gt; 3 virginica     0.209            8         4.5 r^2 = 0.21</span>
+
+<span class="kw">iris_facets</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="kw">iris</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">Sepal.Length</span>, <span class="kw">Sepal.Width</span>)) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>() <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_smooth.html">geom_smooth</a></span>(method = <span class="st">"lm"</span>, formula = <span class="kw">y</span> <span class="op">~</span> <span class="kw">x</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span>(<span class="op">~</span><span class="kw">Species</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span>()
+
+<span class="kw">iris_facets</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_text.html">geom_text</a></span>(
+    data = <span class="kw">iris_cor</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(label = <span class="kw">label</span>),
+    hjust = <span class="fl">1</span>, vjust = <span class="fl">1</span>
+  )
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-2-1.png" width="576"></p>
 <p>This code works, but the result is not fully satisfying. First, because <em>r</em> is a mathematical variable, it should be typeset in italics. Second, it would be nicer to have a superscript 2 instead of ^2. We can achieve both results by creating a markdown label and plotting it with <code><a href="../reference/geom_richtext.html">geom_richtext()</a></code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggtext)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">iris_cor_md &lt;-<span class="st"> </span>iris_cor <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">    <span class="co"># markdown version of text label</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="dt">label =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/glue/topics/glue">glue</a></span>(<span class="st">"*r*&lt;sup&gt;2&lt;/sup&gt; = {round(r_square, 2)}"</span>)</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">  )</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">iris_cor_md</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; # A tibble: 3 x 5</span></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt;   Species    r_square Sepal.Length Sepal.Width label                 </span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt;   &lt;fct&gt;         &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;glue&gt;                </span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; 1 setosa        0.551            8         4.5 *r*&lt;sup&gt;2&lt;/sup&gt; = 0.55</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 2 versicolor    0.277            8         4.5 *r*&lt;sup&gt;2&lt;/sup&gt; = 0.28</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; 3 virginica     0.209            8         4.5 *r*&lt;sup&gt;2&lt;/sup&gt; = 0.21</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17">iris_facets <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="st">  </span><span class="kw"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(</a>
-<a class="sourceLine" id="cb2-19" data-line-number="19">    <span class="dt">data =</span> iris_cor_md,</a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">label =</span> label),</a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">    <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22">  )</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://wilkelab.org/ggtext">ggtext</a></span>)
+
+<span class="kw">iris_cor_md</span> <span class="op">&lt;-</span> <span class="kw">iris_cor</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(
+    <span class="co"># markdown version of text label</span>
+    label = <span class="fu"><a href="https://glue.tidyverse.org/reference/glue.html">glue</a></span>(<span class="st">"*r*&lt;sup&gt;2&lt;/sup&gt; = {round(r_square, 2)}"</span>)
+  )
+
+<span class="kw">iris_cor_md</span>
+<span class="co">#&gt; # A tibble: 3 x 5</span>
+<span class="co">#&gt;   Species    r_square Sepal.Length Sepal.Width label                 </span>
+<span class="co">#&gt;   &lt;fct&gt;         &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;glue&gt;                </span>
+<span class="co">#&gt; 1 setosa        0.551            8         4.5 *r*&lt;sup&gt;2&lt;/sup&gt; = 0.55</span>
+<span class="co">#&gt; 2 versicolor    0.277            8         4.5 *r*&lt;sup&gt;2&lt;/sup&gt; = 0.28</span>
+<span class="co">#&gt; 3 virginica     0.209            8         4.5 *r*&lt;sup&gt;2&lt;/sup&gt; = 0.21</span>
+
+<span class="kw">iris_facets</span> <span class="op">+</span> 
+  <span class="fu"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(
+    data = <span class="kw">iris_cor_md</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(label = <span class="kw">label</span>),
+    hjust = <span class="fl">1</span>, vjust = <span class="fl">1</span>
+  )
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-3-1.png" width="576"></p>
 <p>By default, <code><a href="../reference/geom_richtext.html">geom_richtext()</a></code> puts a box around the text it draws. We can suppress the box by setting the fill and outline colors to transparent (<code>fill = NA, label.colour = NA</code>).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">iris_facets <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">    <span class="dt">data =</span> iris_cor_md,</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">label =</span> label),</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="co"># remove label background and outline</span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="dt">fill =</span> <span class="ot">NA</span>, <span class="dt">label.color =</span> <span class="ot">NA</span>,</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="co"># remove label padding, since we have removed the label outline</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">    <span class="dt">label.padding =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="dv">0</span>, <span class="dv">4</span>), <span class="st">"pt"</span>) </a>
-<a class="sourceLine" id="cb3-10" data-line-number="10">  )</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">iris_facets</span> <span class="op">+</span> 
+  <span class="fu"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(
+    data = <span class="kw">iris_cor_md</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(label = <span class="kw">label</span>),
+    hjust = <span class="fl">1</span>, vjust = <span class="fl">1</span>,
+    <span class="co"># remove label background and outline</span>
+    fill = <span class="fl">NA</span>, label.color = <span class="fl">NA</span>,
+    <span class="co"># remove label padding, since we have removed the label outline</span>
+    label.padding = <span class="kw">grid</span>::<span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0</span>, <span class="fl">4</span>), <span class="st">"pt"</span>) 
+  )
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-4-1.png" width="576"></p>
 <p>We can separately choose the colors of label outline, label fill, and label text, and we can assign them via aesthetic mapping as well as by direct specification, as is usual in ggplot2.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">iris_facets <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">colour =</span> Species) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">data =</span> iris_cor_md,</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">      <span class="dt">label =</span> label,</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">      <span class="dt">fill =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_scale</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">alpha</a></span>(colour, <span class="fl">.2</span>))</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">    ),</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">    <span class="dt">text.colour =</span> <span class="st">"black"</span>,</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">    <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">iris_facets</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(colour = <span class="kw">Species</span>) <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(
+    data = <span class="kw">iris_cor_md</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(
+      label = <span class="kw">label</span>,
+      fill = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_scale</a></span>(<span class="fu"><a href="https://scales.r-lib.org//reference/alpha.html">alpha</a></span>(<span class="kw">colour</span>, <span class="fl">.2</span>))
+    ),
+    text.colour = <span class="st">"black"</span>,
+    hjust = <span class="fl">1</span>, vjust = <span class="fl">1</span>
+  ) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(legend.position = <span class="st">"none"</span>)
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 <p>Rotated labels are also possible, though in most cases it is not recommended to use them.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">iris_facets <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">colour =</span> Species) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">  </span><span class="kw"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="dt">data =</span> iris_cor_md,</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">      <span class="dt">x =</span> <span class="fl">7.5</span>,</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">      <span class="dt">label =</span> label,</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">      <span class="dt">fill =</span> <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_scale</a></span>(<span class="kw"><a href="https://ggplot2.tidyverse.org/reference/reexports.html">alpha</a></span>(colour, <span class="fl">.2</span>))</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">    ),</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">    <span class="dt">text.colour =</span> <span class="st">"black"</span>,</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">    <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">vjust =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">    <span class="dt">angle =</span> <span class="dv">30</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(<span class="dt">legend.position =</span> <span class="st">"none"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">iris_facets</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(colour = <span class="kw">Species</span>) <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_richtext.html">geom_richtext</a></span>(
+    data = <span class="kw">iris_cor_md</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(
+      x = <span class="fl">7.5</span>,
+      label = <span class="kw">label</span>,
+      fill = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_scale</a></span>(<span class="fu"><a href="https://scales.r-lib.org//reference/alpha.html">alpha</a></span>(<span class="kw">colour</span>, <span class="fl">.2</span>))
+    ),
+    text.colour = <span class="st">"black"</span>,
+    hjust = <span class="fl">1</span>, vjust = <span class="fl">1</span>,
+    angle = <span class="fl">30</span>
+  ) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(legend.position = <span class="st">"none"</span>)
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 </div>
 <div id="text-boxes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#text-boxes" class="anchor"></a>Text boxes</h3>
 <p>Markdown-formatted text boxes (with word wrap) can be placed into a plot with <code><a href="../reference/geom_textbox.html">geom_textbox()</a></code>. It is generally necessary to specify a width for the box. Widths are specified in grid units, and both absolute (e.g., <code>"cm"</code>, <code>"pt"</code>, or <code>"in"</code>) and relative (<code>"npc"</code>, Normalised Parent Coordinates) units are possible.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="dt">x =</span> <span class="fl">0.1</span>,</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">  <span class="dt">y =</span> <span class="fl">0.8</span>,</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">  <span class="dt">label =</span> <span class="st">"*Lorem ipsum dolor sit amet,* consectetur adipiscing</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="st">elit. Quisque tincidunt eget arcu in pulvinar. Morbi varius leo</span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">vel consectetur luctus. **Morbi facilisis justo non fringilla.**</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">Vivamus sagittis sem felis, vel lobortis risus mattis eget. Nam</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">quis imperdiet felis, in convallis elit."</span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">)</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">p &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="st">  </span><span class="kw"><a href="../reference/geom_textbox.html">geom_textbox</a></span>(</a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">    <span class="dt">data =</span> df,</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x, y, <span class="dt">label =</span> label),</a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">    <span class="dt">width =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="fl">0.73</span>, <span class="st">"npc"</span>), <span class="co"># 73% of plot panel width</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">    <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">vjust =</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb6-18" data-line-number="18"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb6-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20">p</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(
+  x = <span class="fl">0.1</span>,
+  y = <span class="fl">0.8</span>,
+  label = <span class="st">"*Lorem ipsum dolor sit amet,* consectetur adipiscing
+elit. Quisque tincidunt eget arcu in pulvinar. Morbi varius leo
+vel consectetur luctus. **Morbi facilisis justo non fringilla.**
+Vivamus sagittis sem felis, vel lobortis risus mattis eget. Nam
+quis imperdiet felis, in convallis elit."</span>
+)
+
+<span class="kw">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_textbox.html">geom_textbox</a></span>(
+    data = <span class="kw">df</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span>, <span class="kw">y</span>, label = <span class="kw">label</span>),
+    width = <span class="kw">grid</span>::<span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span>(<span class="fl">0.73</span>, <span class="st">"npc"</span>), <span class="co"># 73% of plot panel width</span>
+    hjust = <span class="fl">0</span>, vjust = <span class="fl">1</span>
+  ) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="fl">0</span>, <span class="fl">1</span>) <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span>(<span class="fl">0</span>, <span class="fl">1</span>)
+
+<span class="kw">p</span>
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-7-1.png" width="576"></p>
 <p>If we specify a relative width, then changing the size of the plot will change the size of the textbox. The text will reflow to accommodate this change.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">p</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="kw">p</span>
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-8-1.png" width="384"></p>
 <p>The parameters <code>hjust</code> and <code>vjust</code> align the box relative to the reference point specified by <code>x</code> and <code>y</code>, but they do not affect the alignment of text inside the box. To specify how text is aligned inside the box, use <code>halign</code> and <code>valign</code>. For example, <code>halign = 0.5</code> generates centered text.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="../reference/geom_textbox.html">geom_textbox</a></span>(</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">    <span class="dt">data =</span> df,</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x, y, <span class="dt">label =</span> label),</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="dt">width =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="fl">0.73</span>, <span class="st">"npc"</span>), <span class="co"># 73% of plot panel width</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">vjust =</span> <span class="dv">1</span>,</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">    <span class="dt">halign =</span> <span class="fl">0.5</span> <span class="co"># centered text</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_textbox.html">geom_textbox</a></span>(
+    data = <span class="kw">df</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span>, <span class="kw">y</span>, label = <span class="kw">label</span>),
+    width = <span class="kw">grid</span>::<span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span>(<span class="fl">0.73</span>, <span class="st">"npc"</span>), <span class="co"># 73% of plot panel width</span>
+    hjust = <span class="fl">0</span>, vjust = <span class="fl">1</span>,
+    halign = <span class="fl">0.5</span> <span class="co"># centered text</span>
+  ) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="fl">0</span>, <span class="fl">1</span>) <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span>(<span class="fl">0</span>, <span class="fl">1</span>)
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-9-1.png" width="384"></p>
 <p>While text boxes cannot be rotated arbitrarily, they can be placed in four distinct orientations, corresponding to rotations by multiples of 90 degrees. Note that <code>hjust</code> and <code>vjust</code> are specified relative to this orientation.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">df &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">x =</span> <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">y =</span> <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">label =</span> <span class="st">"The quick brown fox jumps over the lazy dog."</span>,</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">orientation =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"upright"</span>, <span class="st">"left-rotated"</span>, <span class="st">"inverted"</span>, <span class="st">"right-rotated"</span>)</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">)</a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="st">  </span><span class="kw"><a href="../reference/geom_textbox.html">geom_textbox</a></span>(</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">    <span class="dt">data =</span> df,</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">    <span class="kw"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x, y, <span class="dt">label =</span> label, <span class="dt">orientation =</span> orientation),</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="dt">width =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="fl">1.5</span>, <span class="st">"in"</span>),</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">    <span class="dt">height =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="fl">1.5</span>, <span class="st">"in"</span>),</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">    <span class="dt">box.margin =</span> grid<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/grid/topics/unit">unit</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/rep">rep</a></span>(<span class="fl">0.25</span>, <span class="dv">4</span>), <span class="st">"in"</span>),</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">    <span class="dt">hjust =</span> <span class="dv">0</span>, <span class="dt">vjust =</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">  ) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span><span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="st">  </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">scale_discrete_identity</a></span>(<span class="dt">aesthetics =</span> <span class="st">"orientation"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit">
+<span class="kw">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span>(
+  x = <span class="fl">0.5</span>,
+  y = <span class="fl">0.5</span>,
+  label = <span class="st">"The quick brown fox jumps over the lazy dog."</span>,
+  orientation = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"upright"</span>, <span class="st">"left-rotated"</span>, <span class="st">"inverted"</span>, <span class="st">"right-rotated"</span>)
+)
+
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span>
+  <span class="fu"><a href="../reference/geom_textbox.html">geom_textbox</a></span>(
+    data = <span class="kw">df</span>,
+    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="kw">x</span>, <span class="kw">y</span>, label = <span class="kw">label</span>, orientation = <span class="kw">orientation</span>),
+    width = <span class="kw">grid</span>::<span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span>(<span class="fl">1.5</span>, <span class="st">"in"</span>),
+    height = <span class="kw">grid</span>::<span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span>(<span class="fl">1.5</span>, <span class="st">"in"</span>),
+    box.margin = <span class="kw">grid</span>::<span class="fu"><a href="https://rdrr.io/r/grid/unit.html">unit</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span>(<span class="fl">0.25</span>, <span class="fl">4</span>), <span class="st">"in"</span>),
+    hjust = <span class="fl">0</span>, vjust = <span class="fl">1</span>
+  ) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span>(<span class="fl">0</span>, <span class="fl">1</span>) <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span>(<span class="fl">0</span>, <span class="fl">1</span>) <span class="op">+</span>
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_identity.html">scale_discrete_identity</a></span>(aesthetics = <span class="st">"orientation"</span>)
+</pre></div>
 <p><img src="plotting_text_files/figure-html/unnamed-chunk-10-1.png" width="384"></p>
 <p>The previous example uses the <code>box.margin</code> argument to create some space between the reference point given by <code>x</code>, <code>y</code> and the box itself. This margin is part of the size calculation for the box, so that a width of 1.5 inches with 0.25 inch margins yields an actual box of 1 inch in width.</p>
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
       </div>
 
 </div>
+
 
 
       <footer><div class="copyright">
@@ -269,12 +297,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>

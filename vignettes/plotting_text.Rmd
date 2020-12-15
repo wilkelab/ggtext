@@ -2,7 +2,7 @@
 title: "Plotting with markdown text"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Plotting text}
+  %\VignetteIndexEntry{Plotting with markdown text}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
