@@ -1,6 +1,7 @@
 # ggtext 0.1.2
 
 - Maintainer changes to Brenton Wiernik.
+- Removed LazyData from package DESCRIPTION to fix CRAN NOTE
 
 # ggtext 0.1.1
 
