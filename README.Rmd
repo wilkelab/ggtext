@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![R build status](https://github.com/wilkelab/ggtext/workflows/R-CMD-check/badge.svg)](https://github.com/wilkelab/ggtext/actions)
 [![Coverage Status](https://img.shields.io/codecov/c/github/wilkelab/ggtext/master.svg)](https://codecov.io/github/wilkelab/ggtext?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
-[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
 <!-- badges: end -->
 
 The ggtext package provides simple Markdown and HTML rendering for ggplot2. Under the hood, the package uses the [gridtext](https://CRAN.R-project.org/package=gridtext) package for the actual rendering, and consequently it is limited to the feature set provided by gridtext.
@@ -244,6 +244,6 @@ ggplot(df) +
 
 ## Acknowledgments
 
-This project is receiving [financial support](https://www.r-consortium.org/projects/awarded-projects) from the [R consortium.](https://www.r-consortium.org)
+This project received [financial support](https://www.r-consortium.org/all-projects/awarded-projects) from the [R consortium.](https://www.r-consortium.org)
 
 <img src="https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png" width="250">

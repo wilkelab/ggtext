@@ -1,4 +1,4 @@
-Make sure tests don't fail just because vdiffr couldn't be installed, per request by Brian Ripley.
+* Maintainer changes from Claus Wilke to Brenton Wiernik.
 
 ## Test environments
 

@@ -1,3 +1,7 @@
+# ggtext 0.1.2
+
+- Maintainer changes to Brenton Wiernik.
+
 # ggtext 0.1.1
 
 - Make sure tests don't fail if vdiffr is missing.

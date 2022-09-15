@@ -1,14 +1,23 @@
 Package: ggtext
 Type: Package
 Title: Improved Text Rendering Support for 'ggplot2'
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: 
-    person(
-      given = "Claus O.",
-      family = "Wilke",
-      role = c("aut", "cre"),
-      email = "wilke@austin.utexas.edu",
-      comment = c(ORCID = "0000-0002-7470-9261")
+    c(
+      person(
+        given = "Claus O.",
+        family = "Wilke",
+        role = c("aut"),
+        email = "wilke@austin.utexas.edu",
+        comment = c(ORCID = "0000-0002-7470-9261")
+      ),
+      person(
+        given = "Brenton M.",
+        family = "Wiernik",
+        role = c("aut", "cre"),
+        email = "brenton@wiernik.org",
+        comment = c(ORCID = "0000-0001-9560-6336", Twitter = "@bmwiernik")
+      )
     )
 Description: A 'ggplot2' extension that enables the rendering of
     complex formatted plot labels (titles, subtitles, facet labels,
