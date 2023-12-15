@@ -34,13 +34,14 @@ draw_key_richtext <- function(data, params, size) {
   )
   
   # Populate graphical parameters for text box
+  lwd <- (data$label.size %||% 0.25) * .pt
   box_gp <- gpar(
     col = scales::alpha(
       data$label.colour %||% data$colour %||% "black",
       data$alpha %||% NA
     ),
     fill = scales::alpha(data$fill %||% "white", data$alpha %||% NA),
-    lwd = (data$label.size %||% 0.25) * .pt
+    lwd = lwd
   )
   
   grob <- richtext_grob(
@@ -63,8 +64,8 @@ draw_key_richtext <- function(data, params, size) {
   # Key drawing functions deal with 1 key at a time, so we can extract the
   # box's (relative) coordinates from the first child-grob.
   # The units are given in points
-  x <- range(grob$children[[1]]$xext)
-  y <- range(grob$children[[1]]$yext)
+  x <- range(grob$children[[1]]$xext) + c(-0.5, 0.5) * lwd
+  y <- range(grob$children[[1]]$yext) + c(-0.5, 0.5) * lwd
 
   # Calculate offsets that account for textbox size
   xoffset <- x[1] * (1 - just$hjust) + x[2] * just$hjust
