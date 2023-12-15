@@ -49,8 +49,8 @@ draw_key_richtext <- function(data, params, size) {
     x = unit(just$hjust, "npc"),
     y = unit(just$vjust, "npc"),
     rot = data$angle,
-    hjust = just$hjust,
-    vjust = just$vjust,
+    hjust = data$hjust,
+    vjust = data$vjust,
     gp = text_gp, 
     box_gp = box_gp,
     # Defaults for unit input are the same as `geom_richtext()` formals
