@@ -5,8 +5,7 @@
 
 <!-- badges: start -->
 
-[![R build
-status](https://github.com/wilkelab/ggtext/workflows/R-CMD-check/badge.svg)](https://github.com/wilkelab/ggtext/actions)
+[![R-CMD-check](https://github.com/wilkelab/ggtext/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilkelab/ggtext/actions/workflows/R-CMD-check.yaml)
 [![Coverage
 Status](https://img.shields.io/codecov/c/github/wilkelab/ggtext/master.svg)](https://codecov.io/github/wilkelab/ggtext?branch=master)
 [![CRAN
@@ -102,9 +101,9 @@ labels <- c(
   setosa = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Iris_setosa.JPG/180px-Iris_setosa.JPG'
     width='100' /><br>*I. setosa*",
   virginica = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Iris_virginica_-_NRCS.jpg/320px-Iris_virginica_-_NRCS.jpg'
-    width='100' /><br>*I. virginica*",
-  versicolor = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/20140427Iris_versicolor1.jpg/320px-20140427Iris_versicolor1.jpg'
-    width='100' /><br>*I. versicolor*"
+  width='100' /><br>*I. virginica*",
+  versicolor = "<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/20140427Iris_%C3%97_germanica1.jpg/320px-20140427Iris_%C3%97_germanica1.jpg'
+  width='100' /><br>*I. versicolor*"
 )
 
 ggplot(iris, aes(Species, Sepal.Width)) +
@@ -192,10 +191,6 @@ ggplot(mpg, aes(cty, hwy)) +
       padding = margin(2, 0, 1, 0), margin = margin(3, 3, 3, 3)
     )
   )
-#> Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
-#> Please use the `linewidth` argument instead.
-#> Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
-#> Please use the `linewidth` argument instead.
 ```
 
 ![](man/figures/README-unnamed-chunk-7-1.png)<!-- -->
