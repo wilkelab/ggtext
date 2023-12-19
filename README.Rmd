@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 
 
 <!-- badges: start -->
-[![R build status](https://github.com/wilkelab/ggtext/workflows/R-CMD-check/badge.svg)](https://github.com/wilkelab/ggtext/actions)
+[![R-CMD-check](https://github.com/wilkelab/ggtext/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wilkelab/ggtext/actions/workflows/R-CMD-check.yaml)
 [![Coverage Status](https://img.shields.io/codecov/c/github/wilkelab/ggtext/master.svg)](https://codecov.io/github/wilkelab/ggtext?branch=master)
 [![CRAN status](https://www.r-pkg.org/badges/version/ggtext)](https://cran.r-project.org/package=ggtext)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#maturing)
