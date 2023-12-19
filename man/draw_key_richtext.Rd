@@ -24,6 +24,8 @@ needs to be displayed in a legend. It is designed to be provided to a layer's
 \code{key_glyph} argument, either as a function or as \code{key_glyph = "richtext"}.
 }
 \examples{
+library(ggplot2)
+
 ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
   geom_richtext(aes(colour = factor(cyl)), key_glyph = "richtext")
 }

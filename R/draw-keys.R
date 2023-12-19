@@ -11,6 +11,8 @@
 #' @export
 #'
 #' @examples
+#' library(ggplot2)
+#' 
 #' ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
 #'   geom_richtext(aes(colour = factor(cyl)), key_glyph = "richtext")
 draw_key_richtext <- function(data, params, size) {
@@ -67,19 +69,19 @@ draw_key_richtext <- function(data, params, size) {
   x <- range(grob$children[[1]]$xext) + c(-0.5, 0.5) * lwd
   y <- range(grob$children[[1]]$yext) + c(-0.5, 0.5) * lwd
 
-  # Calculate offsets that account for textbox size
-  xoffset <- x[1] * (1 - just$hjust) + x[2] * just$hjust
-  yoffset <- y[1] * (1 - just$vjust) + y[2] * just$vjust
-  
-  # We apply offsets to the grob's viewport so that textbox is remains within 
-  # the bounds of the key area
-  grob <- editGrob(
-    grob,
-    vp = viewport(
-      x = unit(0.5, "npc") - unit(xoffset, "pt"),
-      y = unit(0.5, "npc") - unit(yoffset, "pt")
-    )
-  )
+  # # Calculate offsets that account for textbox size
+  # xoffset <- x[1] * (1 - just$hjust) + x[2] * just$hjust
+  # yoffset <- y[1] * (1 - just$vjust) + y[2] * just$vjust
+  # 
+  # # We apply offsets to the grob's viewport so that textbox is remains within 
+  # # the bounds of the key area
+  # grob <- editGrob(
+  #   grob,
+  #   vp = viewport(
+  #     x = unit(0.5, "npc") - unit(xoffset, "pt"),
+  #     y = unit(0.5, "npc") - unit(yoffset, "pt")
+  #   )
+  # )
   
   # Calculate size in cm. 
   # 'x * .pt' converts mm to pt, so 'x / .pt' converts pt to mm
