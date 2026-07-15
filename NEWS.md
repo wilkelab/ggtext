@@ -1,3 +1,7 @@
+# ggtext 0.2
+
+- Add richtext legend key (@teunbrand, #112).
+
 # ggtext 0.1.2
 
 - Maintainer changes to Brenton Wiernik.
