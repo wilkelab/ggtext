@@ -1,6 +1,10 @@
 test_that("visual test", {
   skip_if_not(packageVersion("ggplot2") >= "3.5.0")
   
+  p <- ggplot(mtcars, aes(wt, mpg, label = rownames(mtcars))) +
+    geom_richtext(aes(colour = factor(cyl)), key_glyph = "richtext")
+  expect_doppelganger("Basic rich text keys", p)
+  
   p <- ggplot(iris, aes(Sepal.Width, Sepal.Length, colour = Species)) +
     geom_point(key_glyph = "richtext") +
     scale_colour_discrete(
