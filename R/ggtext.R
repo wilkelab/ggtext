@@ -5,9 +5,8 @@
 #' text rendering with ggplot2.
 #'
 #' @name ggtext
-#' @docType package
 #' @import grid
 #' @import rlang
 #' @import gridtext
 #' @import ggplot2
-NULL
+"_PACKAGE"

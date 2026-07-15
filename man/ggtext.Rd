@@ -2,10 +2,29 @@
 % Please edit documentation in R/ggtext.R
 \docType{package}
 \name{ggtext}
+\alias{ggtext-package}
 \alias{ggtext}
 \title{Improved text rendering support for ggplot2}
 \description{
 The ggtext package implements both geoms (\code{\link[=geom_richtext]{geom_richtext()}}, \code{\link[=geom_textbox]{geom_textbox()}})
 and theme elements (\code{\link[=element_markdown]{element_markdown()}}, \code{\link[=element_textbox]{element_textbox()}}) for improved
 text rendering with ggplot2.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://wilkelab.org/ggtext/}
+  \item Report bugs at \url{https://github.com/wilkelab/ggtext/issues}
+}
+
+}
+\author{
+\strong{Maintainer}: Brenton M. Wiernik \email{brenton@wiernik.org} (\href{https://orcid.org/0000-0001-9560-6336}{ORCID}) (Twitter: @bmwiernik)
+
+Authors:
+\itemize{
+  \item Brenton M. Wiernik \email{brenton@wiernik.org} (\href{https://orcid.org/0000-0001-9560-6336}{ORCID}) (Twitter: @bmwiernik)
+  \item Claus O. Wilke \email{wilke@austin.utexas.edu} (\href{https://orcid.org/0000-0002-7470-9261}{ORCID})
+}
+
 }

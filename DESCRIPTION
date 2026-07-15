@@ -43,6 +43,6 @@ Suggests:
     testthat,
     vdiffr
 Encoding: UTF-8
-RoxygenNote: 7.1.1
 Roxygen: list(markdown = TRUE)
 VignetteBuilder: knitr
+Config/roxygen2/version: 8.0.0

@@ -81,7 +81,7 @@ element_textbox_simple(
 \item{linetype}{Line type of the enclosing box (like \code{lty} in base R)}
 
 \item{linewidth}{Line width of the enclosing box (measured in mm, just like \code{size} in
-\code{\link[ggplot2:element]{ggplot2::element_line()}}).}
+\code{\link[ggplot2:element_line]{ggplot2::element_line()}}).}
 
 \item{hjust}{Horizontal justification}
 
@@ -108,7 +108,7 @@ Set to NULL to impose neither a minimum nor a maximum.}
 
 \item{debug}{Not implemented.}
 
-\item{inherit.blank}{See \code{\link[ggplot2:element]{ggplot2::margin()}} for details.}
+\item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
 }
 \value{
 A ggplot2 theme element that can be used inside a \code{\link[ggplot2:theme]{ggplot2::theme()}}
@@ -129,15 +129,14 @@ library(ggplot2)
 ggplot(mtcars, aes(disp, mpg)) + 
 geom_point() +
   labs(
-    title =
-    "<b><span style = 'font-size:13pt'>Fuel economy vs. engine displacement</span></b><br>
-    Lorem ipsum *dolor sit amet,* consectetur adipiscing elit, **sed do eiusmod tempor
-    incididunt** ut labore et dolore magna aliqua. <span style = 'color:red;'>Ut enim ad
-    minim veniam,</span> quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-    commodo consequat.",
-    x = "displacement (in<sup>3</sup>)",
-    y = "Miles per gallon (mpg)<br><span style = 'font-size:8pt'>A measure of
-    the car's fuel efficiency.</span>"
+  title = "<b><span style = 'font-size:13pt'>Fuel economy vs. engine displacement</span></b><br>
+Lorem ipsum *dolor sit amet,* consectetur adipiscing elit, **sed do eiusmod tempor
+incididunt** ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+<span style = 'color:red;'>quis nostrud exercitation ullamco</span> laboris nisi ut
+aliquip ex ea commodo consequat.",
+  x = "displacement (in<sup>3</sup>)",
+  y = "Miles per gallon (mpg)
+<span style = 'font-size:8pt'>A measure of the car's fuel efficiency.</span>"
   ) +
   theme(
     plot.title.position = "plot",
