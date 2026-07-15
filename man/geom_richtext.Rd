@@ -98,6 +98,10 @@ lists which parameters it can accept.
 \link[ggplot2:draw_key]{key glyphs}, to change the display of the layer in the legend.
 }}
 
+\item{nudge_x}{Shifts text horizontally, as in \code{\link[ggplot2:geom_text]{geom_text()}}.}
+
+\item{nudge_y}{Shifts text vertically, as in \code{\link[ggplot2:geom_text]{geom_text()}}.}
+
 \item{label.padding}{Amount of padding around label. Defaults to 0.25 lines.}
 
 \item{label.margin}{Unit vector of length four specifying the margin

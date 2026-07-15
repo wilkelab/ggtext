@@ -36,6 +36,8 @@
 #' 
 #' @inheritParams ggplot2::geom_text
 #' @inheritParams ggplot2::geom_label
+#' @param nudge_x Shifts text horizontally, as in [geom_text()].
+#' @param nudge_y Shifts text vertically, as in [geom_text()].
 #' @param label.margin Unit vector of length four specifying the margin
 #'   outside the text label.
 #' @return A ggplot2 layer that can be added to a plot created with
