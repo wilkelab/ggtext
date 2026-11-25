@@ -5,6 +5,7 @@
 \alias{GeomRichText}
 \alias{GeomRichtext}
 \alias{GeomTextBox}
+\alias{GeomTextbox}
 \title{Richtext labels}
 \usage{
 geom_richtext(
