@@ -28,7 +28,8 @@ element_markdown(
   align_heights = NULL,
   rotate_margins = NULL,
   debug = FALSE,
-  inherit.blank = FALSE
+  inherit.blank = FALSE,
+  na.value = ""
 )
 }
 \arguments{
@@ -79,6 +80,9 @@ in which the text runs. The default is \code{FALSE}, which mimics the behavior o
 \item{debug}{Draw a debugging box around each label}
 
 \item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
+
+\item{na.value}{Markdown text to show for a missing label. Defaults to an
+empty string. Use \code{NULL} to inherit a value from a parent Markdown element.}
 }
 \value{
 A ggplot2 theme element that can be used inside a \code{\link[ggplot2:theme]{ggplot2::theme()}}

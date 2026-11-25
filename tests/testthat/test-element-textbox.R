@@ -1,5 +1,19 @@
 context("element textbox")
 
+test_that("textbox elements support a replacement for missing text", {
+  textbox_labels <- function(element, label) {
+    g <- grid::grid.force(element_grob(element, label))
+    unlist(lapply(g$children, `[[`, "label"), use.names = FALSE)
+  }
+  for (constructor in list(element_textbox, element_textbox_simple)) {
+    default <- constructor(hjust = 0.5, vjust = 0.5)
+    expect_false(any(nzchar(textbox_labels(default, NA_character_))))
+    custom <- constructor(hjust = 0.5, vjust = 0.5, na.value = "**Missing**")
+    expect_true("Missing" %in% textbox_labels(custom, NA_character_))
+    expect_identical(textbox_labels(custom, "NA"), textbox_labels(default, "NA"))
+  }
+})
+
 test_that("visual tests", {
   text <- "*Lorem ipsum dolor sit amet,* consectetur adipiscing
 elit. **Quisque tincidunt** eget arcu in pulvinar. Morbi varius leo

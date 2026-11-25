@@ -1,5 +1,55 @@
 context("element markdown")
 
+test_that("Markdown can label missing values on a discrete axis", {
+  data <- data.frame(group = c("plain", "NA", NA), value = 1:3)
+  plot <- ggplot(data, aes(group, value)) + geom_col()
+
+  grob_labels <- function(grob) {
+    c(
+      grob$label,
+      unlist(lapply(grob$children, grob_labels), use.names = FALSE),
+      unlist(lapply(grob$grobs, grob_labels), use.names = FALSE)
+    )
+  }
+  axis_labels <- function(...) {
+    g <- ggplotGrob(plot + theme(...))
+    axis <- g$grobs[[which(g$layout$name == "axis-b")]]
+    labels <- grob_labels(axis)
+    sort(labels[labels != ""], na.last = TRUE)
+  }
+  expect_identical(
+    axis_labels(axis.text.x = element_markdown()),
+    sort(c("plain", "NA"))
+  )
+  expect_identical(
+    axis_labels(axis.text.x = element_markdown(na.value = "**Missing**")),
+    sort(c("plain", "NA", "Missing"))
+  )
+  expect_identical(
+    axis_labels(
+      axis.text = element_markdown(na.value = "Missing"),
+      axis.text.x = element_markdown(na.value = NULL)
+    ),
+    sort(c("plain", "NA", "Missing"))
+  )
+  expect_identical(
+    axis_labels(
+      axis.text = element_markdown(na.value = "Missing"),
+      axis.text.x = element_markdown(na.value = "")
+    ),
+    sort(c("plain", "NA"))
+  )
+
+  default <- element_markdown(hjust = 0.5, vjust = 0.5)
+  custom <- element_markdown(hjust = 0.5, vjust = 0.5, na.value = "Missing")
+  for (label in list(factor("plain"), expression(alpha + beta))) {
+    expect_identical(
+      grob_labels(element_grob(custom, label)),
+      grob_labels(element_grob(default, label))
+    )
+  }
+})
+
 test_that("ggplot2 margin simulation", {
   # ggplot2 margins are simulated with reshuffled
   # richtext_grob margins for horizontal and vertical
