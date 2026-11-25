@@ -32,6 +32,8 @@
 #' @param orientation Orientation of the text box. See [gridtext::textbox_grob()] for details.
 #' @param debug Not implemented.
 #' @param inherit.blank See [ggplot2::margin()] for details.
+#' @param na.value Markdown text to show for a missing label. Defaults to an
+#'   empty string. Use `NULL` to inherit a value from a parent textbox element.
 #' @return A ggplot2 theme element that can be used inside a [ggplot2::theme()]
 #'   call.
 #' @seealso [gridtext::textbox_grob()], [element_markdown()], [geom_textbox()]
@@ -83,7 +85,7 @@ element_textbox <- function(family = NULL, face = NULL, size = NULL, colour = NU
                             margin = NULL, padding = NULL, width = NULL, height = NULL, minwidth = NULL,
                             maxwidth = NULL, minheight = NULL, maxheight = NULL, r = NULL,
                             orientation = NULL, color = NULL, box.color = NULL,
-                            debug = FALSE, inherit.blank = FALSE) {
+                            debug = FALSE, inherit.blank = FALSE, na.value = "") {
   if (!is.null(color))
     colour <- color
   
@@ -98,7 +100,7 @@ element_textbox <- function(family = NULL, face = NULL, size = NULL, colour = NU
       margin = margin, padding = padding, width = width, height = height, minwidth = minwidth,
       maxwidth = maxwidth, minheight = minheight, maxheight = maxheight,
       r = r, orientation = orientation,
-      debug = debug, inherit.blank = inherit.blank),
+      debug = debug, inherit.blank = inherit.blank, na.value = na.value),
     class = c("element_textbox", "element_text", "element")
   )
 }
@@ -112,13 +114,14 @@ element_textbox_simple <- function(family = NULL, face = NULL, size = NULL, colo
                             width = grid::unit(1, "npc"), height = NULL, minwidth = NULL,
                             maxwidth = NULL, minheight = NULL, maxheight = NULL, r = grid::unit(0, "pt"),
                             orientation = "upright", color = NULL, box.color = NULL,
-                            debug = FALSE, inherit.blank = FALSE) {
+                            debug = FALSE, inherit.blank = FALSE, na.value = "") {
   element_textbox(
     family = family, face = face, size = size, colour = colour, fill = fill,
     box.colour = box.colour, linetype = linetype, linewidth = linewidth, hjust = hjust, vjust = vjust,
     halign = halign, valign = valign, lineheight = lineheight, margin = margin, padding = padding,
     width = width, height = height, minwidth = minwidth, maxwidth = maxwidth, minheight = minheight,
-    maxheight = maxheight, r = r, orientation = orientation, color = color, box.color = box.color
+    maxheight = maxheight, r = r, orientation = orientation, color = color,
+    box.color = box.color, na.value = na.value
   )
 }
 
@@ -129,6 +132,11 @@ element_grob.element_textbox <- function(element, label = "", x = NULL, y = NULL
                                          margin = NULL, ...) {
   if (is.null(label))
     return(ggplot2::zeroGrob())
+
+  if (!is.null(element$na.value) && !identical(element$na.value, "")) {
+    label <- as.character(label)
+    label[is.na(label)] <- element$na.value
+  }
 
   hj <- hjust %||% element$hjust
   vj <- vjust %||% element$vjust

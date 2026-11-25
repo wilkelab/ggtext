@@ -32,7 +32,8 @@ element_textbox(
   color = NULL,
   box.color = NULL,
   debug = FALSE,
-  inherit.blank = FALSE
+  inherit.blank = FALSE,
+  na.value = ""
 )
 
 element_textbox_simple(
@@ -62,7 +63,8 @@ element_textbox_simple(
   color = NULL,
   box.color = NULL,
   debug = FALSE,
-  inherit.blank = FALSE
+  inherit.blank = FALSE,
+  na.value = ""
 )
 }
 \arguments{
@@ -109,6 +111,9 @@ Set to NULL to impose neither a minimum nor a maximum.}
 \item{debug}{Not implemented.}
 
 \item{inherit.blank}{See \code{\link[ggplot2:margin]{ggplot2::margin()}} for details.}
+
+\item{na.value}{Markdown text to show for a missing label. Defaults to an
+empty string. Use \code{NULL} to inherit a value from a parent textbox element.}
 }
 \value{
 A ggplot2 theme element that can be used inside a \code{\link[ggplot2:theme]{ggplot2::theme()}}

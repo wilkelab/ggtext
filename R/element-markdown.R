@@ -29,6 +29,8 @@
 #'   in which the text runs. The default is `FALSE`, which mimics the behavior of 
 #'   `element_text()`.
 #' @param debug Draw a debugging box around each label
+#' @param na.value Markdown text to show for a missing label. Defaults to an
+#'   empty string. Use `NULL` to inherit a value from a parent Markdown element.
 #' @param inherit.blank See [ggplot2::margin()] for details.
 #' @return A ggplot2 theme element that can be used inside a [ggplot2::theme()]
 #'   call.
@@ -40,7 +42,7 @@ element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = N
                              lineheight = NULL, margin = NULL, padding = NULL, r = NULL, 
                              color = NULL, box.color = NULL, align_widths = NULL,
                              align_heights = NULL, rotate_margins = NULL,
-                             debug = FALSE, inherit.blank = FALSE) {
+                             debug = FALSE, inherit.blank = FALSE, na.value = "") {
   if (!is.null(color))
     colour <- color
   
@@ -55,7 +57,7 @@ element_markdown <- function(family = NULL, face = NULL, size = NULL, colour = N
       lineheight = lineheight, margin = margin, padding = padding, r = r, 
       align_widths = align_widths, align_heights = align_heights, 
       rotate_margins = rotate_margins,
-      debug = debug, inherit.blank = inherit.blank),
+      debug = debug, inherit.blank = inherit.blank, na.value = na.value),
     class = c("element_markdown", "element_text", "element")
   )
 }
@@ -67,6 +69,11 @@ element_grob.element_markdown <- function(element, label = "", x = NULL, y = NUL
                                           margin = NULL, margin_x = FALSE, margin_y = FALSE, ...) {
   if (is.null(label))
     return(ggplot2::zeroGrob())
+
+  if (!is.null(element$na.value) && !identical(element$na.value, "")) {
+    label <- as.character(label)
+    label[is.na(label)] <- element$na.value
+  }
 
   hj <- hjust %||% element$hjust
   vj <- vjust %||% element$vjust
