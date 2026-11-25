@@ -1,5 +1,15 @@
 context("geom textbox")
 
+test_that("annotate finds the textbox geom by either name", {
+  plot <- ggplot()
+  label <- "An **annotated** box"
+  textbox <- plot + annotate("textbox", x = 1, y = 1, label = label)
+  text_box <- plot + annotate("text_box", x = 1, y = 1, label = label)
+
+  expect_identical(textbox$layers[[1]]$geom, text_box$layers[[1]]$geom)
+  expect_equal(ggplot_build(textbox)$data, ggplot_build(text_box)$data)
+})
+
 test_that("visual tests", {
   df <- data.frame(
     x = 0.5,

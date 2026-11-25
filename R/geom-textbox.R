@@ -5,6 +5,9 @@
 #' and can be applied separately to each text box drawn. The exception is styling
 #' parameters that are specified as grid units (e.g., `box.padding` or `box.r`),
 #' which can only be specified for all text boxes at once. See examples for details.
+#'
+#' Use `geom = "textbox"` with [ggplot2::annotate()] after loading ggtext.
+#' The name `"text_box"` is also supported.
 #' 
 #' @section Aesthetics:
 #' 
@@ -197,3 +200,9 @@ make_textbox_grob <- function(data,
     r = box.r
   )
 }
+
+#' @rdname geom_richtext
+#' @format NULL
+#' @usage NULL
+#' @export
+GeomTextbox <- GeomTextBox # for automated geom discovery
